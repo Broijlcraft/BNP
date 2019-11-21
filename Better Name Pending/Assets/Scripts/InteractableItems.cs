@@ -25,16 +25,7 @@ public class InteractableItems : MonoBehaviour
 
     public void Update()
     {
-        if (item.tag == "Key")
-        {
-            float distance = Vector3.Distance(keyhole.position, transform.position);
-
-            if (distance <= minDistance)
-            {
-                keyhole.transform.GetComponent<KeyHoleInv>().key = Instantiate(keyPrefab, keyhole.position, Quaternion.identity);
-                Destroy(item, 0.1f);
-            }
-        }
+        CheckForTag();
     }
 
     public void OnCollisionEnter(Collision collision)
@@ -49,6 +40,20 @@ public class InteractableItems : MonoBehaviour
             if (rb.velocity.magnitude >= minVelocity && item.tag == "Crowbar")
             {
                 BreakWindow();
+            }
+        }
+    }
+
+    public void CheckForTag()
+    {
+        if (item.tag == "Key")
+        {
+            float distance = Vector3.Distance(keyhole.position, transform.position);
+
+            if (distance <= minDistance)
+            {
+                keyhole.transform.GetComponent<KeyHoleInv>().key = Instantiate(keyPrefab, keyhole.position, Quaternion.identity);
+                Destroy(item, 0.1f);
             }
         }
     }
