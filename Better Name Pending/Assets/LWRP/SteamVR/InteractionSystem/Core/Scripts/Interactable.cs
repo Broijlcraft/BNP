@@ -340,7 +340,7 @@ namespace Valve.VR.InteractionSystem
 
             if (attachedToHand != null)
             {
-                attachedToHand.DetachObject(this.gameObject, false);
+                attachedToHand.DetachObject(this.gameObject, false, true);
                 attachedToHand.skeleton.BlendToSkeleton(0.1f);
             }
 

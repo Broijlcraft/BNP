@@ -32,7 +32,7 @@ public class InteractableItems : MonoBehaviour
             if (distance <= minDistance)
             {
                 keyhole.transform.GetComponent<KeyHoleInv>().key = Instantiate(keyPrefab, keyhole.position, Quaternion.identity);
-                Destroy(item);
+                Destroy(item, 0.1f);
             }
         }
     }

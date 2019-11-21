@@ -87,6 +87,7 @@ namespace Valve.VR.InteractionSystem
         public bool spewDebugText = false;
         public bool showDebugInteractables = false;
 
+        [System.Serializable]
         public struct AttachedObject
         {
             public GameObject attachedObject;
@@ -113,8 +114,8 @@ namespace Valve.VR.InteractionSystem
                 return (attachmentFlags & flag) == flag;
             }
         }
-
-        private List<AttachedObject> attachedObjects = new List<AttachedObject>();
+     
+        public List<AttachedObject> attachedObjects = new List<AttachedObject>();
 
         public ReadOnlyCollection<AttachedObject> AttachedObjects
         {
@@ -596,7 +597,7 @@ namespace Valve.VR.InteractionSystem
         //
         // objectToDetach - The GameObject to detach from this Hand
         //-------------------------------------------------
-        public void DetachObject(GameObject objectToDetach, bool restoreOriginalParent = true)
+        public void DetachObject(GameObject objectToDetach, bool restoreOriginalParent = true, bool destroyed = false)
         {
             int index = attachedObjects.FindIndex(l => l.attachedObject == objectToDetach);
             if (index != -1)
@@ -626,16 +627,19 @@ namespace Valve.VR.InteractionSystem
                 }
 
                 Transform parentTransform = null;
-                if (attachedObjects[index].isParentedToHand)
+                if (!destroyed)
                 {
-                    if (restoreOriginalParent && (attachedObjects[index].originalParent != null))
+                    if (attachedObjects[index].isParentedToHand)
                     {
-                        parentTransform = attachedObjects[index].originalParent.transform;
-                    }
+                        if (restoreOriginalParent && (attachedObjects[index].originalParent != null))
+                        {
+                            parentTransform = attachedObjects[index].originalParent.transform;
+                        }
 
-                    if (attachedObjects[index].attachedObject != null)
-                    {
-                        attachedObjects[index].attachedObject.transform.parent = parentTransform;
+                        if (attachedObjects[index].attachedObject != null && attachedObjects[index].attachedObject.transform.parent != null)
+                        {
+                            attachedObjects[index].attachedObject.transform.parent = null;
+                        }
                     }
                 }
 
