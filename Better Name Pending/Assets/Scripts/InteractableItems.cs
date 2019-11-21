@@ -1,16 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 public class InteractableItems : MonoBehaviour
 {
-    private Transform player;
-
     public GameObject item;
     public Transform keyhole;
+    public GameObject keyPrefab;
 
     public GameObject key;
-    public GameObject keyPrefab;
     public float minDistance;
 
     public Rigidbody rb;
@@ -26,31 +25,14 @@ public class InteractableItems : MonoBehaviour
 
     public void Update()
     {
-        player = GameObject.FindGameObjectWithTag("MainCamera").transform;
-
         if (item.tag == "Key")
         {
             float distance = Vector3.Distance(keyhole.position, transform.position);
 
             if (distance <= minDistance)
             {
-                Instantiate(key, keyhole.position, Quaternion.identity);
-                keyhole.GetComponent<KeyHoleInv>().key = keyPrefab;
+                keyhole.transform.GetComponent<KeyHoleInv>().key = Instantiate(keyPrefab, keyhole.position, Quaternion.identity);
                 Destroy(item);
-            }
-
-            if (Physics.Raycast(player.position, player.forward, out RaycastHit hit, max))
-            {
-                Debug.DrawRay(player.position, player.forward, Color.red);
-                if (hit.transform.tag == "KeyHole")
-                {
-                    if (Input.GetButtonDown("Interact") && hit.transform.GetComponent<KeyHoleInv>().key != null)
-                    {
-                        Instantiate(hit.transform.GetComponent<KeyHoleInv>().key, transform);
-                        hit.transform.GetComponent<KeyHoleInv>().key = null;
-                        Debug.Log("Got key back");
-                    }
-                }
             }
         }
     }
@@ -76,3 +58,5 @@ public class InteractableItems : MonoBehaviour
         Debug.Log("Ik ben een gebroken raam");
     }
 }
+//TOFIX:
+//Take key out.
