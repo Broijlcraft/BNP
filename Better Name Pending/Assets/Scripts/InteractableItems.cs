@@ -15,6 +15,8 @@ public class InteractableItems : MonoBehaviour
     public Rigidbody rb;
     public float minVelocity;
 
+    private bool hasUsed;
+
     private float max;
 
     public void Start()
