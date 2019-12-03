@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011591000980}
+  - component: {fileID: 5483728573045595777}
   m_Layer: 0
   m_Name: finger_index_1_r
   m_TagString: Untagged
@@ -31,6 +32,19 @@ Transform:
   m_Father: {fileID: 4000013843424102}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5483728573045595777
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010499947866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06967135, y: 0.018962232, z: 0.02622936}
+  m_Center: {x: 0.02, y: 0, z: 0}
 --- !u!1 &1000010839039240
 GameObject:
   m_ObjectHideFlags: 0
@@ -806,7 +820,7 @@ GameObject:
   - component: {fileID: 114000013038800862}
   m_Layer: 0
   m_Name: vr_glove_left_model_slim
-  m_TagString: Untagged
+  m_TagString: Hand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

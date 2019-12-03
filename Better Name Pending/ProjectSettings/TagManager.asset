@@ -8,6 +8,8 @@ TagManager:
   - Crowbar
   - Key
   - KeyHole
+  - Keypad
+  - Hand
   layers:
   - Default
   - TransparentFX
