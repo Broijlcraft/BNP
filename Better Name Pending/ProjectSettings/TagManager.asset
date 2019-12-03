@@ -10,6 +10,7 @@ TagManager:
   - KeyHole
   - Keypad
   - Hand
+  - Box
   layers:
   - Default
   - TransparentFX

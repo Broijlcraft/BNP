@@ -44,6 +44,14 @@ public class InteractableItems : MonoBehaviour
                 BreakWindow();
             }
         }
+
+        if (gameObject.tag == "Crowbar")
+        {
+            if (collision.gameObject.tag == "Box")
+            {
+                //Break();
+            }
+        }
     }
 
     public void CheckForTag()
@@ -63,6 +71,11 @@ public class InteractableItems : MonoBehaviour
     private void BreakWindow()
     {
         Debug.Log("Ik ben een gebroken raam");
+    }
+
+    private void Break()
+    {
+
     }
 }
 //TOFIX:
