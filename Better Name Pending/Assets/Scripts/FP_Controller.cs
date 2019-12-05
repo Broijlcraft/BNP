@@ -5,13 +5,12 @@ using UnityEngine;
 public class FP_Controller : MonoBehaviour {
 
     public Transform cameraChild;
-    public Rigidbody rigid;
 
     public float walkSpeed = 5;
     public float mouseSensitivity = 100;
 
-    public float topLock = 90;
-    public float bottomLock = 270;
+    public float topLock = 270;
+    public float lock_a = 90;
 
     float xAxisClamp;
 
@@ -33,14 +32,14 @@ public class FP_Controller : MonoBehaviour {
 
         xAxisClamp += mouseY;
 
-        if (xAxisClamp > 90.0f) {
-            xAxisClamp = 90.0f;
-            mouseY = 0.0f;
+        if (xAxisClamp > lock_a) {
+            xAxisClamp = lock_a;
+            mouseY = 0f;
             ClampXAxisRotationToValue(topLock);
-        } else if (xAxisClamp < -90.0f) {
-            xAxisClamp = -90.0f;
-            mouseY = 0.0f;
-            ClampXAxisRotationToValue(90.0f);
+        } else if (xAxisClamp < -lock_a) {
+            xAxisClamp = -lock_a ;
+            mouseY = 0f;
+            ClampXAxisRotationToValue(lock_a);
         }
 
         transform.Rotate(Vector3.up * mouseX);

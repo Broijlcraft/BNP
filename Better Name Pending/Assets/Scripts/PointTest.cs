@@ -11,9 +11,11 @@ public class PointTest : MonoBehaviour {
 
     public LineRenderer lineRenderer;
     
-    bool isButtonDown;
+    public bool isButtonDown;
 
-    private void Update() {
+    public bool testB;
+
+    private void LateUpdate() {
         Debug.DrawRay(transform.position, transform.forward, Color.red * 1000);
         if (Input.GetMouseButtonDown(0)) {
             isButtonDown = true;
@@ -26,19 +28,22 @@ public class PointTest : MonoBehaviour {
         if (isButtonDown == true) {
             RaycastHit hit;
             if (Physics.Raycast(origin.position, origin.forward, out hit, maxRange)) {
-                lineRenderer.SetPosition(0, origin.transform.position);
+                SetLinePos(origin.transform.position, origin.transform.position);
                 if (Vector3.Distance(origin.position, hit.point) < maxRange) {
-                    lineRenderer.SetPosition(1, hit.point);
+                    SetLinePos(origin.transform.position, hit.point);
                 } else {
-                    lineRenderer.SetPosition(1, test.position);
+                    SetLinePos(origin.transform.position, test.position);
                 }
             } else {
-                lineRenderer.SetPosition(0, origin.transform.position);
-                lineRenderer.SetPosition(1, test.position);
+                SetLinePos(origin.transform.position, test.position);
             }
         } else {
-            lineRenderer.SetPosition(0, Vector3.zero);
-            lineRenderer.SetPosition(1, Vector3.zero);
+            SetLinePos(Vector3.zero, Vector3.zero);
         }
+    }
+
+    void SetLinePos(Vector3 pos1, Vector3 pos2) {
+        lineRenderer.SetPosition(0, pos1);
+        lineRenderer.SetPosition(1, pos2);
     }
 }
