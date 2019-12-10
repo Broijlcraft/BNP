@@ -14,13 +14,13 @@ public class FP_Controller : MonoBehaviour {
 
     float xAxisClamp;
 
+    private void Start() {
+        SwitchCursor();    
+    }
+
     private void Update() {
         if (Input.GetButtonDown("Jump")) {
-            if (Cursor.lockState == CursorLockMode.Locked) {
-                Cursor.lockState = CursorLockMode.None;
-            } else {
-                Cursor.lockState = CursorLockMode.Locked;
-            }
+            SwitchCursor();
         }
     }
 
@@ -49,5 +49,13 @@ public class FP_Controller : MonoBehaviour {
         Vector3 eulerRotation = cameraChild.localEulerAngles;
         eulerRotation.x = value;
         cameraChild.localEulerAngles = eulerRotation;
+    }
+
+    void SwitchCursor() {
+        if (Cursor.lockState == CursorLockMode.Locked) {
+            Cursor.lockState = CursorLockMode.None;
+        } else {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 }

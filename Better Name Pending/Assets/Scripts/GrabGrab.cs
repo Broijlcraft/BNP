@@ -1,22 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VR;
 using UnityEngine.XR;
 using UnityEngine.Animations;
 
 public class GrabGrab : MonoBehaviour {
     public XRNode nodeName;
-    [Range(0, 100)]
-    public float zoom;
-    public string inputName;
+    public string triggerInput;
     public Animator animator;
-
-    public Animation thumbF;
-    public Animation indexF;
-    public Animation middelF;
-    public Animation ringF;
-    public Animation pinkyF;
 
     private void Start() {
         if (XRDevice.isPresent) {
@@ -24,19 +16,14 @@ public class GrabGrab : MonoBehaviour {
         } else {
             print("Keyboard");
         }
-        //transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(nodeName);
-        //transform.localRotation = UnityEngine.XR.InputTracking.GetLocalRotation(nodeName);
-        //var inputDevices = new List<InputDevice>();
-        //InputDevices.GetDevices(inputDevices);
-
-        //foreach (var device in inputDevices) {
-        //    print(string.Format("Device found with name '{0}' and role '{1}'", device.name, device.role.ToString()));
-        //}
+        print(Input.mousePosition) ;
     }
 
     private void Update() {
-        transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(nodeName);
-        transform.localPosition = UnityEngine.XR.InputTracking.GetLocalPosition(nodeName);
-        //print((Input.GetAxis(inputName).ToString()) + " " + nodeName);
+        transform.localPosition = InputTracking.GetLocalPosition(nodeName);
+        transform.localRotation = InputTracking.GetLocalRotation(nodeName);
+        print(Input.inputString);
+        
+        //print((Input.GetAxis(triggerInput).ToString()) + " " + nodeName);
     }
 }

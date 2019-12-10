@@ -11,6 +11,8 @@ TagManager:
   - Keypad
   - Hand
   - Box
+  - ButtonTest
+  - Interactable
   layers:
   - Default
   - TransparentFX
