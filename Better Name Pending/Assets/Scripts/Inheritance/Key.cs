@@ -5,17 +5,26 @@ using UnityEngine;
 public class Key : InteractableItems
 {
     public Transform keyHole;
-    public GameObject keyPrefab;
     public float minDistance;
+    public bool hasInserted;
 
     private void Update()
     {
         float distance = Vector3.Distance(keyHole.position, transform.position);
 
-        if (distance <= minDistance)
+        if (hasInserted)
         {
-            keyHole.transform.GetComponent<KeyHoleInv>().key = Instantiate(keyPrefab, keyHole.position, Quaternion.identity);
-            Destroy(gameObject, 0.1f);
+            if (keyHole.GetComponentInParent<KeyHoleInv>().doorAnim.isPlaying == true)
+            {
+                transform.position = keyHole.position;
+                transform.LookAt(keyHole);
+            }
+        }
+
+        else if (distance <= minDistance)
+        {
+            hasInserted = true;
+            keyHole.GetComponentInParent<KeyHoleInv>().UnlockDoor(gameObject);
         }
     }
 }

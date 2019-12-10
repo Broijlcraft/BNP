@@ -4,19 +4,13 @@ using UnityEngine;
 
 public class KeyHoleInv : MonoBehaviour
 {
-    public GameObject key;
+    public Animation doorAnim;
 
-    public void Update()
-    {
-        UnlockDoor();
-    }
-
-    private void UnlockDoor()
+    public void UnlockDoor(GameObject key)
     {
         if (key != null)
         {
-            //Enable Collider for hand to grab. 
-            //Enable open the door.
+            doorAnim.Play();
         }
     }
 }
