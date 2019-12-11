@@ -21,7 +21,7 @@ public class PointTest : Hands {
     }
 
     private void Update() {
-        print((Input.GetAxis(triggerInput).ToString()));
+        print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
         Debug.DrawRay(transform.position, transform.forward, Color.red * 1000);
         if (Input.GetMouseButtonDown(0)) {
             isButtonDown = true;

@@ -18,7 +18,7 @@ public class GrabGrab : Hands {
     private void Update() {
         transform.localPosition = InputTracking.GetLocalPosition(nodeName);
         transform.localRotation = InputTracking.GetLocalRotation(nodeName);
-        print(Input.inputString);
+        //print(Input.inputString);
         
         //print((Input.GetAxis(triggerInput).ToString()) + " " + nodeName);
     }
