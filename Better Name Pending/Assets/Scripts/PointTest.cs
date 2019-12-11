@@ -16,9 +16,14 @@ public class PointTest : Hands {
     public bool isButtonDown;
     GameObject activeDot;
 
+    GameObject activePlayer;
+    Transform tp;
+    Vector3 p;
+
     private void Start() {
         activeDot = Instantiate(dot, Vector3.zero, Quaternion.identity);
         activeDot.SetActive(false);
+        activePlayer = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Update() {
@@ -27,15 +32,12 @@ public class PointTest : Hands {
         if (Input.GetMouseButtonDown(0) || Input.GetAxis(triggerInput) > 0) {
             isButtonDown = true;
         }
-
-        if (Input.GetMouseButtonUp(0) || Input.GetAxis(triggerInput) == 0) {
-            isButtonDown = false;
-        }
-
         if (isButtonDown == true) {
             RaycastHit hit;
             activeDot.gameObject.SetActive(true);
             if (Physics.Raycast(origin.position, origin.forward, out hit, maxRange)) {
+                tp = hit.transform;
+                p = tp.position;
                 SetLinePos(origin.position, origin.forward * maxRange + origin.position);
                 if (Vector3.Distance(origin.position, hit.point) < maxRange) {
                     activeDot.transform.position = hit.point + ((hit.point - origin.position) * -devider);
@@ -47,11 +49,20 @@ public class PointTest : Hands {
             } else {
                 SetLinePos(origin.position, origin.forward * maxRange + origin.position);
                 activeDot.transform.position = origin.forward * maxRange + origin.position;
+                print("Yes");
             }
         } else {
             activeDot.gameObject.SetActive(false);
             SetLinePos(Vector3.zero, Vector3.zero);
         }
+
+        if (Input.GetMouseButtonUp(0) || Input.GetAxis(triggerInput) == 0) {
+            isButtonDown = false;
+            if (tp.transform.tag == "Teleport") {
+                activePlayer.transform.position = p;
+            }
+        }
+
     }
 
     void SetLinePos(Vector3 pos1, Vector3 pos2) {

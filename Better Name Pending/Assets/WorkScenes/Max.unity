@@ -729,8 +729,8 @@ GameObject:
   - component: {fileID: 510386600}
   - component: {fileID: 510386599}
   m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
+  m_Name: Player
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 1056673508}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Teleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1837,7 +1837,7 @@ GameObject:
   - component: {fileID: 1472173088}
   m_Layer: 0
   m_Name: VR_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
