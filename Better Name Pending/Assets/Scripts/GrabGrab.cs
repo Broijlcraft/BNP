@@ -12,7 +12,6 @@ public class GrabGrab : Hands {
         } else {
             print("Keyboard");
         }
-        print(Input.mousePosition) ;
     }
 
     private void Update() {
@@ -20,6 +19,6 @@ public class GrabGrab : Hands {
         transform.localRotation = InputTracking.GetLocalRotation(nodeName);
         //print(Input.inputString);
         
-        print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
+        //print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
     }
 }

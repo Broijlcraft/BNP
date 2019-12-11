@@ -22,13 +22,13 @@ public class PointTest : Hands {
     }
 
     private void Update() {
-        print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
+        //print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
         Debug.DrawRay(transform.position, transform.forward, Color.red * 1000);
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0) || Input.GetAxis(triggerInput) > 0) {
             isButtonDown = true;
         }
 
-        if (Input.GetMouseButtonUp(0)) {
+        if (Input.GetMouseButtonUp(0) || Input.GetAxis(triggerInput) == 0) {
             isButtonDown = false;
         }
 
