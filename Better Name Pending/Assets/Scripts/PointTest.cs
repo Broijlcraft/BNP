@@ -28,16 +28,21 @@ public class PointTest : Hands {
 
     private void Update() {
         //print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
-        Debug.DrawRay(transform.position, transform.forward, Color.red * 1000);
-        if (Input.GetMouseButtonDown(0) || Input.GetAxis(triggerInput) > 0) {
-            isButtonDown = true;
+        if (Input.GetMouseButtonDown(0)) {
+            Buttt();
         }
+
+        //if (XRDevice.isPresent || Input.GetAxis(triggerInput) > 0) {
+        //    Buttt();
+        //}
+
         if (isButtonDown == true) {
             RaycastHit hit;
             activeDot.gameObject.SetActive(true);
             if (Physics.Raycast(origin.position, origin.forward, out hit, maxRange)) {
                 tp = hit.transform;
-                p = tp.position;
+                p = hit.point;
+                print("Yes");
                 SetLinePos(origin.position, origin.forward * maxRange + origin.position);
                 if (Vector3.Distance(origin.position, hit.point) < maxRange) {
                     activeDot.transform.position = hit.point + ((hit.point - origin.position) * -devider);
@@ -49,20 +54,30 @@ public class PointTest : Hands {
             } else {
                 SetLinePos(origin.position, origin.forward * maxRange + origin.position);
                 activeDot.transform.position = origin.forward * maxRange + origin.position;
-                print("Yes");
             }
         } else {
             activeDot.gameObject.SetActive(false);
             SetLinePos(Vector3.zero, Vector3.zero);
         }
 
-        if (Input.GetMouseButtonUp(0) || Input.GetAxis(triggerInput) == 0) {
-            isButtonDown = false;
-            if (tp || tp.transform.tag == "Teleport") {
-                activePlayer.transform.position = p;
-            }
+        if (Input.GetMouseButtonUp(0)) {
+            Tele();
         }
 
+        //if (XRDevice.isPresent || Input.GetAxis(triggerInput) == 0) {
+        //    Tele();
+        //}
+    }
+
+    void Buttt() {
+        isButtonDown = true;
+    }
+
+    void Tele() {
+        if ( tp != null && tp.transform.tag == "Teleport") {
+            activePlayer.transform.position = p;
+        }
+        isButtonDown = false;
     }
 
     void SetLinePos(Vector3 pos1, Vector3 pos2) {
