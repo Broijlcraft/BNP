@@ -32,9 +32,9 @@ public class PointTest : Hands {
             Buttt();
         }
 
-        //if (XRDevice.isPresent || Input.GetAxis(triggerInput) > 0) {
-        //    Buttt();
-        //}
+        if (XRDevice.isPresent || Input.GetAxis(triggerInput) > 0) {
+            Buttt();
+        }
 
         if (isButtonDown == true) {
             RaycastHit hit;
@@ -64,9 +64,9 @@ public class PointTest : Hands {
             Tele();
         }
 
-        //if (XRDevice.isPresent || Input.GetAxis(triggerInput) == 0) {
-        //    Tele();
-        //}
+        if (XRDevice.isPresent || Input.GetAxis(triggerInput) == 0) {
+            Tele();
+        }
     }
 
     void Buttt() {
