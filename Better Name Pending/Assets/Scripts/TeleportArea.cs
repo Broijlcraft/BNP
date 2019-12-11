@@ -32,7 +32,6 @@ public class TeleportArea : MonoBehaviour {
         } else {
             currentColor = red;
         }
-        //print(currentColor);
         tpRenderer.material.SetColor("_BaseColor", currentColor);
     }
 }
