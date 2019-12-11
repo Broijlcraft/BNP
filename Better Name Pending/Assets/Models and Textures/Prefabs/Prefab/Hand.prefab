@@ -154,13 +154,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeName: 0
   triggerInput: 
-  origin: {fileID: 0}
-  maxRange: 0
-  extraLineRange: 0
+  origin: {fileID: 3668204346097297158}
+  maxRange: 10
+  extraLineRange: 1
   dot: {fileID: 6646197620918386676, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 0}
-  devider: 0
-  lineRenderer: {fileID: 0}
+  devider: 0.3
+  lineRenderer: {fileID: 5846527073086395587}
   isButtonDown: 0
 --- !u!120 &5846527073086395587
 LineRenderer:
