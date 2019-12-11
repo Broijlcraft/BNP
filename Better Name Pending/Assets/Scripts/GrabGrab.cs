@@ -3,12 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
-using UnityEngine.Animations;
 
-public class GrabGrab : MonoBehaviour {
-    public XRNode nodeName;
-    public string triggerInput;
-    public Animator animator;
+public class GrabGrab : Hands {
 
     private void Start() {
         if (XRDevice.isPresent) {
