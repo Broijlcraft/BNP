@@ -12,6 +12,7 @@ public class Keypad : MonoBehaviour
         if (collision.transform.tag == "Hand")
         {
             currentValue = currentValue + '1';
+            
         }
     }
 }
