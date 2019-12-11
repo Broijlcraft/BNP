@@ -13,6 +13,7 @@ TagManager:
   - Box
   - ButtonTest
   - Interactable
+  - Teleport
   layers:
   - Default
   - TransparentFX
