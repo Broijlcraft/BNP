@@ -58,7 +58,7 @@ public class PointTest : Hands {
 
         if (Input.GetMouseButtonUp(0) || Input.GetAxis(triggerInput) == 0) {
             isButtonDown = false;
-            if (tp.transform.tag == "Teleport") {
+            if (tp || tp.transform.tag == "Teleport") {
                 activePlayer.transform.position = p;
             }
         }
