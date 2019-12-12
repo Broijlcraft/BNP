@@ -1,8 +1,29 @@
 fileFormatVersion: 2
-guid: 9d4da2c655c45e1409a6e2c87678a2b9
+guid: cce27a3249373a542b518c811f36a69a
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -1961319162224977641
+    second: high poly hands.002|animation grip
+  - first:
+      74: -7264170240765420296
+    second: high poly hands.002|high poly hands.002Action
+  - first:
+      74: 5276512556476669431
+    second: Armature|animation grip
+  - first:
+      74: 8907993792498360991
+    second: Armature|animation GRip los
+  - first:
+      74: -6031413729267150992
+    second: Armature|animation point
+  - first:
+      74: -8275359597867969089
+    second: Armature|high poly hands.002Action
+  - first:
+      74: 5398651588476532892
+    second: Armature|middle finger XD
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -87,7 +108,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
