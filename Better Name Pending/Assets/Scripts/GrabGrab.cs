@@ -17,8 +17,11 @@ public class GrabGrab : Hands {
     private void Update() {
         transform.localPosition = InputTracking.GetLocalPosition(nodeName);
         transform.localRotation = InputTracking.GetLocalRotation(nodeName);
-        //print(Input.inputString);
-        
-        //print(Input.GetAxis(triggerInput).ToString() + " " + nodeName);
+        Collider[] col = Physics.OverlapSphere(transform.position, range);
+        print(col.Length);
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

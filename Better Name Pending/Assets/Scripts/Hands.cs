@@ -6,5 +6,5 @@ using UnityEngine.XR;
 public class Hands : MonoBehaviour {
     public XRNode nodeName;
     public string triggerInput;
-
+    public float range;
 }

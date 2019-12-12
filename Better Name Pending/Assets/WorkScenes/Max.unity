@@ -371,7 +371,7 @@ GameObject:
   - component: {fileID: 280354992}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: ButtonTest
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -734,7 +734,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &510386599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1199,16 +1199,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1472173088}
     m_Modifications:
-    - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
-      propertyPath: nodeName
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
-      propertyPath: triggerInput
-      value: RightTrigger
-      objectReference: {fileID: 0}
     - target: {fileID: 6502072572511580274, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: m_Name
@@ -1218,6 +1208,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
+        type: 3}
+      propertyPath: nodeName
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
+        type: 3}
+      propertyPath: triggerInput
+      value: RightTrigger
       objectReference: {fileID: 0}
     - target: {fileID: 7454065475807363335, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
@@ -1283,6 +1283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: triggerInput
       value: RightTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
+        type: 3}
+      propertyPath: range
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04ad7be8eeca8e4db7215ffddfc3813, type: 3}
@@ -1645,8 +1650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeName: 0
   triggerInput: 
+  range: 0
   origin: {fileID: 1139306666}
-  maxRange: 0
   extraLineRange: 0
   dot: {fileID: 6646197620918386673, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 1992996897}
@@ -1841,7 +1846,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1472173088
 Transform:
   m_ObjectHideFlags: 0
@@ -1915,14 +1920,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeName: 0
   triggerInput: RightTrigger
+  range: 10
   origin: {fileID: 36725394}
-  maxRange: 10
   extraLineRange: 1
   dot: {fileID: 6646197620918386676, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 690304649}
   devider: 0.03
   lineRenderer: {fileID: 1495766187}
-  isButtonDown: 1
+  isButtonDown: 0
 --- !u!23 &1495766185
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2274,6 +2279,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1472173088}
     m_Modifications:
+    - target: {fileID: 6502072572511580274, guid: f04ad7be8eeca8e4db7215ffddfc3813,
+        type: 3}
+      propertyPath: m_Name
+      value: LeftHand
+      objectReference: {fileID: 0}
+    - target: {fileID: 6502072572511580274, guid: f04ad7be8eeca8e4db7215ffddfc3813,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: nodeName
@@ -2283,11 +2298,6 @@ PrefabInstance:
         type: 3}
       propertyPath: triggerInput
       value: LeftTrigger
-      objectReference: {fileID: 0}
-    - target: {fileID: 6502072572511580274, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
-      propertyPath: m_Name
-      value: LeftHand
       objectReference: {fileID: 0}
     - target: {fileID: 7454065475807363335, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
