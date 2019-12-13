@@ -6,6 +6,8 @@ using UnityEngine.XR;
 
 public class GrabGrab : Hands {
 
+    public GameObject itemInHand;
+
     private void Start() {
         if (XRDevice.isPresent) {
             print("VR");
@@ -18,7 +20,20 @@ public class GrabGrab : Hands {
         transform.localPosition = InputTracking.GetLocalPosition(nodeName);
         transform.localRotation = InputTracking.GetLocalRotation(nodeName);
         Collider[] col = Physics.OverlapSphere(transform.position, range);
-        print(col.Length);
+
+        if (Input.GetMouseButtonDown(0)) {
+            HeldItemInteract();
+        }
+
+        if (XRDevice.isPresent) {
+            if (Input.GetButton(touchInput) == true) {
+                HeldItemInteract();
+            }
+        }
+    }
+
+    void HeldItemInteract() {
+
     }
 
     private void OnDrawGizmos() {

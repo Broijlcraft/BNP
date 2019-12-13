@@ -26,9 +26,23 @@ public class PointTest : Hands {
     }
 
     private void Update() {
-        if (Input.GetMouseButtonDown(0) || IsVrPresentAndAxisUsed(nodeName, Input.GetAxis(triggerInput)) == true) {
+
+        //if (Input.GetMouseButtonDown(0) || IsVrPresentAndAxisUsed(Input.GetAxis(touchInput)) == true) {
+        //    Buttt();
+        //}
+
+        if (Input.GetMouseButtonDown(0)) {
             Buttt();
         }
+
+        if (XRDevice.isPresent) {
+            if (Input.GetButton(touchInput) == true){
+                Buttt();
+            }
+        }
+
+        //print(Input.GetButton(touchInput) + " " + nodeName.ToString());
+        //print(Input.GetAxis(triggerInput) + " " + nodeName.ToString());
 
         if (isButtonDown == true) {
             RaycastHit hit;
@@ -36,28 +50,38 @@ public class PointTest : Hands {
             if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
                 tp = hit.transform;
                 p = hit.point;
-                SetLinePos(origin.position, origin.forward * range + origin.position);
+                SetLinePos(true, origin.position, origin.forward * range + origin.position);
                 if (Vector3.Distance(origin.position, hit.point) < range) {
                     activeDot.transform.position = hit.point + ((hit.point - origin.position) * -devider);
-                    SetLinePos(origin.position, hit.point);
+                    SetLinePos(true, origin.position, hit.point);
                 } else {
-                    SetLinePos(origin.position, origin.forward * range + origin.position);
+                    SetLinePos(true, origin.position, origin.forward * range + origin.position);
                     activeDot.transform.position = origin.forward * range + origin.position;
                 }
             } else {
-                SetLinePos(origin.position, origin.forward * range + origin.position);
+                SetLinePos(true, origin.position, origin.forward * range + origin.position);
                 activeDot.transform.position = origin.forward * range + origin.position;
                 tp = null;
                 p = Vector3.zero;
             }
         } else {
             activeDot.gameObject.SetActive(false);
-            SetLinePos(Vector3.zero, Vector3.zero);
+            SetLinePos(false, Vector3.zero, Vector3.zero);
         }
 
-        if (Input.GetMouseButtonUp(0) || IsVrPresentAndAxisUsed(nodeName, Input.GetAxis(triggerInput)) == true) {
+        if (Input.GetMouseButtonUp(0)) {
             Tele();
         }
+
+        if (XRDevice.isPresent) {
+            if (Input.GetButton(touchInput) == false) {
+                Tele();
+            }
+        }
+
+        //if (Input.GetMouseButtonUp(0) || IsVrPresentAndAxisUsed(Input.GetAxis(touchInput)) == false) {
+        //    Tele();
+        //}
     }
 
     void Buttt() {
@@ -65,22 +89,30 @@ public class PointTest : Hands {
     }
 
     void Tele() {
-        if ( tp != null && tp.transform.tag == "Teleport") {
+        if (tp != null && tp.transform.tag == "Teleport") {
             activePlayer.transform.position = p;
         }
         isButtonDown = false;
     }
 
-    void SetLinePos(Vector3 pos1, Vector3 pos2) {
+    void SetLinePos(bool b, Vector3 pos1, Vector3 pos2) {
+        if (lineRenderer.enabled != b) {
+            lineRenderer.enabled = b;
+        }
         lineRenderer.SetPosition(0, pos1);
         lineRenderer.SetPosition(1, pos2);
     }
 
-    bool IsVrPresentAndAxisUsed(XRNode x, float inputAxis) {
-        if (XRDevice.isPresent && inputAxis > 0) {
+    bool IsVrPresentAndAxisUsed(float inputValue) {
+        if (inputValue == 1) {
             return true;
         } else {
             return false;
         }
+        //if (XRDevice.isPresent && inputAxis == 1) {
+        //    return true;
+        //} else {
+        //    return false;
+        //}
     }
 }
