@@ -33,7 +33,9 @@ public class GrabGrab : Hands {
     }
 
     void HeldItemInteract() {
+        if (itemInHand.GetComponent<Interactable>()) {
 
+        }
     }
 
     private void OnDrawGizmos() {
