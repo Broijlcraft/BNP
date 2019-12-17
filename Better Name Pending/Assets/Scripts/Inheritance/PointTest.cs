@@ -35,11 +35,11 @@ public class PointTest : Hands {
             Buttt();
         }
 
-        //if (XRDevice.isPresent) {
-        //    if (Input.GetButton(touchInput) == true) {
-        //        Buttt();
-        //    }
-        //}
+        ////if (XRDevice.isPresent) {
+        ////    if (Input.GetButton(touchInput) == true) {
+        ////        Buttt();
+        ////    }
+        ////}
 
         //print(Input.GetButton(touchInput) + " " + nodeName.ToString());
         //print(Input.GetAxis(triggerInput) + " " + nodeName.ToString());
@@ -75,11 +75,11 @@ public class PointTest : Hands {
             Tele();
         }
 
-        //if (XRDevice.isPresent) {
-        //    if (Input.GetButton(touchInput) == false) {
-        //        Tele();
-        //    }
-        //}
+        if (XRDevice.isPresent) {
+            if (Input.GetButton(touchInput) == false) {
+                Tele();
+            }
+        }
 
         //if (Input.GetMouseButtonUp(0) || IsVrPresentAndAxisUsed(Input.GetAxis(touchInput)) == false) {
         //    Tele();
