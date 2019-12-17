@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour {
 
-    public delegate void Use();
-    public Use use;
-    
+    public virtual void Use() {
+        print("Base use");
+    }    
 }

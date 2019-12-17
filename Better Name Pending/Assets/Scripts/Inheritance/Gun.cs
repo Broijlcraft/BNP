@@ -4,11 +4,8 @@ using UnityEngine;
 
 public class Gun : Interactable {
 
-    private void Start() {
-        use = Shoot;
-    }
-
-    public void Shoot() {
+    public override void Use () {
+        base.Use();
         print("Shoot");
     }
 }

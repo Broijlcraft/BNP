@@ -15,24 +15,22 @@ public class GrabGrab : Hands {
             transform.localPosition = InputTracking.GetLocalPosition(nodeName);
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
         }
-        print(Input.GetButton(touchInput) + " " + nodeName.ToString());
-        print(Input.GetAxis(touchInput) + " " + nodeName.ToString());
 
         Collider[] col = Physics.OverlapSphere(transform.position, range);
         if (Input.GetMouseButtonDown(0)) {
             HeldItemInteract();
         }
 
-        //if (XRDevice.isPresent) {
-        //    if (Input.GetButton(touchInput) == true) {
-        //        HeldItemInteract();
-        //    }
-        //}
+        if (XRDevice.isPresent) {
+            if (Input.GetButton(touchInput) == true) {
+                HeldItemInteract();
+            }
+        }
     }
 
     void HeldItemInteract() {
         if (itemInHand.GetComponent<Interactable>()) {
-            itemInHand.GetComponent<Interactable>().use();
+            itemInHand.GetComponent<Interactable>().Use();
         }
     }
 
