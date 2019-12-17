@@ -35,11 +35,11 @@ public class PointTest : Hands {
             Buttt();
         }
 
-        if (XRDevice.isPresent) {
-            if (Input.GetButton(touchInput) == true){
-                Buttt();
-            }
-        }
+        //if (XRDevice.isPresent) {
+        //    if (Input.GetButton(touchInput) == true) {
+        //        Buttt();
+        //    }
+        //}
 
         //print(Input.GetButton(touchInput) + " " + nodeName.ToString());
         //print(Input.GetAxis(triggerInput) + " " + nodeName.ToString());
@@ -50,6 +50,7 @@ public class PointTest : Hands {
             if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
                 tp = hit.transform;
                 p = hit.point;
+                lineRenderer.enabled = true;
                 SetLinePos(true, origin.position, origin.forward * range + origin.position);
                 if (Vector3.Distance(origin.position, hit.point) < range) {
                     activeDot.transform.position = hit.point + ((hit.point - origin.position) * -devider);
@@ -59,6 +60,7 @@ public class PointTest : Hands {
                     activeDot.transform.position = origin.forward * range + origin.position;
                 }
             } else {
+                lineRenderer.enabled = false;
                 SetLinePos(true, origin.position, origin.forward * range + origin.position);
                 activeDot.transform.position = origin.forward * range + origin.position;
                 tp = null;
@@ -73,11 +75,11 @@ public class PointTest : Hands {
             Tele();
         }
 
-        if (XRDevice.isPresent) {
-            if (Input.GetButton(touchInput) == false) {
-                Tele();
-            }
-        }
+        //if (XRDevice.isPresent) {
+        //    if (Input.GetButton(touchInput) == false) {
+        //        Tele();
+        //    }
+        //}
 
         //if (Input.GetMouseButtonUp(0) || IsVrPresentAndAxisUsed(Input.GetAxis(touchInput)) == false) {
         //    Tele();

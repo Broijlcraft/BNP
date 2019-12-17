@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Interactable : MonoBehaviour {
-    
-    public void Use() {
 
-    }
+    public delegate void Use();
+    public Use use;
+    
 }
