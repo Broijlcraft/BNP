@@ -126,7 +126,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeName: 0
   triggerInput: 
+  touchInput: 
   range: 0
+  itemInHand: {fileID: 0}
+  gun: {fileID: 0}
+  testInput: 
 --- !u!114 &8980250930274334926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -141,6 +145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeName: 0
   triggerInput: 
+  touchInput: 
   range: 10
   origin: {fileID: 3668204346097297158}
   extraLineRange: 1
@@ -148,7 +153,7 @@ MonoBehaviour:
   test: {fileID: 0}
   devider: 0.3
   lineRenderer: {fileID: 5846527073086395587}
-  isButtonDown: 0
+  anyButton: 0
 --- !u!120 &5846527073086395587
 LineRenderer:
   m_ObjectHideFlags: 0

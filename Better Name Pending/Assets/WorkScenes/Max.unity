@@ -1456,7 +1456,7 @@ PrefabInstance:
     - target: {fileID: 6502072572511580274, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
@@ -1536,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: triggerInput
-      value: RightTrigger
+      value: XRI_Right_TriggerButton
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
@@ -1556,7 +1556,7 @@ PrefabInstance:
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04ad7be8eeca8e4db7215ffddfc3813, type: 3}
@@ -2721,16 +2721,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
-      propertyPath: nodeName
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
-      propertyPath: triggerInput
-      value: XRI_Left_TriggerButton
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
       propertyPath: testInput
       value: XRI_Left_Primary2DAxisTouch
       objectReference: {fileID: 0}
@@ -2741,13 +2731,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
-      propertyPath: range
-      value: 1
+      propertyPath: triggerInput
+      value: XRI_Left_TriggerButton
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: range
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04ad7be8eeca8e4db7215ffddfc3813, type: 3}
