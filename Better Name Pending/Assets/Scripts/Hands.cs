@@ -10,4 +10,15 @@ public class Hands : MonoBehaviour {
     public string gripInput;
     public float range;
     public Transform origin;
+
+    [Header("HideInInspector")]
+    public bool anyButton;
+
+    public bool MouseInputAndVRAxisCheck(int mouseButton, string inputString) {
+        if (Input.GetMouseButton(mouseButton) || Input.GetAxis(inputString) == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

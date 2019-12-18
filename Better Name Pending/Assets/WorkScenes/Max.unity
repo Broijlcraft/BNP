@@ -130,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 36725394}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,15 +182,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5489393304b2d4da9962c2d019ed90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeName: 0
-  triggerInput: 
-  touchInput: 
-  gripInput: 
-  range: 0
-  origin: {fileID: 0}
-  itemInHand: {fileID: 1495766181}
+  nodeName: 5
+  triggerInput: XRI_Right_TriggerButton
+  touchInput: XRI_Right_Primary2DAxisTouch
+  gripInput: XRI_Right_GripButton
+  range: 0.05
+  origin: {fileID: 36725394}
+  anyButton: 0
+  itemInHand: {fileID: 0}
   gun: {fileID: 0}
   testInput: 
+  interactable:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!20 &37295732
 Camera:
   m_ObjectHideFlags: 0
@@ -426,6 +430,115 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &212079674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 212079679}
+  - component: {fileID: 212079678}
+  - component: {fileID: 212079677}
+  - component: {fileID: 212079676}
+  - component: {fileID: 212079675}
+  m_Layer: 9
+  m_Name: InteractableTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!54 &212079675
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212079674}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!65 &212079676
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212079674}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &212079677
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212079674}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 121110b8d304f8548bebf600851d5641, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!33 &212079678
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212079674}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &212079679
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212079674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.13758665, y: 0.67, z: 3.677473}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &214268041
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,9 +655,13 @@ MonoBehaviour:
   gripInput: 
   range: 0
   origin: {fileID: 0}
+  anyButton: 0
   itemInHand: {fileID: 0}
   gun: {fileID: 0}
   testInput: 
+  interactable:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!81 &220498736
 AudioListener:
   m_ObjectHideFlags: 0
@@ -993,7 +1110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &510386599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1230,7 +1347,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 690304649}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1813,12 +1930,12 @@ MonoBehaviour:
   gripInput: 
   range: 0
   origin: {fileID: 1139306666}
+  anyButton: 0
   extraLineRange: 0
   dot: {fileID: 6646197620918386673, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 1992996897}
   devider: 0
   lineRenderer: {fileID: 1139306667}
-  anyButton: 0
 --- !u!1 &1294450148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,7 +2126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1472173088
 Transform:
   m_ObjectHideFlags: 0
@@ -2045,7 +2162,7 @@ GameObject:
   - component: {fileID: 1495766183}
   - component: {fileID: 1495766187}
   - component: {fileID: 1495766184}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2086,12 +2203,12 @@ MonoBehaviour:
   gripInput: 
   range: 50
   origin: {fileID: 36725394}
+  anyButton: 0
   extraLineRange: 0
   dot: {fileID: 6646197620918386676, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 690304649}
   devider: 0.03
   lineRenderer: {fileID: 1495766187}
-  anyButton: 0
 --- !u!114 &1495766184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2441,7 +2558,7 @@ PrefabInstance:
     - target: {fileID: 8824843101192791659, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
       propertyPath: gripInput
-      value: XRI_Right_GripButto
+      value: XRI_Right_GripButton
       objectReference: {fileID: 0}
     - target: {fileID: 8824843101192791659, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
@@ -2461,7 +2578,7 @@ PrefabInstance:
     - target: {fileID: 8824843101192791660, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
       propertyPath: gripInput
-      value: XRI_Right_GripButto
+      value: XRI_Right_GripButton
       objectReference: {fileID: 0}
     - target: {fileID: 8824843101192791660, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
@@ -4374,7 +4491,7 @@ PrefabInstance:
     - target: {fileID: 8824843101192791659, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
       propertyPath: gripInput
-      value: XRI_Left_GripButto
+      value: XRI_Left_GripButton
       objectReference: {fileID: 0}
     - target: {fileID: 8824843101192791659, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
@@ -4394,7 +4511,7 @@ PrefabInstance:
     - target: {fileID: 8824843101192791660, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
       propertyPath: gripInput
-      value: XRI_Left_GripButto
+      value: XRI_Left_GripButton
       objectReference: {fileID: 0}
     - target: {fileID: 8824843101192791660, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}

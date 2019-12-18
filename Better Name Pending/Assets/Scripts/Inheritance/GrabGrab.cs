@@ -9,25 +9,39 @@ public class GrabGrab : Hands {
     public GameObject itemInHand;
     public Interactable gun;
     public string testInput;
+    public LayerMask interactable;
 
     private void Update() {
         if (XRDevice.isPresent) {
             transform.localPosition = InputTracking.GetLocalPosition(nodeName);
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
         }
-
-        Collider[] col = Physics.OverlapSphere(origin.position, range);
-        if (Input.GetMouseButtonDown(0)) {
+        if (MouseInputAndVRAxisCheck(1, gripInput)) {
+            Collider[] colliders = Physics.OverlapSphere(origin.position, range, interactable);
+            float distanceCheck = Mathf.Infinity;
+            for (int i = 0; i < colliders.Length; i++) {
+                if (Vector3.Distance(colliders[i].transform.position, origin.transform.position) < distanceCheck) {
+                    distanceCheck = Vector3.Distance(colliders[i].transform.position, origin.transform.position);
+                    itemInHand = colliders[i].gameObject;
+                }
+            }
+            PickUpAndDropItem();
+        }
+        
+        if (MouseInputAndVRAxisCheck(0, triggerInput)) {
             HeldItemInteract();
         }
 
         //print(Input.GetButton(gripInput));
         //print(Input.GetAxis(gripInput));
+    }
 
-        if (XRDevice.isPresent) {
-            if (Input.GetButton(triggerInput) == true) {
-                HeldItemInteract();
-            }
+    void PickUpAndDropItem() {
+        if (itemInHand) {
+            itemInHand.transform.SetParent(null);
+            itemInHand = null;
+        } else {
+            itemInHand.transform.SetParent(origin);
         }
     }
 
@@ -38,6 +52,8 @@ public class GrabGrab : Hands {
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(origin.position, range);
+        if (origin) {
+            Gizmos.DrawWireSphere(origin.position, range);
+        }
     }
 }
