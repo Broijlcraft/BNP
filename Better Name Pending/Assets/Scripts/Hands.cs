@@ -9,4 +9,5 @@ public class Hands : MonoBehaviour {
     public string touchInput;
     public string gripInput;
     public float range;
+    public Transform origin;
 }

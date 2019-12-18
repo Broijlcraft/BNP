@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.XR;
 public class PointTest : Hands {
 
-    public Transform origin;
     public float extraLineRange;
 
     public GameObject dot;
@@ -17,7 +16,6 @@ public class PointTest : Hands {
     Transform tp;
     Vector3 p;
 
-    //public Inputs inputList;
     [Header("HideInInspector")]
     public bool anyButton;
 

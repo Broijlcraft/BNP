@@ -16,13 +16,13 @@ public class GrabGrab : Hands {
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
         }
 
-        Collider[] col = Physics.OverlapSphere(transform.position, range);
+        Collider[] col = Physics.OverlapSphere(origin.position, range);
         if (Input.GetMouseButtonDown(0)) {
             HeldItemInteract();
         }
 
-        print(Input.GetButton(gripInput));
-        print(Input.GetAxis(gripInput));
+        //print(Input.GetButton(gripInput));
+        //print(Input.GetAxis(gripInput));
 
         if (XRDevice.isPresent) {
             if (Input.GetButton(triggerInput) == true) {
@@ -38,6 +38,6 @@ public class GrabGrab : Hands {
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(transform.position, range);
+        Gizmos.DrawWireSphere(origin.position, range);
     }
 }
