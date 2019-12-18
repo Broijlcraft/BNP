@@ -29,7 +29,7 @@ public class GrabGrab : Hands {
     }
 
     void HeldItemInteract() {
-        if (itemInHand.GetComponent<Interactable>()) {
+        if (itemInHand && itemInHand.GetComponent<Interactable>()) {
             itemInHand.GetComponent<Interactable>().Use();
         }
     }
