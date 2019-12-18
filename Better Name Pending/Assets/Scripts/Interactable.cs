@@ -5,6 +5,6 @@ using UnityEngine;
 public class Interactable : MonoBehaviour {
 
     public virtual void Use() {
-        print("Base use");
+        //print("Base use");
     }    
 }

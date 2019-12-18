@@ -4,20 +4,20 @@ using UnityEngine;
 using UnityEngine.XR;
 public class PointTest : Hands {
 
-    public Transform origin;
     public float extraLineRange;
 
     public GameObject dot;
     public Transform test;
     public float devider;
     public LineRenderer lineRenderer;
-
-    public bool isButtonDown;
     GameObject activeDot;
 
     GameObject activePlayer;
     Transform tp;
     Vector3 p;
+
+    [Header("HideInInspector")]
+    public bool anyButton;
 
     private void Start() {
         activeDot = Instantiate(dot, Vector3.zero, Quaternion.identity);
@@ -26,25 +26,12 @@ public class PointTest : Hands {
     }
 
     private void Update() {
-
-        //if (Input.GetMouseButtonDown(0) || IsVrPresentAndAxisUsed(Input.GetAxis(touchInput)) == true) {
-        //    Buttt();
-        //}
-
-        if (Input.GetMouseButtonDown(0)) {
-            Buttt();
-        }
-
-        //if (XRDevice.isPresent) {
-        //    if (Input.GetButton(touchInput) == true) {
-        //        Buttt();
-        //    }
-        //}
+        ButtonDownCheck();
 
         //print(Input.GetButton(touchInput) + " " + nodeName.ToString());
         //print(Input.GetAxis(triggerInput) + " " + nodeName.ToString());
 
-        if (isButtonDown == true) {
+        if (anyButton == true) {
             RaycastHit hit;
             activeDot.gameObject.SetActive(true);
             if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
@@ -67,34 +54,25 @@ public class PointTest : Hands {
                 p = Vector3.zero;
             }
         } else {
+            Teleport();
             activeDot.gameObject.SetActive(false);
             SetLinePos(false, Vector3.zero, Vector3.zero);
         }
+    }
 
-        if (Input.GetMouseButtonUp(0)) {
-            Tele();
+    void ButtonDownCheck() {
+        if (Input.GetMouseButton(0) || Input.GetAxis(touchInput) == 1) {
+            anyButton = true;
+        } else {
+            anyButton = false;
         }
-
-        //if (XRDevice.isPresent) {
-        //    if (Input.GetButton(touchInput) == false) {
-        //        Tele();
-        //    }
-        //}
-
-        //if (Input.GetMouseButtonUp(0) || IsVrPresentAndAxisUsed(Input.GetAxis(touchInput)) == false) {
-        //    Tele();
-        //}
     }
 
-    void Buttt() {
-        isButtonDown = true;
-    }
-
-    void Tele() {
+    void Teleport() {
         if (tp != null && tp.transform.tag == "Teleport") {
             activePlayer.transform.position = p;
         }
-        isButtonDown = false;
+        anyButton = false;
     }
 
     void SetLinePos(bool b, Vector3 pos1, Vector3 pos2) {
@@ -105,16 +83,15 @@ public class PointTest : Hands {
         lineRenderer.SetPosition(1, pos2);
     }
 
-    bool IsVrPresentAndAxisUsed(float inputValue) {
-        if (inputValue == 1) {
-            return true;
+    string IsVrPresentAndInputUsed(/*float inputValue,*/ bool b) {
+        if (XRDevice.isPresent) {
+            if (b == true) {
+                return "Pressed";
+            } else {
+                return "Not_Pressed";
+            }
         } else {
-            return false;
+            return "No_VR_Present";
         }
-        //if (XRDevice.isPresent && inputAxis == 1) {
-        //    return true;
-        //} else {
-        //    return false;
-        //}
     }
 }
