@@ -1466,7 +1466,7 @@ PrefabInstance:
     - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: triggerInput
-      value: RightTrigger
+      value: XRI_Right_TriggerButton
       objectReference: {fileID: 0}
     - target: {fileID: 8980250930274334926, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
@@ -2738,6 +2738,11 @@ PrefabInstance:
         type: 3}
       propertyPath: range
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
+        type: 3}
+      propertyPath: nodeName
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04ad7be8eeca8e4db7215ffddfc3813, type: 3}
