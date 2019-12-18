@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractableItems : MonoBehaviour
 {
+    public AudioClip audioClip;
     public GameObject[] brokenItems;
     private bool hasUsed;
 }

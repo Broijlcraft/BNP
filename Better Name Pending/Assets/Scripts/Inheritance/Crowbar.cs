@@ -5,13 +5,13 @@ using UnityEngine;
 public class Crowbar : InteractableItems
 {
     private Animation boxAnim;
-
     public void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Box")
         {
             boxAnim = collision.gameObject.GetComponent<Animation>();
             BreakBox();
+            AudioManager.PlaySound(audioClip);
             BreakItem();
         }    
     }
