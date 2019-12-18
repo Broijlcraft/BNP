@@ -983,7 +983,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &510386599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,7 +2115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1472173088
 Transform:
   m_ObjectHideFlags: 0
@@ -2727,7 +2727,7 @@ PrefabInstance:
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: triggerInput
-      value: LeftTrigger
+      value: XRI_Left_TriggerButton
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
