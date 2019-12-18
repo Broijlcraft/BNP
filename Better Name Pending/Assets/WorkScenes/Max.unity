@@ -185,7 +185,6 @@ MonoBehaviour:
   nodeName: 0
   triggerInput: 
   touchInput: 
-  gripInput: 
   range: 0
   itemInHand: {fileID: 1495766181}
   gun: {fileID: 0}
@@ -538,7 +537,6 @@ MonoBehaviour:
   nodeName: 5
   triggerInput: test
   touchInput: 
-  gripInput: 
   range: 0
   itemInHand: {fileID: 0}
   gun: {fileID: 0}
@@ -1538,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: triggerInput
-      value: RightTrigger
+      value: XRI_Right_TriggerButton
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
@@ -1548,22 +1546,17 @@ PrefabInstance:
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: touchInput
-      value: RightTouchpad
+      value: XRI_Right_Primary2DAxisTouch
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: testInput
-      value: 
+      value: XRI_Right_Primary2DAxisTouch
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: m_Enabled
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
-      propertyPath: gripInput
-      value: RightGrip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04ad7be8eeca8e4db7215ffddfc3813, type: 3}
@@ -1926,7 +1919,6 @@ MonoBehaviour:
   nodeName: 0
   triggerInput: 
   touchInput: 
-  gripInput: 
   range: 0
   origin: {fileID: 1139306666}
   extraLineRange: 0
@@ -2199,7 +2191,6 @@ MonoBehaviour:
   nodeName: 0
   triggerInput: RightTrigger
   touchInput: XRI_Right_Primary2DAxisTouch
-  gripInput: 
   range: 50
   origin: {fileID: 36725394}
   extraLineRange: 0
@@ -2731,17 +2722,17 @@ PrefabInstance:
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: testInput
-      value: 
+      value: XRI_Left_Primary2DAxisTouch
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: touchInput
-      value: LeftTouchpad
+      value: XRI_Left_Primary2DAxisTouch
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
       propertyPath: triggerInput
-      value: LeftTrigger
+      value: XRI_Left_TriggerButton
       objectReference: {fileID: 0}
     - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
         type: 3}
@@ -2752,11 +2743,6 @@ PrefabInstance:
         type: 3}
       propertyPath: nodeName
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6574462953788788126, guid: f04ad7be8eeca8e4db7215ffddfc3813,
-        type: 3}
-      propertyPath: gripInput
-      value: LeftGrip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04ad7be8eeca8e4db7215ffddfc3813, type: 3}

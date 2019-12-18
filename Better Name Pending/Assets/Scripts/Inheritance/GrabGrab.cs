@@ -21,8 +21,8 @@ public class GrabGrab : Hands {
             HeldItemInteract();
         }
 
-        print(Input.GetButton(gripInput));
-        print(Input.GetAxis(gripInput));
+        print(Input.GetButton(testInput));
+        print(Input.GetAxis(testInput));
 
         if (XRDevice.isPresent) {
             if (Input.GetButton(triggerInput) == true) {
