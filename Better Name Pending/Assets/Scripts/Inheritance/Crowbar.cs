@@ -11,7 +11,6 @@ public class Crowbar : InteractableItems
         {
             boxAnim = collision.gameObject.GetComponent<Animation>();
             BreakBox();
-            AudioManager.PlaySound(audioClip);
             BreakItem();
         }    
     }
@@ -23,6 +22,7 @@ public class Crowbar : InteractableItems
 
     private void BreakItem()
     {
+        AudioManager.PlaySound(audioClip);
         Destroy(gameObject, 0.1f);
         for (int i = 0; i < brokenItems.Length; i++)
         {
