@@ -23,12 +23,9 @@ public class PointTest : Hands {
     }
 
     private void Update() {
-        anyButton = MouseInputAndVRAxisCheck(0, triggerInput);
+        anyButton = MouseInputAndVRAxisCheck(0, touchInput, "Useless_Input");
 
-        //print(Input.GetButton(touchInput) + " " + nodeName.ToString());
-        //print(Input.GetAxis(triggerInput) + " " + nodeName.ToString());
-
-        if (anyButton == true) {
+        if (anyButton == true && nodeName != XRNode.LeftHand) {
             RaycastHit hit;
             activeDot.gameObject.SetActive(true);
             if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
@@ -63,8 +60,7 @@ public class PointTest : Hands {
 
     void Teleport() {
         if (tp != null && tp.transform.tag == "Teleport") {
-            activePlayer.transform.position = new Vector3(p.x, p.y + 0.2f, p.z);
-            //activePlayer.transform.position = p;
+            activePlayer.transform.position = p;
         }
         anyButton = false;
     }

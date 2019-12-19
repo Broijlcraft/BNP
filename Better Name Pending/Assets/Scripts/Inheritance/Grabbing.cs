@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class GrabGrab : Hands {
+public class Grabbing : Hands {
 
     public GameObject itemInHand;
     public Interactable gun;
     public string testInput;
     public LayerMask interactable;
+
+    bool buttonStillDown;
 
     private void Update() {
         if (XRDevice.isPresent) {
@@ -17,20 +19,25 @@ public class GrabGrab : Hands {
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
         }
 
-        if (MouseInputAndVRAxisCheck(1, gripInput)) {
-            PickUpAndDropItem();
-            print("1 down");
+        if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
+            if(buttonStillDown == false) {
+                PickUpAndDropItem();
+            }
+            buttonStillDown = true;
+        } else {
+            if (buttonStillDown == true) {
+                PickUpAndDropItem();
+                buttonStillDown = false;
+            }
         }
 
-        if (MouseInputAndVRAxisCheck(0, triggerInput)) {
+        if (MouseInputAndVRAxisCheck(0, triggerInput, "Useless_Input")) {
             HeldItemInteract();
         }
-
-        //print(Input.GetButton(gripInput));
-        //print(Input.GetAxis(gripInput));
     }
 
     void PickUpAndDropItem() {
+        Rigidbody heldRigidbody;
         if (!itemInHand) {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (itemInHand) {
@@ -39,15 +46,18 @@ public class GrabGrab : Hands {
                 } else {
                     itemInHand.transform.SetParent(Camera.main.transform);
                 }
-                itemInHand.GetComponent<Collider>().enabled = false;
-                itemInHand.GetComponent<Rigidbody>().useGravity = false;
-                itemInHand.GetComponent<Rigidbody>().velocity = Vector3.zero;
-                itemInHand.GetComponent<Rigidbody>().isKinematic = true;
+                heldRigidbody = itemInHand.GetComponent<Rigidbody>();
+                heldRigidbody.useGravity = false;
+                heldRigidbody.velocity = Vector3.zero;
+                heldRigidbody.isKinematic = true;
+                if (itemInHand.GetComponent<Interactable>()) {
+                    itemInHand.transform.SetPositionAndRotation(itemInHand.GetComponent<Interactable>().setPosition, Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation));
+                }
             }
         } else {
-            itemInHand.GetComponent<Collider>().enabled = true;
-            itemInHand.GetComponent<Rigidbody>().isKinematic = false;
-            itemInHand.GetComponent<Rigidbody>().useGravity = true;
+            heldRigidbody = itemInHand.GetComponent<Rigidbody>();
+            heldRigidbody.isKinematic = false;
+            heldRigidbody.useGravity = true;
             itemInHand.transform.SetParent(null);
             itemInHand = null;
         }
