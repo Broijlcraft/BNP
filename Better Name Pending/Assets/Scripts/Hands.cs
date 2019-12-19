@@ -11,23 +11,14 @@ public class Hands : MonoBehaviour {
     public float range;
     public Transform origin;
 
-
-
     [Header("HideInInspector")]
     public bool anyButton;
 
-    public bool MouseInputAndVRAxisCheck(int mouseButton, string axisInputString) {
-        if (Input.GetMouseButton(mouseButton) || Input.GetAxis(axisInputString) == 1) {
+    public bool MouseInputAndVRAxisCheck(int mouseButtonValue, string axisInputString, string buttonInputString) {
+        if (Input.GetMouseButton(mouseButtonValue) || Input.GetAxis(axisInputString) == 1 || Input.GetButton(buttonInputString)) {
             return true;
         } else {
             return false;
         }
     }
-    //public bool MouseInputAndVRAxisCheck(int mouseButton, string axisInputString, string) {
-    //    if (Input.GetMouseButton(mouseButton) || Input.GetAxis(axisInputString) == 1) {
-    //        return true;
-    //    } else {
-    //        return false;
-    //    }
-    //}
 }
