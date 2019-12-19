@@ -13,12 +13,20 @@ public class Grabbing : Hands {
 
     bool buttonStillDown;
 
-    private void Update() {
+    Vector3 controllerVelocity;
+    Vector3 oldPosition;
+
+    private void FixedUpdate() {
         if (XRDevice.isPresent) {
             transform.localPosition = InputTracking.GetLocalPosition(nodeName);
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
+            controllerVelocity = oldPosition - transform.position;
+            oldPosition = transform.position;
+            print(controllerVelocity);
         }
+    }
 
+    private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
             if(buttonStillDown == false) {
                 PickUpAndDropItem();
@@ -46,18 +54,23 @@ public class Grabbing : Hands {
                 } else {
                     itemInHand.transform.SetParent(Camera.main.transform);
                 }
-                heldRigidbody = itemInHand.GetComponent<Rigidbody>();
-                heldRigidbody.useGravity = false;
-                heldRigidbody.velocity = Vector3.zero;
-                heldRigidbody.isKinematic = true;
+                if (itemInHand.GetComponent<Rigidbody>()) {
+                    heldRigidbody = itemInHand.GetComponent<Rigidbody>();
+                    heldRigidbody.useGravity = false;
+                    heldRigidbody.velocity = Vector3.zero;
+                    heldRigidbody.isKinematic = true;
+                }
                 if (itemInHand.GetComponent<Interactable>()) {
-                    itemInHand.transform.SetPositionAndRotation(itemInHand.GetComponent<Interactable>().setPosition, Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation));
+                    itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
+                    itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
                 }
             }
         } else {
-            heldRigidbody = itemInHand.GetComponent<Rigidbody>();
-            heldRigidbody.isKinematic = false;
-            heldRigidbody.useGravity = true;
+            if (itemInHand.GetComponent<Rigidbody>()) {
+                heldRigidbody = itemInHand.GetComponent<Rigidbody>();
+                heldRigidbody.isKinematic = false;
+                heldRigidbody.useGravity = true;
+            }
             itemInHand.transform.SetParent(null);
             itemInHand = null;
         }
