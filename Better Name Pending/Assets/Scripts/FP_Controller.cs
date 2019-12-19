@@ -19,13 +19,17 @@ public class FP_Controller : MonoBehaviour {
     }
 
     private void Update() {
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetButtonDown("Special_Input")) {
             SwitchCursor();
         }
     }
 
     private void FixedUpdate() {
-        transform.Translate(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * walkSpeed * Time.deltaTime);
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        transform.Translate(new Vector3(horizontal, 0, vertical) * walkSpeed * Time.deltaTime);
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;

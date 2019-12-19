@@ -63,7 +63,8 @@ public class PointTest : Hands {
 
     void Teleport() {
         if (tp != null && tp.transform.tag == "Teleport") {
-            activePlayer.transform.position = p;
+            activePlayer.transform.position = new Vector3(p.x, p.y + 0.2f, p.z);
+            //activePlayer.transform.position = p;
         }
         anyButton = false;
     }
