@@ -13,6 +13,7 @@ TagManager:
   - Box
   - Interactable
   - Teleport
+  - Door
   layers:
   - Default
   - TransparentFX

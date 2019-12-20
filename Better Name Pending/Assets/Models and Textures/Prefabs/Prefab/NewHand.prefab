@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 8824843101192791659}
   - component: {fileID: 8824843101192791660}
   - component: {fileID: 8824843101192791661}
+  - component: {fileID: 5268459224400238939}
   m_Layer: 0
   m_Name: NewHand
   m_TagString: Untagged
@@ -368,6 +369,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!65 &5268459224400238939
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8824843101192791663}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0, y: 0.2, z: 0.3}
+  m_Center: {x: 0.1, y: 0, z: 0}
 --- !u!1 &9208608243662100235
 GameObject:
   m_ObjectHideFlags: 0
