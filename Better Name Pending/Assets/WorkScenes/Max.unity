@@ -541,6 +541,7 @@ GameObject:
   - component: {fileID: 212079677}
   - component: {fileID: 212079676}
   - component: {fileID: 212079675}
+  - component: {fileID: 212079680}
   m_Layer: 9
   m_Name: InteractableTest
   m_TagString: Interactable
@@ -637,6 +638,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212079680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212079674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  setPosition: {x: 0, y: 0, z: 0}
+  setRotation: {x: 0, y: 0, z: 0}
+  transferPositionAndRotation: 0
+  onGrab: 0
 --- !u!1 &214268041
 GameObject:
   m_ObjectHideFlags: 0
@@ -3335,6 +3352,11 @@ PrefabInstance:
       propertyPath: uselessInput
       value: Useless_Input
       objectReference: {fileID: 0}
+    - target: {fileID: 5268459224400238939, guid: f2843a06836e0ba488c8e881f53ef0db,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2843a06836e0ba488c8e881f53ef0db, type: 3}
 --- !u!4 &1658100714 stripped
@@ -5171,7 +5193,7 @@ PrefabInstance:
     - target: {fileID: 8824843101192791663, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8824843101192791662, guid: f2843a06836e0ba488c8e881f53ef0db,
         type: 3}
@@ -5277,6 +5299,11 @@ PrefabInstance:
         type: 3}
       propertyPath: uselessInput
       value: Useless_Input
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268459224400238939, guid: f2843a06836e0ba488c8e881f53ef0db,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2843a06836e0ba488c8e881f53ef0db, type: 3}
