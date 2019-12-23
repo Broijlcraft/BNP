@@ -11,6 +11,8 @@ public class Hands : MonoBehaviour {
     public float range;
     public Transform origin;
 
+    public bool grabbing;
+
     [Header("HideInInspector")]
     public bool anyButton;
 

@@ -31,12 +31,12 @@ public class Grabbing : Hands {
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
             if(buttonStillDown == false) {
-                GrabAndLetGo();
+                GrabAndLetGo(transform);
                 buttonStillDown = true;
             }
         } else {
             if (buttonStillDown == true) {
-                GrabAndLetGo();
+                GrabAndLetGo(null);
                 buttonStillDown = false;
             }
         }
@@ -46,27 +46,31 @@ public class Grabbing : Hands {
         }
     }
 
-    void GrabAndLetGo() {
+    public void GrabAndLetGo(Transform makeParent) {
         Rigidbody heldRigidbody;
         if (!itemInHand) {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (itemInHand) {
-                if (XRDevice.isPresent) {
-                    if (itemInHand.GetComponent<Interactable>()) {
-                        switch (itemInHand.GetComponent<Interactable>().onGrab){
-                            case Interactable.OnGrab.Follow:
-                            break;
-                            case Interactable.OnGrab.Pickup:
-                            itemInHand.transform.SetParent(transform);
-                            if (itemInHand.GetComponent<Interactable>().transferPositionAndRotation) {
-                                itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
-                                itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
-                            }
-                            break;
-                        }
-                    }
+                if (itemInHand.GetComponentInParent<Grabbing>()) {
+                    itemInHand.GetComponentInParent<Grabbing>().GrabAndLetGo(transform);
                 } else {
-                    itemInHand.transform.SetParent(cam.transform);
+                    if (XRDevice.isPresent) {
+                        if (itemInHand.GetComponent<Interactable>()) {
+                            switch (itemInHand.GetComponent<Interactable>().onGrab){
+                                case Interactable.OnGrab.Follow:
+                                break;
+                                case Interactable.OnGrab.Pickup:
+                                itemInHand.transform.SetParent(makeParent);
+                                if (itemInHand.GetComponent<Interactable>().transferPositionAndRotation) {
+                                    itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
+                                    itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
+                                }
+                                break;
+                            }
+                        }
+                    } else {
+                        itemInHand.transform.SetParent(cam.transform);
+                    }
                 }
                 if (itemInHand.GetComponent<Rigidbody>()) {
                     heldRigidbody = itemInHand.GetComponent<Rigidbody>();
@@ -88,7 +92,7 @@ public class Grabbing : Hands {
                 heldRigidbody.isKinematic = false;
                 heldRigidbody.useGravity = true;
             }
-            itemInHand.transform.SetParent(null);
+            itemInHand.transform.SetParent(makeParent);
             itemInHand = null;
         }
     }
@@ -97,7 +101,6 @@ public class Grabbing : Hands {
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
                 if(colliders[i].tag == "Interactable") {
-                    print("Coll");
                     return colliders[i].gameObject;
                 }
             }

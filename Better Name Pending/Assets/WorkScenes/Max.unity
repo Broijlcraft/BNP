@@ -416,26 +416,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crowbar (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5877360542252769397, guid: a53aa1e59ba2b294490dcafc2eb938c3,
-        type: 3}
-      propertyPath: setPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877360542252769397, guid: a53aa1e59ba2b294490dcafc2eb938c3,
-        type: 3}
-      propertyPath: setPosition.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877360542252769397, guid: a53aa1e59ba2b294490dcafc2eb938c3,
-        type: 3}
-      propertyPath: setRotation.z
-      value: 45
-      objectReference: {fileID: 0}
-    - target: {fileID: 5877360542252769397, guid: a53aa1e59ba2b294490dcafc2eb938c3,
-        type: 3}
-      propertyPath: setRotation.y
-      value: -90
-      objectReference: {fileID: 0}
     - target: {fileID: 7586560359938818694, guid: a53aa1e59ba2b294490dcafc2eb938c3,
         type: 3}
       propertyPath: m_UseGravity
