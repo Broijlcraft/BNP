@@ -58,8 +58,8 @@ public class Grabbing : Hands {
                             break;
                             case Interactable.OnGrab.Pickup:
                                 itemInHand.transform.SetParent(transform);
-                                itemInHand.transform.position = itemInHand.GetComponent<Interactable>().setPosition;
-                                itemInHand.transform.rotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
+                                itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
+                                itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
                             break;
                         }
                     }
