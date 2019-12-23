@@ -52,13 +52,14 @@ public class Grabbing : Hands {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (itemInHand) {
                 if (XRDevice.isPresent) {
-                    if (itemInHand.GetComponent<Interactable>()) {
-                        switch itemInHand.GetComponent<Interactable>().onGrab{
+                    //if (itemInHand.GetComponent<Interactable>()) {
+                    //    switch itemInHand.GetComponent<Interactable>().onGrab{
 
-                        }
-                    } else {
-                        itemInHand.transform.SetParent(transform);
-                    }
+                    //    }
+                    //} else {
+                    //    itemInHand.transform.SetParent(transform);
+                    //}
+                    itemInHand.transform.SetParent(transform);
                 } else {
                     itemInHand.transform.SetParent(cam.transform);
                 }
