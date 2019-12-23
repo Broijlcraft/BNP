@@ -47,7 +47,6 @@ public class Grabbing : Hands {
     }
 
     public void GrabAndLetGo(Transform makeParent) {
-        Rigidbody heldRigidbody;
         if (!itemInHand) {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (itemInHand) {
@@ -73,10 +72,7 @@ public class Grabbing : Hands {
                     }
                 }
                 if (itemInHand.GetComponent<Rigidbody>()) {
-                    heldRigidbody = itemInHand.GetComponent<Rigidbody>();
-                    heldRigidbody.useGravity = false;
-                    heldRigidbody.velocity = Vector3.zero;
-                    heldRigidbody.isKinematic = true;
+                    itemInHand.GetComponent<Rigidbody>().isKinematic = true;
                 }
                 if (itemInHand.GetComponent<Interactable>()) {
                     Interactable interactableInHand = itemInHand.GetComponent<Interactable>();
@@ -88,9 +84,7 @@ public class Grabbing : Hands {
             }
         } else {
             if (itemInHand.GetComponent<Rigidbody>()) {
-                heldRigidbody = itemInHand.GetComponent<Rigidbody>();
-                heldRigidbody.isKinematic = false;
-                heldRigidbody.useGravity = true;
+                itemInHand.GetComponent<Rigidbody>().useGravity = true;
             }
             itemInHand.transform.SetParent(makeParent);
             itemInHand = null;
