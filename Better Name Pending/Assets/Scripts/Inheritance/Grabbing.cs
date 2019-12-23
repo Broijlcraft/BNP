@@ -84,7 +84,7 @@ public class Grabbing : Hands {
             }
         } else {
             if (itemInHand.GetComponent<Rigidbody>()) {
-                itemInHand.GetComponent<Rigidbody>().useGravity = true;
+                itemInHand.GetComponent<Rigidbody>().isKinematic = false;
             }
             itemInHand.transform.SetParent(makeParent);
             itemInHand = null;
