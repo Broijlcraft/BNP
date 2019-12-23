@@ -11,30 +11,32 @@ public class Grabbing : Hands {
     public string testInput;
     public LayerMask interactable;
 
+    public GameObject cam;
+
     bool buttonStillDown;
 
-    Vector3 controllerVelocity;
-    Vector3 oldPosition;
+    //Vector3 controllerVelocity;
+    //Vector3 oldPosition;
 
     private void FixedUpdate() {
         if (XRDevice.isPresent) {
             transform.localPosition = InputTracking.GetLocalPosition(nodeName);
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
-            controllerVelocity = oldPosition - transform.position;
-            oldPosition = transform.position;
-            print(controllerVelocity);
+            //controllerVelocity = (oldPosition - transform.position)*Time.deltaTime;
+            //oldPosition = transform.position;
+            //print(controllerVelocity);
         }
     }
 
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
             if(buttonStillDown == false) {
-                PickUpAndDropItem();
+                GrabAndLetGo();
+                buttonStillDown = true;
             }
-            buttonStillDown = true;
         } else {
             if (buttonStillDown == true) {
-                PickUpAndDropItem();
+                GrabAndLetGo();
                 buttonStillDown = false;
             }
         }
@@ -44,15 +46,21 @@ public class Grabbing : Hands {
         }
     }
 
-    void PickUpAndDropItem() {
+    void GrabAndLetGo() {
         Rigidbody heldRigidbody;
         if (!itemInHand) {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (itemInHand) {
                 if (XRDevice.isPresent) {
-                    itemInHand.transform.SetParent(transform);
+                    if (itemInHand.GetComponent<Interactable>()) {
+                        switch itemInHand.GetComponent<Interactable>().onGrab{
+
+                        }
+                    } else {
+                        itemInHand.transform.SetParent(transform);
+                    }
                 } else {
-                    itemInHand.transform.SetParent(Camera.main.transform);
+                    itemInHand.transform.SetParent(cam.transform);
                 }
                 if (itemInHand.GetComponent<Rigidbody>()) {
                     heldRigidbody = itemInHand.GetComponent<Rigidbody>();
@@ -61,8 +69,11 @@ public class Grabbing : Hands {
                     heldRigidbody.isKinematic = true;
                 }
                 if (itemInHand.GetComponent<Interactable>()) {
-                    itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
-                    itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
+                    Interactable interactableInHand = itemInHand.GetComponent<Interactable>();
+                    if (interactableInHand.transferPositionAndRotation) {
+                        itemInHand.transform.localRotation = Quaternion.Euler(interactableInHand.setRotation);
+                        itemInHand.transform.localPosition = interactableInHand.setPosition;
+                    }
                 }
             }
         } else {
@@ -80,6 +91,7 @@ public class Grabbing : Hands {
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
                 if(colliders[i].tag == "Interactable") {
+                    print("Coll");
                     return colliders[i].gameObject;
                 }
             }

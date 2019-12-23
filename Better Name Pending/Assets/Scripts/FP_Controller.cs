@@ -14,6 +14,9 @@ public class FP_Controller : MonoBehaviour {
 
     float xAxisClamp;
 
+    public Rigidbody rigid;
+    public float jumpMultiplier;
+
     private void Start() {
         SwitchCursor();    
     }
@@ -22,10 +25,13 @@ public class FP_Controller : MonoBehaviour {
         if (Input.GetButtonDown("Special_Input")) {
             SwitchCursor();
         }
+
+        if (Input.GetButtonDown("Jump")) {
+            Jump();
+        }
     }
 
     private void FixedUpdate() {
-
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -53,6 +59,10 @@ public class FP_Controller : MonoBehaviour {
         Vector3 eulerRotation = cameraChild.localEulerAngles;
         eulerRotation.x = value;
         cameraChild.localEulerAngles = eulerRotation;
+    }
+
+    void Jump() {
+        rigid.velocity = transform.up * jumpMultiplier;
     }
 
     void SwitchCursor() {
