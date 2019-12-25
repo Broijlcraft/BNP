@@ -759,6 +759,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   cam: {fileID: 0}
+  oldPosition: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  throwMulti: 0
+  hasGiven: 0
 --- !u!81 &220498736
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1299,7 +1303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &510386599
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2084,7 +2088,7 @@ HingeJoint:
   m_UseSpring: 0
   m_Spring:
     spring: 0
-    damper: 0
+    damper: 2
     targetPosition: 0
   m_UseMotor: 0
   m_Motor:
@@ -2093,8 +2097,8 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: -110
-    max: 110
+    min: -135
+    max: 135
     bounciness: 0
     bounceMinVelocity: 0.2
     contactDistance: 0
@@ -2837,7 +2841,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1472173088
 Transform:
   m_ObjectHideFlags: 0
@@ -2873,9 +2877,9 @@ GameObject:
   - component: {fileID: 1495766186}
   - component: {fileID: 1495766185}
   - component: {fileID: 1495766183}
-  - component: {fileID: 1495766187}
   - component: {fileID: 1495766184}
   - component: {fileID: 1495766188}
+  - component: {fileID: 1495766187}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -3109,6 +3113,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   cam: {fileID: 37295730}
+  oldPosition: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  throwMulti: -1
+  hasGiven: 0
 --- !u!1 &1572281103
 GameObject:
   m_ObjectHideFlags: 0

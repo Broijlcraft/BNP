@@ -13,6 +13,13 @@ public class Grabbing : Hands {
 
     public GameObject cam;
 
+    public Vector3 oldPosition;
+    public Vector3 velocity;
+
+    public float throwMulti;
+
+    public bool hasGiven;
+
     bool buttonStillDown;
 
     //Vector3 controllerVelocity;
@@ -29,13 +36,20 @@ public class Grabbing : Hands {
     }
 
     private void Update() {
-        if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
+        if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input") && !hasGiven) {
             if(buttonStillDown == false) {
                 GrabAndLetGo(transform);
                 buttonStillDown = true;
             }
+            if (!hasGiven && itemInHand) {
+                velocity = (oldPosition - itemInHand.transform.position) / Time.deltaTime;
+                oldPosition = itemInHand.transform.position;
+            }
         } else {
             if (buttonStillDown == true) {
+                if (itemInHand) {
+                    itemInHand.GetComponent<Rigidbody>().velocity = velocity * throwMulti; ;
+                }
                 GrabAndLetGo(null);
                 buttonStillDown = false;
             }
@@ -71,10 +85,10 @@ public class Grabbing : Hands {
                         itemInHand.transform.SetParent(cam.transform);
                     }
                 }
-                if (itemInHand.GetComponent<Rigidbody>()) {
+                if (itemInHand && itemInHand.GetComponent<Rigidbody>()) {
                     itemInHand.GetComponent<Rigidbody>().isKinematic = true;
                 }
-                if (itemInHand.GetComponent<Interactable>()) {
+                if (itemInHand && itemInHand.GetComponent<Interactable>()) {
                     Interactable interactableInHand = itemInHand.GetComponent<Interactable>();
                     if (interactableInHand.transferPositionAndRotation) {
                         itemInHand.transform.localRotation = Quaternion.Euler(interactableInHand.setRotation);
