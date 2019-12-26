@@ -9,6 +9,7 @@ public class PointTest : Hands {
     public GameObject dot;
     public Transform test;
     public float devider;
+    public bool useBothHands;
     public LineRenderer lineRenderer;
     GameObject activeDot;
 
@@ -25,36 +26,38 @@ public class PointTest : Hands {
     private void Update() {
         anyButton = MouseInputAndVRAxisCheck(0, touchInput, "Useless_Input");
 
-        if (anyButton == true && nodeName != XRNode.LeftHand) {
-            RaycastHit hit;
-            activeDot.gameObject.SetActive(true);
-            if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
-                tp = hit.transform;
-                p = hit.point;
-                lineRenderer.enabled = true;
-                SetLinePos(true, origin.position, origin.forward * range + origin.position);
-                if (Vector3.Distance(origin.position, hit.point) < range) {
-                    if (XRDevice.isPresent) {
-                        activeDot.transform.position = hit.point;
-                    } else {
-                        activeDot.transform.position = hit.point + ((hit.point - origin.position) * -devider);
-                    }
-                    SetLinePos(true, origin.position, hit.point);
-                } else {
-                    activeDot.transform.position = origin.forward * range + origin.position;
+        if (useBothHands || nodeName != XRNode.LeftHand) {
+            if (anyButton == true) {
+                RaycastHit hit;
+                activeDot.gameObject.SetActive(true);
+                if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
+                    tp = hit.transform;
+                    p = hit.point;
+                    lineRenderer.enabled = true;
                     SetLinePos(true, origin.position, origin.forward * range + origin.position);
+                    if (Vector3.Distance(origin.position, hit.point) < range) {
+                        if (XRDevice.isPresent) {
+                            activeDot.transform.position = hit.point;
+                        } else {
+                            activeDot.transform.position = hit.point + ((hit.point - origin.position) * -devider);
+                        }
+                        SetLinePos(true, origin.position, hit.point);
+                    } else {
+                        activeDot.transform.position = origin.forward * range + origin.position;
+                        SetLinePos(true, origin.position, origin.forward * range + origin.position);
+                    }
+                } else {
+                    lineRenderer.enabled = false;
+                    SetLinePos(true, origin.position, origin.forward * range + origin.position);
+                    activeDot.transform.position = origin.forward * range + origin.position;
+                    tp = null;
+                    p = Vector3.zero;
                 }
             } else {
-                lineRenderer.enabled = false;
-                SetLinePos(true, origin.position, origin.forward * range + origin.position);
-                activeDot.transform.position = origin.forward * range + origin.position;
-                tp = null;
-                p = Vector3.zero;
+                Teleport();
+                activeDot.gameObject.SetActive(false);
+                SetLinePos(false, Vector3.zero, Vector3.zero);
             }
-        } else {
-            Teleport();
-            activeDot.gameObject.SetActive(false);
-            SetLinePos(false, Vector3.zero, Vector3.zero);
         }
     }
 

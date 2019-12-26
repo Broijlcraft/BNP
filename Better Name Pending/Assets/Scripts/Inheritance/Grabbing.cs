@@ -13,96 +13,164 @@ public class Grabbing : Hands {
 
     public GameObject cam;
 
-    public Vector3 oldPosition;
-    public Vector3 velocity;
+    Vector3 oldPosition;
+    Vector3 velocity;
+    Vector3 oldRotation;
+    Vector3 angularVelocity;
 
     public float throwMulti;
+    public float rotMulti;
 
     public bool hasGiven;
 
     bool buttonStillDown;
 
-    //Vector3 controllerVelocity;
-    //Vector3 oldPosition;
-
     private void FixedUpdate() {
         if (XRDevice.isPresent) {
             transform.localPosition = InputTracking.GetLocalPosition(nodeName);
             transform.localRotation = InputTracking.GetLocalRotation(nodeName);
-            //controllerVelocity = (oldPosition - transform.position)*Time.deltaTime;
-            //oldPosition = transform.position;
-            //print(controllerVelocity);
         }
     }
 
     private void Update() {
-        if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input") && !hasGiven) {
-            if(buttonStillDown == false) {
+        if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
+            if (buttonStillDown == false && !hasGiven) {
                 GrabAndLetGo(transform);
                 buttonStillDown = true;
             }
-            if (!hasGiven && itemInHand) {
-                velocity = (oldPosition - itemInHand.transform.position) / Time.deltaTime;
-                oldPosition = itemInHand.transform.position;
-            }
         } else {
             if (buttonStillDown == true) {
-                if (itemInHand) {
-                    itemInHand.GetComponent<Rigidbody>().velocity = velocity * throwMulti; ;
-                }
                 GrabAndLetGo(null);
+                hasGiven = false;
                 buttonStillDown = false;
             }
         }
+        //if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input") && !hasGiven) {
+        //    if(buttonStillDown == false) {
+        //        GrabAndLetGo(transform);
+        //        buttonStillDown = true;
+        //    }
+        //    if (!hasGiven && itemInHand) {
+        //        velocity = (oldPosition - itemInHand.transform.position) / Time.deltaTime;
+        //        angularVelocity = (oldRotation - itemInHand.transform.rotation.eulerAngles) / Time.deltaTime;
+        //        oldPosition = itemInHand.transform.position;
+        //        oldRotation = itemInHand.transform.rotation.eulerAngles;
+        //    }
+        //} else {
+        //    if (buttonStillDown == true) {
+        //        if (itemInHand) {                    
+        //            itemInHand.GetComponent<Rigidbody>().velocity = velocity * throwMulti;
+        //            itemInHand.GetComponent<Rigidbody>().angularVelocity = angularVelocity * rotMulti;
+        //            GrabAndLetGo(null);
+
+        //            buttonStillDown = false;
+        //        }
+        //    }
+        //}
 
         if (MouseInputAndVRAxisCheck(0, triggerInput, "Useless_Input")) {
             HeldItemInteract();
         }
     }
 
+
     public void GrabAndLetGo(Transform makeParent) {
+        GameObject closest = CheckClosest(Physics.OverlapSphere(origin.position, range));
         if (!itemInHand) {
-            itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
-            if (itemInHand) {
-                if (itemInHand.GetComponentInParent<Grabbing>()) {
-                    itemInHand.GetComponentInParent<Grabbing>().GrabAndLetGo(transform);
-                } else {
-                    if (XRDevice.isPresent) {
-                        if (itemInHand.GetComponent<Interactable>()) {
-                            switch (itemInHand.GetComponent<Interactable>().onGrab){
-                                case Interactable.OnGrab.Follow:
-                                break;
-                                case Interactable.OnGrab.Pickup:
-                                itemInHand.transform.SetParent(makeParent);
-                                if (itemInHand.GetComponent<Interactable>().transferPositionAndRotation) {
-                                    itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
-                                    itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
-                                }
-                                break;
-                            }
-                        }
-                    } else {
-                        itemInHand.transform.SetParent(cam.transform);
-                    }
-                }
-                if (itemInHand && itemInHand.GetComponent<Rigidbody>()) {
-                    itemInHand.GetComponent<Rigidbody>().isKinematic = true;
-                }
-                if (itemInHand && itemInHand.GetComponent<Interactable>()) {
-                    Interactable interactableInHand = itemInHand.GetComponent<Interactable>();
-                    if (interactableInHand.transferPositionAndRotation) {
-                        itemInHand.transform.localRotation = Quaternion.Euler(interactableInHand.setRotation);
-                        itemInHand.transform.localPosition = interactableInHand.setPosition;
-                    }
-                }
+            if (closest && closest.GetComponent<Interactable>()) {
+                itemInHand = closest;
+                itemInHand.GetComponent<Interactable>().AttachToHand(transform);
             }
         } else {
-            if (itemInHand.GetComponent<Rigidbody>()) {
-                itemInHand.GetComponent<Rigidbody>().isKinematic = false;
-            }
-            itemInHand.transform.SetParent(makeParent);
+            itemInHand.GetComponent<Interactable>().AttachToHand(null);
             itemInHand = null;
         }
+
+
+        ////////if (!itemInHand) {
+        ////////    itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
+        ////////    if (itemInHand) {
+        ////////        if (itemInHand.GetComponentInParent<Grabbing>()) {
+        ////////            itemInHand.GetComponentInParent<Grabbing>().GrabAndLetGo(transform);
+        ////////        } else {
+        ////////            if (XRDevice.isPresent) {
+        ////////                if (itemInHand.GetComponent<Interactable>()) {
+        ////////                    switch (itemInHand.GetComponent<Interactable>().onGrab){
+        ////////                        case Interactable.OnGrab.Follow:
+        ////////                        break;
+        ////////                        case Interactable.OnGrab.Pickup:
+        ////////                        itemInHand.transform.SetParent(makeParent);
+        ////////                        if (itemInHand.GetComponent<Interactable>().transferPositionAndRotation) {
+        ////////                            itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
+        ////////                            itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
+        ////////                        }
+        ////////                        break;
+        ////////                    }
+        ////////                }
+        ////////            } else {
+        ////////                itemInHand.transform.SetParent(cam.transform);
+        ////////            }
+        ////////        }
+        ////////        if (itemInHand && itemInHand.GetComponent<Rigidbody>()) {
+        ////////            itemInHand.GetComponent<Rigidbody>().isKinematic = true;
+        ////////        }
+        ////////        if (itemInHand && itemInHand.GetComponent<Interactable>()) {
+        ////////            Interactable interactableInHand = itemInHand.GetComponent<Interactable>();
+        ////////            if (interactableInHand.transferPositionAndRotation) {
+        ////////                itemInHand.transform.localRotation = Quaternion.Euler(interactableInHand.setRotation);
+        ////////                itemInHand.transform.localPosition = interactableInHand.setPosition;
+        ////////            }
+        ////////        }
+        ////////    }
+        ////////} else {
+        ////////    if (itemInHand.GetComponent<Rigidbody>()) {
+        ////////        itemInHand.GetComponent<Rigidbody>().isKinematic = false;
+        ////////    }
+        ////////    itemInHand.transform.SetParent(makeParent);
+        ////////    itemInHand = null;
+        ////////}
+        //if (!itemInHand) {
+        //    itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
+        //    if (itemInHand) {
+        //        if (itemInHand.GetComponentInParent<Grabbing>()) {
+        //            itemInHand.GetComponentInParent<Grabbing>().GrabAndLetGo(transform);
+        //        } else {
+        //            if (XRDevice.isPresent) {
+        //                if (itemInHand.GetComponent<Interactable>()) {
+        //                    switch (itemInHand.GetComponent<Interactable>().onGrab){
+        //                        case Interactable.OnGrab.Follow:
+        //                        break;
+        //                        case Interactable.OnGrab.Pickup:
+        //                        itemInHand.transform.SetParent(makeParent);
+        //                        if (itemInHand.GetComponent<Interactable>().transferPositionAndRotation) {
+        //                            itemInHand.transform.localPosition = itemInHand.GetComponent<Interactable>().setPosition;
+        //                            itemInHand.transform.localRotation = Quaternion.Euler(itemInHand.GetComponent<Interactable>().setRotation);
+        //                        }
+        //                        break;
+        //                    }
+        //                }
+        //            } else {
+        //                itemInHand.transform.SetParent(cam.transform);
+        //            }
+        //        }
+        //        if (itemInHand && itemInHand.GetComponent<Rigidbody>()) {
+        //            itemInHand.GetComponent<Rigidbody>().isKinematic = true;
+        //        }
+        //        if (itemInHand && itemInHand.GetComponent<Interactable>()) {
+        //            Interactable interactableInHand = itemInHand.GetComponent<Interactable>();
+        //            if (interactableInHand.transferPositionAndRotation) {
+        //                itemInHand.transform.localRotation = Quaternion.Euler(interactableInHand.setRotation);
+        //                itemInHand.transform.localPosition = interactableInHand.setPosition;
+        //            }
+        //        }
+        //    }
+        //} else {
+        //    if (itemInHand.GetComponent<Rigidbody>()) {
+        //        itemInHand.GetComponent<Rigidbody>().isKinematic = false;
+        //    }
+        //    itemInHand.transform.SetParent(makeParent);
+        //    itemInHand = null;
+        //}
     }
 
     GameObject CheckClosest(Collider[] colliders) {
