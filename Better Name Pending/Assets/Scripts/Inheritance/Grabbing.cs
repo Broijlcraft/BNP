@@ -175,7 +175,7 @@ public class Grabbing : Hands {
     GameObject CheckClosest(Collider[] colliders) {
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
-                if(colliders[i].tag == "Interactable") {
+                if(colliders[i].tag == "Interactable" && colliders[i].GetComponent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
                     return colliders[i].gameObject;
                 }
             }

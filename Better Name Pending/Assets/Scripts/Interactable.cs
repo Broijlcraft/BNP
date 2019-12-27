@@ -18,7 +18,8 @@ public class Interactable : MonoBehaviour {
 
     public enum OnGrab {
         Pickup,
-        Follow
+        Follow,
+        DoNothing
     }
 
     public OnGrab onGrab;
@@ -49,11 +50,12 @@ public class Interactable : MonoBehaviour {
     //}
 
     public void DetachFromHand() {
-        handToFollow.GetComponent<Grabbing>().GrabAndLetGo(null);
-        handToFollow.GetComponent<Grabbing>().hasGiven = true;
+        if (handToFollow) {
+            handToFollow.GetComponent<Grabbing>().hasGiven = true;
+            handToFollow.GetComponent<Grabbing>().GrabAndLetGo(null);
+        }
         transform.localPosition = v;
         handToFollow = null;
-        print("Stop");
     }
 
     public void AttachToHand(Transform hand) {
