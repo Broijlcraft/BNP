@@ -633,7 +633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   origin: {fileID: 0}
-  maxDistanceFromOrigin: 0
+  maxDistanceFromOrigin: 0.2
   setPosition: {x: 0, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
   transferPositionAndRotation: 0
@@ -767,6 +767,7 @@ MonoBehaviour:
   range: 0
   origin: {fileID: 0}
   grabbing: 0
+  manager: {fileID: 0}
   triggerInput: test
   touchInput: 
   gripInput: 
@@ -2540,6 +2541,7 @@ MonoBehaviour:
   range: 0
   origin: {fileID: 1139306666}
   grabbing: 0
+  manager: {fileID: 0}
   triggerInput: 
   touchInput: 
   gripInput: 
@@ -3033,6 +3035,7 @@ MonoBehaviour:
   range: 50
   origin: {fileID: 36725394}
   grabbing: 0
+  manager: {fileID: 0}
   triggerInput: RightTrigger
   touchInput: XRI_Right_Primary2DAxisTouch
   gripInput: 
@@ -3050,7 +3053,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495766181}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3201,6 +3204,7 @@ MonoBehaviour:
   range: 0.1
   origin: {fileID: 36725394}
   grabbing: 0
+  manager: {fileID: 0}
   triggerInput: XRI_Right_TriggerButton
   touchInput: XRI_Right_Primary2DAxisTouch
   gripInput: XRI_Right_GripButton
@@ -3560,10 +3564,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e5489393304b2d4da9962c2d019ed90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nodeName: 0
+  nodeName: 5
   range: 0.06
   origin: {fileID: 1650927031}
   grabbing: 0
+  manager: {fileID: 0}
   triggerInput: 
   touchInput: 
   gripInput: 
