@@ -21,6 +21,7 @@ public class PointTest : Hands {
         activeDot = Instantiate(dot, Vector3.zero, Quaternion.identity);
         activeDot.SetActive(false);
         activePlayer = GameObject.FindGameObjectWithTag("Player");
+        SetVrInputs();
     }
 
     private void Update() {

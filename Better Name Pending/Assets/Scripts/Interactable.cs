@@ -12,9 +12,15 @@ public class Interactable : MonoBehaviour {
     public Vector3 setRotation;
 
     public bool transferPositionAndRotation;
+    
+    Vector3 oldPosition;
+    Vector3 velocity;
+    Vector3 oldRotation;
+    Vector3 angularVelocity;
+
 
     Transform handToFollow;
-    Vector3 v;
+    Vector3 originPosition;
 
     public enum OnGrab {
         Pickup,
@@ -26,7 +32,7 @@ public class Interactable : MonoBehaviour {
 
     private void Start() {
         if (origin) {
-            v = origin.localPosition;
+            originPosition = origin.localPosition;
         }
     }
 
@@ -39,34 +45,25 @@ public class Interactable : MonoBehaviour {
         }
     }
 
-    //private void Update() {
-    //    if (followHand && handToFollow) {
-    //        transform.position = handToFollow.position;
-    //        if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
-    //            //StopFollowing();
-    //            print("Stop");
-    //        }
-    //    }
-    //}
-
     public void DetachFromHand() {
         if (handToFollow) {
-            handToFollow.GetComponent<Grabbing>().hasGiven = true;
-            handToFollow.GetComponent<Grabbing>().GrabAndLetGo(null);
+            handToFollow.GetComponentInParent<Grabbing>().hasGiven = true;
+            handToFollow.GetComponentInParent<Grabbing>().itemInHand = null;
+            handToFollow = null;
         }
-        transform.localPosition = v;
-        handToFollow = null;
+        transform.localPosition = originPosition;
     }
 
-    public void AttachToHand(Transform hand) {
+    public void AttachToHand(Transform makeThisParent, bool setParent) {
         switch (onGrab) {
             case OnGrab.Follow:
-                if(hand == null) {
+                handToFollow = makeThisParent;
+                if(setParent == false) {
                     DetachFromHand();
                 }
-                handToFollow = hand;
             break;
             case OnGrab.Pickup:
+                transform.SetParent(makeThisParent);
             break;
         }
     }

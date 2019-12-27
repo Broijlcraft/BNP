@@ -7,16 +7,8 @@ using UnityEngine.XR;
 public class Grabbing : Hands {
 
     public GameObject itemInHand;
-    public Interactable gun;
-    public string testInput;
-    public LayerMask interactable;
 
-    public GameObject cam;
-
-    Vector3 oldPosition;
-    Vector3 velocity;
-    Vector3 oldRotation;
-    Vector3 angularVelocity;
+    public Color gizmosColor;
 
     public float throwMulti;
     public float rotMulti;
@@ -24,6 +16,10 @@ public class Grabbing : Hands {
     public bool hasGiven;
 
     bool buttonStillDown;
+
+    private void Start() {
+        SetVrInputs();
+    }
 
     private void FixedUpdate() {
         if (XRDevice.isPresent) {
@@ -35,7 +31,7 @@ public class Grabbing : Hands {
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
             if (buttonStillDown == false && !hasGiven) {
-                GrabAndLetGo(transform);
+                GrabAndLetGo(origin);
                 buttonStillDown = true;
             }
         } else {
@@ -78,10 +74,10 @@ public class Grabbing : Hands {
             GameObject closest = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (closest && closest.GetComponent<Interactable>()) {
                 itemInHand = closest;
-                itemInHand.GetComponent<Interactable>().AttachToHand(makeParent);
+                itemInHand.GetComponent<Interactable>().AttachToHand(makeParent, true);
             }
         } else {
-            //itemInHand.GetComponent<Interactable>().AttachToHand(null);
+            itemInHand.GetComponent<Interactable>().AttachToHand(null, false);
             itemInHand = null;
         }
 
@@ -191,6 +187,7 @@ public class Grabbing : Hands {
 
     private void OnDrawGizmos() {
         if (origin) {
+            Gizmos.color = gizmosColor;
             Gizmos.DrawWireSphere(origin.position, range);
         }
     }
