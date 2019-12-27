@@ -7,6 +7,6 @@ public class HandleFollow : MonoBehaviour {
     public Transform handleCollider;
 
     private void FixedUpdate() {
-        transform.position = handleCollider.position;
+        transform.localPosition = handleCollider.localPosition;
     }
 }

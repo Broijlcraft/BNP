@@ -13,7 +13,6 @@ public class Interactable : MonoBehaviour {
 
     public bool transferPositionAndRotation;
 
-    bool followHand;
     Transform handToFollow;
     Vector3 v;
 
@@ -31,29 +30,39 @@ public class Interactable : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (followHand && handToFollow) {
+        if (handToFollow) {
             transform.position = handToFollow.position;
-            if(Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
-                StopFollowing();
+            if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
+                DetachFromHand();
             }
         }
     }
-    
-    public void StopFollowing() {
+
+    //private void Update() {
+    //    if (followHand && handToFollow) {
+    //        transform.position = handToFollow.position;
+    //        if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
+    //            //StopFollowing();
+    //            print("Stop");
+    //        }
+    //    }
+    //}
+
+    public void DetachFromHand() {
         handToFollow.GetComponent<Grabbing>().GrabAndLetGo(null);
-        followHand = false;
-        handToFollow = null;
+        handToFollow.GetComponent<Grabbing>().hasGiven = true;
         transform.localPosition = v;
+        handToFollow = null;
+        print("Stop");
     }
 
     public void AttachToHand(Transform hand) {
         switch (onGrab) {
             case OnGrab.Follow:
                 if(hand == null) {
-                    StopFollowing();
+                    DetachFromHand();
                 }
                 handToFollow = hand;
-                followHand = true;
             break;
             case OnGrab.Pickup:
             break;

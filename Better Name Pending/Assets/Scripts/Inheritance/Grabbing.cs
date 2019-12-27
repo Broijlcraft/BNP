@@ -73,16 +73,15 @@ public class Grabbing : Hands {
         }
     }
 
-
     public void GrabAndLetGo(Transform makeParent) {
-        GameObject closest = CheckClosest(Physics.OverlapSphere(origin.position, range));
         if (!itemInHand) {
+            GameObject closest = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (closest && closest.GetComponent<Interactable>()) {
                 itemInHand = closest;
-                itemInHand.GetComponent<Interactable>().AttachToHand(transform);
+                itemInHand.GetComponent<Interactable>().AttachToHand(makeParent);
             }
         } else {
-            itemInHand.GetComponent<Interactable>().AttachToHand(null);
+            //itemInHand.GetComponent<Interactable>().AttachToHand(null);
             itemInHand = null;
         }
 
