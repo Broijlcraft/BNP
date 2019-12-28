@@ -277,7 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  setPosition: {x: 0, y: 0.1, z: 0.3}
-  setRotation: {x: 0, y: -90, z: 45}
-  transferPositionAndRotation: 1
+  origin: {fileID: 0}
+  maxDistanceFromOrigin: 0
+  setPosition: {x: -0.14, y: 0, z: 0}
+  setRotation: {x: -90, y: 90, z: 90}
+  setPositionAndRotation: 1
   onGrab: 0

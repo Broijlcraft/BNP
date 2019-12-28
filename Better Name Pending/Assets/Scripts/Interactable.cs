@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour {
     public Vector3 setPosition;
     public Vector3 setRotation;
 
-    public bool transferPositionAndRotation;
+    public bool setPositionAndRotation;
     
     Vector3 oldPosition;
     Vector3 velocity;
@@ -21,7 +21,7 @@ public class Interactable : MonoBehaviour {
 
     Transform handToFollow;
     Vector3 originPosition;
-
+    
     public enum OnGrab {
         Pickup,
         Follow,
@@ -37,7 +37,7 @@ public class Interactable : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (handToFollow) {
+        if (handToFollow && onGrab == OnGrab.Follow) {
             transform.position = handToFollow.position;
             if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
                 DetachFromHand();
@@ -64,6 +64,18 @@ public class Interactable : MonoBehaviour {
             break;
             case OnGrab.Pickup:
                 transform.SetParent(makeThisParent);
+                print(setParent);
+                if (setParent) {
+                    GetComponent<Rigidbody>().isKinematic = true;
+                    GetComponent<Rigidbody>().useGravity = false;
+                if (setPositionAndRotation) {
+                    transform.localPosition = setPosition;
+                    transform.localRotation = Quaternion.Euler(setRotation);
+                }
+                } else {
+                    GetComponent<Rigidbody>().isKinematic = false;
+                    GetComponent<Rigidbody>().useGravity = true;
+                }
             break;
         }
     }
