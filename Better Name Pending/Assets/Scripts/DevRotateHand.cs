@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DevRotateHand : MonoBehaviour { 
-
     public Transform hand;
     public Vector3 rotWhere;
     public float multi;
