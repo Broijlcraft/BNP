@@ -7,7 +7,6 @@ using UnityEngine.XR;
 public class Grabbing : Hands {
 
     public GameObject itemInHand;
-
     public Color gizmosColor;
 
     public float throwMulti;
@@ -41,28 +40,32 @@ public class Grabbing : Hands {
                 buttonStillDown = false;
             }
         }
+
         if (MouseInputAndVRAxisCheck(0, triggerInput, "Useless_Input")) {
-            HeldItemInteract();
+            HeldItemInteract(true);
+        } else {
+            HeldItemInteract(false);
         }
     }
 
     public void GrabAndLetGo(Transform makeParent) {
-        if (!itemInHand) {
-            GameObject closest = CheckClosest(Physics.OverlapSphere(origin.position, range));
-            if (closest && closest.GetComponent<Interactable>()) {
-                itemInHand = closest;
+        if (makeParent) {
+            itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
+            if (itemInHand) {
                 itemInHand.GetComponent<Interactable>().AttachToHand(makeParent, true);
             }
         } else {
-            itemInHand.GetComponent<Interactable>().AttachToHand(null, false);
-            itemInHand = null;
+            if (itemInHand) {
+                itemInHand.GetComponent<Interactable>().AttachToHand(null, false);
+                itemInHand = null;
+            }
         }
     }
 
     GameObject CheckClosest(Collider[] colliders) {
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
-                if(colliders[i].tag == "Interactable" && colliders[i].GetComponent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
+                if(colliders[i].CompareTag("Interactable") && colliders[i].GetComponent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
                     return colliders[i].gameObject;
                 }
             }
@@ -70,9 +73,9 @@ public class Grabbing : Hands {
         return null;
     }
 
-    void HeldItemInteract() {
-        if (itemInHand && itemInHand.GetComponent<Interactable>()) {
-            itemInHand.GetComponent<Interactable>().Use();
+    void HeldItemInteract(bool down) {
+        if (itemInHand) {
+            itemInHand.GetComponent<Interactable>().Use(down);
         }
     }
 

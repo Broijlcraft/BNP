@@ -7,12 +7,12 @@ public class Interactable : MonoBehaviour {
 
     public Transform origin;
     public float maxDistanceFromOrigin;
-    
+
     public Vector3 setPosition;
     public Vector3 setRotation;
 
     public bool setPositionAndRotation;
-    
+
     Vector3 oldPosition;
     Vector3 velocity;
     Vector3 oldRotation;
@@ -21,7 +21,9 @@ public class Interactable : MonoBehaviour {
 
     Transform handToFollow;
     Vector3 originPosition;
-    
+    Rigidbody rigidBody;
+    [HideInInspector]public bool hasBeenDown;
+
     public enum OnGrab {
         Pickup,
         Follow,
@@ -31,13 +33,11 @@ public class Interactable : MonoBehaviour {
     public OnGrab onGrab;
 
     private void Start() {
-        if (origin) {
-            originPosition = origin.localPosition;
-        }
+        StartSetUp();
     }
 
     private void FixedUpdate() {
-        if (handToFollow && onGrab == OnGrab.Follow) {
+        if (onGrab == OnGrab.Follow && handToFollow) {
             transform.position = handToFollow.position;
             if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
                 DetachFromHand();
@@ -54,37 +54,39 @@ public class Interactable : MonoBehaviour {
         transform.localPosition = originPosition;
     }
 
-    public void AttachToHand(Transform makeThisParent, bool setParent) {
+    public void AttachToHand(Transform makeThisParent, bool shouldSetParent) {
         switch (onGrab) {
             case OnGrab.Follow:
                 handToFollow = makeThisParent;
-                if(setParent == false) {
+                if(shouldSetParent == false) {
                     DetachFromHand();
                 }
             break;
             case OnGrab.Pickup:
                 transform.SetParent(makeThisParent);
-                print(setParent);
-                if (setParent) {
-                    GetComponent<Rigidbody>().isKinematic = true;
-                    GetComponent<Rigidbody>().useGravity = false;
-                if (setPositionAndRotation) {
-                    transform.localPosition = setPosition;
-                    transform.localRotation = Quaternion.Euler(setRotation);
-                }
+                if (shouldSetParent) {
+                    rigidBody.isKinematic = true;
+                    rigidBody.useGravity = false;
+                    if (setPositionAndRotation) {
+                        transform.localPosition = setPosition;
+                        transform.localRotation = Quaternion.Euler(setRotation);
+                    }
                 } else {
-                    GetComponent<Rigidbody>().isKinematic = false;
-                    GetComponent<Rigidbody>().useGravity = true;
+                    rigidBody.isKinematic = false;
+                    rigidBody.useGravity = true;
                 }
             break;
         }
     }
 
-    public virtual void GetControllerPosition(Vector3 position) {
-
+    public virtual void StartSetUp() {
+        if (origin) {
+            originPosition = origin.localPosition;
+        }
+        rigidBody = GetComponent<Rigidbody>();
     }
 
-    public virtual void Use() {
+    public virtual void Use(bool down) {
         //print("Base use");
     }    
 }
