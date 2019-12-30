@@ -7,6 +7,7 @@ using UnityEngine.XR;
 public class Grabbing : Hands {
 
     public GameObject itemInHand;
+    public bool showGizmos;
     public Color gizmosColor;
 
     public bool hasGiven;
@@ -77,7 +78,7 @@ public class Grabbing : Hands {
     }
 
     private void OnDrawGizmos() {
-        if (origin) {
+        if (showGizmos && origin) {
             Gizmos.color = gizmosColor;
             Gizmos.DrawWireSphere(origin.position, range);
         }
