@@ -779,8 +779,6 @@ MonoBehaviour:
   anyButton: 0
   itemInHand: {fileID: 0}
   gizmosColor: {r: 0, g: 0, b: 0, a: 0}
-  throwMulti: 0
-  rotMulti: 0
   hasGiven: 0
 --- !u!81 &220498736
 AudioListener:
@@ -3253,8 +3251,6 @@ MonoBehaviour:
   anyButton: 0
   itemInHand: {fileID: 0}
   gizmosColor: {r: 1, g: 1, b: 1, a: 1}
-  throwMulti: -0.4
-  rotMulti: 0
   hasGiven: 0
 --- !u!1 &1572281103
 GameObject:
@@ -3549,6 +3545,8 @@ MonoBehaviour:
     triggerInput: XRI_Left_TriggerButton
     touchInput: XRI_Left_Primary2DAxisTouch
     gripInput: XRI_Left_GripButton
+  staticThrowMultiplier: 10
+  staticRotationMultiplier: 0.5
 --- !u!4 &1666969966
 Transform:
   m_ObjectHideFlags: 0
@@ -3633,8 +3631,6 @@ MonoBehaviour:
   anyButton: 0
   itemInHand: {fileID: 0}
   gizmosColor: {r: 1, g: 0, b: 0, a: 1}
-  throwMulti: 1
-  rotMulti: 0
   hasGiven: 0
 --- !u!1 &1746291410
 GameObject:

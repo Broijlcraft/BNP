@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/LWRP/Scenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/WorkScenes/Max.unity
+    guid: a3cc66d6a9cb5f846adeb5e3dd0c8e41
   m_configObjects: {}

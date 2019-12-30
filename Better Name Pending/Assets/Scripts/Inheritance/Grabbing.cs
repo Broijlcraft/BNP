@@ -9,9 +9,6 @@ public class Grabbing : Hands {
     public GameObject itemInHand;
     public Color gizmosColor;
 
-    public float throwMulti;
-    public float rotMulti;
-
     public bool hasGiven;
 
     bool buttonStillDown;

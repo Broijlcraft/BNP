@@ -23,6 +23,8 @@ public class Interactable : MonoBehaviour {
     Vector3 originPosition;
     Rigidbody rigidBody;
     [HideInInspector]public bool hasBeenDown;
+    bool storeVelocity;
+    bool usedVelocity;
 
     public enum OnGrab {
         Pickup,
@@ -41,6 +43,22 @@ public class Interactable : MonoBehaviour {
             transform.position = handToFollow.position;
             if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
                 DetachFromHand();
+            }
+        }
+
+        if(onGrab == OnGrab.Pickup) {
+            if (storeVelocity) {
+                velocity = (oldPosition - transform.position);
+                oldPosition = transform.position;
+                angularVelocity = (oldRotation - transform.rotation.eulerAngles);
+                oldRotation = transform.rotation.eulerAngles;
+                usedVelocity = false;
+            } else {
+                if (!usedVelocity) {
+                    rigidBody.velocity = velocity * -Manager.throwMultiplier;
+                    rigidBody.angularVelocity = angularVelocity * -Manager.rotationMultiplier;
+                    usedVelocity = true;
+                }
             }
         }
     }
@@ -67,6 +85,7 @@ public class Interactable : MonoBehaviour {
                 if (shouldSetParent) {
                     rigidBody.isKinematic = true;
                     rigidBody.useGravity = false;
+                    storeVelocity = true;
                     if (setPositionAndRotation) {
                         transform.localPosition = setPosition;
                         transform.localRotation = Quaternion.Euler(setRotation);
@@ -74,6 +93,7 @@ public class Interactable : MonoBehaviour {
                 } else {
                     rigidBody.isKinematic = false;
                     rigidBody.useGravity = true;
+                    storeVelocity = false;
                 }
             break;
         }
