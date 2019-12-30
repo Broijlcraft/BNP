@@ -6,6 +6,7 @@ using UnityEngine;
 public class Gun : Interactable {
 
     public AudioClip shoot;
+    public Transform magazineHolder;
     public bool showRay;
 
     private void Start() {
