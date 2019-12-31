@@ -5,9 +5,14 @@ using UnityEngine;
 
 public class Gun : Interactable {
 
-    public AudioClip shoot;
+    public float range;
     public Transform magazineHolder;
     public bool showRay;
+    public float hitForce;
+    
+
+    [Header("SFX")]
+    public AudioClip shot;
 
     private void Start() {
         StartSetUp();
@@ -19,9 +24,16 @@ public class Gun : Interactable {
 
     public override void Use(bool down) {
         if (down) {
-            if (!hasBeenDown == shoot) {
-                AudioManager.PlaySound(shoot);
-                print("SHoot");
+            if (!hasBeenDown == shot) {
+                if (shot) {
+                    AudioManager.PlaySound(shot);
+                }
+                RaycastHit hit;
+                if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
+                    if (hit.transform.GetComponent<Rigidbody>()) {
+                        hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(origin.transform.forward * hitForce, hit.point);
+                    }
+                }
             }
             hasBeenDown = true;
         } else {

@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
-public class PointTest : Hands {
+public class Pointer : Hands {
 
+    [Space]
     public float extraLineRange;
 
     public GameObject dot;
@@ -11,6 +12,7 @@ public class PointTest : Hands {
     public float devider;
     public bool useBothHands;
     public LineRenderer lineRenderer;
+    public bool showGizmos;
     GameObject activeDot;
 
     GameObject activePlayer;
@@ -25,17 +27,17 @@ public class PointTest : Hands {
     }
 
     private void Update() {
-        anyButton = MouseInputAndVRAxisCheck(0, touchInput, "Useless_Input");
+        anyButton = MouseInputAndVRAxisCheck(2, touchInput, "Useless_Input");
 
         if (useBothHands || nodeName != XRNode.LeftHand) {
             if (anyButton == true) {
                 RaycastHit hit;
                 activeDot.gameObject.SetActive(true);
-                if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
+                if (Physics.Raycast(origin.position, transform.forward, out hit, range)) {
                     tp = hit.transform;
                     p = hit.point;
                     lineRenderer.enabled = true;
-                    SetLinePos(true, origin.position, origin.forward * range + origin.position);
+                    SetLinePos(true, origin.position, transform.forward * range + origin.position);
                     if (Vector3.Distance(origin.position, hit.point) < range) {
                         if (XRDevice.isPresent) {
                             activeDot.transform.position = hit.point;
@@ -44,13 +46,13 @@ public class PointTest : Hands {
                         }
                         SetLinePos(true, origin.position, hit.point);
                     } else {
-                        activeDot.transform.position = origin.forward * range + origin.position;
-                        SetLinePos(true, origin.position, origin.forward * range + origin.position);
+                        activeDot.transform.position = transform.forward * range + origin.position;
+                        SetLinePos(true, origin.position, transform.forward * range + origin.position);
                     }
                 } else {
                     lineRenderer.enabled = false;
-                    SetLinePos(true, origin.position, origin.forward * range + origin.position);
-                    activeDot.transform.position = origin.forward * range + origin.position;
+                    SetLinePos(true, origin.position, transform.forward * range + origin.position);
+                    activeDot.transform.position = transform.forward * range + origin.position;
                     tp = null;
                     p = Vector3.zero;
                 }
@@ -66,7 +68,6 @@ public class PointTest : Hands {
         if (tp != null && tp.transform.tag == "Teleport") {
             activePlayer.transform.position = p;
         }
-        anyButton = false;
     }
 
     void SetLinePos(bool b, Vector3 pos1, Vector3 pos2) {
@@ -75,5 +76,17 @@ public class PointTest : Hands {
         }
         lineRenderer.SetPosition(0, pos1);
         lineRenderer.SetPosition(1, pos2);
+    }
+
+    private void OnDrawGizmos() {
+        if (showGizmos) {
+            if (origin) {
+                if (origin) {
+                    Debug.DrawRay(origin.position, transform.forward, Color.red * 1000);
+                }
+            } else {
+                print("No Origin Set");
+            }
+        }
     }
 }

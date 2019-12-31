@@ -87,8 +87,10 @@ public class Interactable : MonoBehaviour {
                     rigidBody.useGravity = false;
                     storeVelocity = true;
                     if (setPositionAndRotation) {
-                        transform.localPosition = setPosition;
-                        transform.localRotation = Quaternion.Euler(setRotation);
+                        //transform.localPosition = setPosition;
+                        //transform.localRotation = Quaternion.Euler(setRotation);
+                        transform.localPosition = Vector3.zero;
+                        transform.localRotation = Quaternion.Euler(Vector3.zero);
                     }
                 } else {
                     rigidBody.isKinematic = false;

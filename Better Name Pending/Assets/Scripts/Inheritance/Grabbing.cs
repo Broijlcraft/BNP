@@ -6,6 +6,7 @@ using UnityEngine.XR;
 
 public class Grabbing : Hands {
 
+    [Space]
     public GameObject itemInHand;
     public bool showGizmos;
     public Color gizmosColor;
@@ -63,10 +64,24 @@ public class Grabbing : Hands {
     GameObject CheckClosest(Collider[] colliders) {
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
-                if(colliders[i].CompareTag("Interactable") && colliders[i].GetComponent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
-                    return colliders[i].gameObject;
-                }
+                return CheckFor(colliders[i]);
             }
+        }
+        return null;
+    }
+
+    GameObject CheckFor(Collider collider) {
+        switch (collider.tag) {
+            case "Interactable":
+                if(collider.GetComponent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
+                    return collider.gameObject;
+                }
+            break;
+            case "InteractableChild":
+                if (collider.GetComponentInParent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
+                    return collider.GetComponentInParent<Interactable>().gameObject;
+                }
+            break;
         }
         return null;
     }
@@ -78,9 +93,13 @@ public class Grabbing : Hands {
     }
 
     private void OnDrawGizmos() {
-        if (showGizmos && origin) {
-            Gizmos.color = gizmosColor;
-            Gizmos.DrawWireSphere(origin.position, range);
+        if (origin) {
+            if (showGizmos) {
+                Gizmos.color = gizmosColor;
+                Gizmos.DrawWireSphere(origin.position, range);
+            } else {
+                print("No Origin Set");
+            }
         }
     }
 }

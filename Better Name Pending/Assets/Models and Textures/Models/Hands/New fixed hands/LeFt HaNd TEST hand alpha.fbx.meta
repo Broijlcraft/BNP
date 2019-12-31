@@ -33,7 +33,8 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'RightUpperLeg' not found\n"
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
@@ -91,7 +92,112 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton: []
+    skeleton:
+    - name: LeFt HaNd TEST hand alpha(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: high poly hands.002
+      parentName: LeFt HaNd TEST hand alpha(Clone)
+      position: {x: -4.656613e-10, y: 0, z: -5.820766e-11}
+      rotation: {x: 6.123234e-17, y: 1, z: -6.123234e-17, w: -6.123234e-17}
+      scale: {x: 1, y: 1, z: 1}
+    - name: Armature
+      parentName: LeFt HaNd TEST hand alpha(Clone)
+      position: {x: -4.656613e-10, y: 0, z: -5.820766e-11}
+      rotation: {x: -0.7071067, y: -0.000000030908616, z: 0.000000030908623, w: 0.7071068}
+      scale: {x: 100, y: 100, z: 100}
+    - name: hand pols
+      parentName: Armature
+      position: {x: 0.00024287163, y: -0.00065930036, z: -0.0000009925279}
+      rotation: {x: -0.018370029, y: 0.9788924, z: 0.20004421, w: 0.037610546}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1}
+    - name: Hand main mid
+      parentName: hand pols
+      position: {x: -5.820766e-13, y: 0.00039072713, z: 2.561137e-11}
+      rotation: {x: -0.43309808, y: -0.054122236, z: -0.020370575, w: 0.89948976}
+      scale: {x: 1, y: 0.99999994, z: 1}
+    - name: middle finger 1
+      parentName: Hand main mid
+      position: {x: 0.00004985534, y: 0.0007202758, z: 0.000062565414}
+      rotation: {x: -0.010995089, y: -0.7046287, z: -0.046942696, w: 0.70793635}
+      scale: {x: 1, y: 1.0000002, z: 1}
+    - name: middle finger 2
+      parentName: middle finger 1
+      position: {x: -6.9485394e-12, y: 0.00032752618, z: 6.366463e-13}
+      rotation: {x: 0.022146262, y: 0.01923365, z: -0.17424086, w: 0.9842661}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
+    - name: middle finger 3
+      parentName: middle finger 2
+      position: {x: 2.7757777e-11, y: 0.00040722094, z: -6.6938807e-12}
+      rotation: {x: -0.023326892, y: 0.0062086494, z: -0.05573325, w: 0.99815387}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: ring finger 1
+      parentName: Hand main mid
+      position: {x: -0.0001929354, y: 0.0007346677, z: 0.00015761825}
+      rotation: {x: 0.04279827, y: -0.70452887, z: -0.031479176, w: 0.70768386}
+      scale: {x: 1, y: 1, z: 1}
+    - name: ringer 2
+      parentName: ring finger 1
+      position: {x: 8.1490726e-12, y: 0.00029272976, z: 1.7106743e-11}
+      rotation: {x: 0.040212158, y: -0.0024726687, z: -0.05533924, w: 0.9976545}
+      scale: {x: 0.99999994, y: 1, z: 1}
+    - name: ring 3
+      parentName: ringer 2
+      position: {x: 3.7834978e-11, y: 0.0003532524, z: 4.3655745e-13}
+      rotation: {x: -0.007990337, y: 0.001839993, z: -0.06700032, w: 0.9977193}
+      scale: {x: 0.9999998, y: 0.99999994, z: 0.9999998}
+    - name: pink 1
+      parentName: Hand main mid
+      position: {x: -0.00042693803, y: 0.00067720626, z: 0.0002018379}
+      rotation: {x: 0.595426, y: -0.5851137, z: 0.3179598, w: 0.4494568}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: pink 2
+      parentName: pink 1
+      position: {x: 2.2118911e-11, y: 0.00021870028, z: 1.4988472e-11}
+      rotation: {x: 0.11368077, y: -0.034387816, z: -0.04683018, w: 0.9918171}
+      scale: {x: 1.0000001, y: 1, z: 0.99999994}
+    - name: pink 3
+      parentName: pink 2
+      position: {x: 2.7939677e-11, y: 0.00026391706, z: 1.4988472e-11}
+      rotation: {x: -0.008007044, y: -0.0009951952, z: -0.015430661, w: 0.9998484}
+      scale: {x: 1, y: 1, z: 0.99999994}
+    - name: index 1
+      parentName: Hand main mid
+      position: {x: 0.00028002806, y: 0.00067734165, z: -0.0000005599604}
+      rotation: {x: -0.35208476, y: -0.5523118, z: -0.3995414, w: 0.6413694}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: index 2
+      parentName: index 1
+      position: {x: 3.2014213e-12, y: 0.00031629455, z: 4.6566128e-12}
+      rotation: {x: -0.12086314, y: 0.066869125, z: -0.016692687, w: 0.9902737}
+      scale: {x: 1, y: 1, z: 1}
+    - name: index 3.
+      parentName: index 2
+      position: {x: 1.5861588e-11, y: 0.00038168984, z: 1.9790605e-11}
+      rotation: {x: 0.049348306, y: -0.09024932, z: -0.11471398, w: 0.988059}
+      scale: {x: 1, y: 0.99999994, z: 0.9999999}
+    - name: duim 1
+      parentName: hand pols
+      position: {x: 0.00035690263, y: 0.0005035024, z: 0.000016474267}
+      rotation: {x: 0.041630775, y: -0.5725772, z: -0.7922041, w: 0.20696616}
+      scale: {x: 1.0000001, y: 1, z: 1}
+    - name: duim 2
+      parentName: duim 1
+      position: {x: -2.910383e-13, y: 0.00039233378, z: 5.8207657e-12}
+      rotation: {x: 0.19980839, y: 0.07818097, z: -0.032045033, w: 0.97618514}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: duim 3
+      parentName: duim 2
+      position: {x: 4.1618476e-11, y: 0.0004704309, z: 2.5029293e-11}
+      rotation: {x: 0.088093944, y: 0.01025282, z: -0.066795126, w: 0.99381727}
+      scale: {x: 1, y: 1.0000001, z: 1.0000001}
+    - name: high poly hands.001
+      parentName: LeFt HaNd TEST hand alpha(Clone)
+      position: {x: -4.656613e-10, y: 0, z: -5.820766e-11}
+      rotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
+      scale: {x: 1, y: 1, z: 1}
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
