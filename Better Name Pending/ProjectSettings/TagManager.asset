@@ -15,6 +15,7 @@ TagManager:
   - Teleport
   - Door
   - InteractableChild
+  - MagazineCollider
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,9 @@ public class Gun : Interactable {
     public Transform magazineHolder;
     public bool showRay;
     public float hitForce;
-    
+    [Header("Animations")]
+    public string shotName;
+    Animator animator;
 
     [Header("SFX")]
     public AudioClip shot;
@@ -20,6 +22,7 @@ public class Gun : Interactable {
 
     public override void StartSetUp() {
         base.StartSetUp();
+        animator = GetComponent<Animator>();
     }
 
     public override void Use(bool down) {
@@ -33,6 +36,9 @@ public class Gun : Interactable {
                     if (hit.transform.GetComponent<Rigidbody>()) {
                         hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(origin.transform.forward * hitForce, hit.point);
                     }
+                }
+                if (animator) {
+                    animator.SetTrigger(shotName);
                 }
             }
             hasBeenDown = true;

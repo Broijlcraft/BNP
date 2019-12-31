@@ -401,7 +401,8 @@ MonoBehaviour:
   origin: {fileID: 0}
   maxDistanceFromOrigin: 0
   setPosition: {x: 0, y: 0, z: 0}
-  setRotation: {x: -90, y: 90, z: 90}
-  setPositionAndRotation: 1
+  setRotation: {x: 0, y: 0, z: 0}
+  resetPositionAndRotation: 1
+  setPositionAndRotation: 0
   hasBeenDown: 0
   onGrab: 0

@@ -3,21 +3,18 @@ using System.Collections.Generic;
 using UnityEngine.XR;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour {
+
+    public string interactableTagName = "Interactable";
 
     public Transform origin;
     public float maxDistanceFromOrigin;
-
-    public Vector3 setPosition;
-    public Vector3 setRotation;
-
-    public bool setPositionAndRotation;
-
+    
     Vector3 oldPosition;
     Vector3 velocity;
     Vector3 oldRotation;
     Vector3 angularVelocity;
-
 
     Transform handToFollow;
     Vector3 originPosition;
@@ -31,8 +28,17 @@ public class Interactable : MonoBehaviour {
         Follow,
         DoNothing
     }
-
     public OnGrab onGrab;
+
+    public enum PositionAndRotation {
+        DoNothing,
+        ResetPositionAndRotation,
+        SetPositionAndRotation
+    }
+    public PositionAndRotation posAndRot;
+    
+    public Vector3 setPosition;
+    public Vector3 setRotation;
 
     private void Start() {
         StartSetUp();
@@ -86,11 +92,15 @@ public class Interactable : MonoBehaviour {
                     rigidBody.isKinematic = true;
                     rigidBody.useGravity = false;
                     storeVelocity = true;
-                    if (setPositionAndRotation) {
-                        //transform.localPosition = setPosition;
-                        //transform.localRotation = Quaternion.Euler(setRotation);
-                        transform.localPosition = Vector3.zero;
-                        transform.localRotation = Quaternion.Euler(Vector3.zero);
+                    switch (posAndRot) {
+                        case PositionAndRotation.ResetPositionAndRotation:
+                            transform.localPosition = Vector3.zero;
+                            transform.localRotation = Quaternion.Euler(Vector3.zero);
+                        break;
+                        case PositionAndRotation.SetPositionAndRotation:
+                            transform.localPosition = setPosition;
+                            transform.localRotation = Quaternion.Euler(setRotation);
+                        break;
                     }
                 } else {
                     rigidBody.isKinematic = false;
@@ -106,6 +116,8 @@ public class Interactable : MonoBehaviour {
             originPosition = origin.localPosition;
         }
         rigidBody = GetComponent<Rigidbody>();
+        //transform.tag = interactableTagName;
+        transform.tag = "Interactable";
     }
 
     public virtual void Use(bool down) {
