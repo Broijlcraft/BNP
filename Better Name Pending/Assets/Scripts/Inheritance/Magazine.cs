@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.XR;
 using UnityEngine;
 
 public class Magazine : Interactable {
@@ -18,7 +19,7 @@ public class Magazine : Interactable {
         if (beingHeld) {
             Collider[] colliders = Physics.OverlapSphere(origin.position, range);
             for (int i = 0; i < colliders.Length; i++) {
-                if (colliders[i].CompareTag("MagazineCollider") && !colliders[i].GetComponentInParent<Gun>().beingHeld) {
+                if (colliders[i].CompareTag("MagazineCollider") && HeldByPcVrCheck(colliders[i].GetComponentInParent<Gun>())) {
                     gun = colliders[i].GetComponentInParent<Gun>();
                     magazine.transform.SetPositionAndRotation(gun.magazineOrigin.position, gun.magazineOrigin.rotation);
                     magazine.transform.position = gun.magazineOrigin.position;
@@ -35,6 +36,18 @@ public class Magazine : Interactable {
             if (inRange) {
                 gun.InsertMagazine(transform);
             }
+        }
+    }
+
+    bool HeldByPcVrCheck(Gun gun) {
+        if (XRDevice.isPresent) {
+            if (gun.beingHeld) {
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            return true;
         }
     }
 

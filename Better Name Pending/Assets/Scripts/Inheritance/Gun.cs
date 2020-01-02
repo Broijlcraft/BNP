@@ -9,6 +9,7 @@ public class Gun : Interactable {
     Magazine magazine;
     public Transform bulletCasingOrigin;
     public GameObject emptyCasingPrefab;
+    public GameObject bulletPrefab;
     public float shotsPerSecond;
     public int bulletInChamber;
     bool hasShot;
@@ -37,6 +38,13 @@ public class Gun : Interactable {
                 coolDown = 0;
             }
         }
+
+        if (Input.GetButtonDown("Reload")) {
+            if(bulletInChamber == 0) {
+                ChamberLoader();
+                AnimatorCheckAndExecute(false);
+            }
+        }
     }
 
     public override void Use(bool down) {
@@ -52,9 +60,7 @@ public class Gun : Interactable {
                             hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(origin.transform.forward * hitForce, hit.point);
                         }
                     }
-                    if(bulletCasingOrigin && emptyCasingPrefab) {
-                        Instantiate(emptyCasingPrefab, bulletCasingOrigin.position, bulletCasingOrigin.rotation);
-                    }
+                    EjectShell(emptyCasingPrefab);
                     ChamberLoader();
                     AnimatorCheckAndExecute(true);
                 } else {
@@ -70,6 +76,12 @@ public class Gun : Interactable {
         }
     }
     
+    void EjectShell(GameObject shell) {
+        if (shell && bulletCasingOrigin) {
+            Instantiate(shell, bulletCasingOrigin.position, bulletCasingOrigin.rotation);
+        }
+    }
+
     public void AnimatorCheckAndExecute(bool shoot) {
         if (animator) {
             if (bulletInChamber == 0) {
@@ -79,7 +91,7 @@ public class Gun : Interactable {
             }
             if (shoot) {
                 animator.SetTrigger(shotName);
-                animator.SetTrigger(triggerPress);
+                //animator.SetTrigger(triggerPress);
             }
         }
     }
