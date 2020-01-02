@@ -6,10 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour {
 
-    public string interactableTagName = "Interactable";
-
     public Transform origin;
-    public float maxDistanceFromOrigin;
+    public float range;
     
     Vector3 oldPosition;
     Vector3 velocity;
@@ -20,7 +18,8 @@ public class Interactable : MonoBehaviour {
     Vector3 originPosition;
     Rigidbody rigidBody;
     [HideInInspector]public bool hasBeenDown;
-    bool storeVelocity;
+    [HideInInspector]public bool storeVelocity;
+    [HideInInspector]public bool beingHeld; //necessary for inheritance
     bool usedVelocity;
 
     public enum OnGrab {
@@ -47,13 +46,14 @@ public class Interactable : MonoBehaviour {
     private void FixedUpdate() {
         if (onGrab == OnGrab.Follow && handToFollow) {
             transform.position = handToFollow.position;
-            if (Vector3.Distance(origin.position, handToFollow.position) > maxDistanceFromOrigin) {
+            if (Vector3.Distance(origin.position, handToFollow.position) > range) {
                 DetachFromHand();
             }
         }
 
         if(onGrab == OnGrab.Pickup) {
             if (storeVelocity) {
+                beingHeld = true;
                 velocity = (oldPosition - transform.position);
                 oldPosition = transform.position;
                 angularVelocity = (oldRotation - transform.rotation.eulerAngles);
@@ -61,6 +61,7 @@ public class Interactable : MonoBehaviour {
                 usedVelocity = false;
             } else {
                 if (!usedVelocity) {
+                    beingHeld = false;
                     rigidBody.velocity = velocity * -Manager.throwMultiplier;
                     rigidBody.angularVelocity = angularVelocity * -Manager.rotationMultiplier;
                     usedVelocity = true;
@@ -116,8 +117,6 @@ public class Interactable : MonoBehaviour {
             originPosition = origin.localPosition;
         }
         rigidBody = GetComponent<Rigidbody>();
-        //transform.tag = interactableTagName;
-        transform.tag = "Interactable";
     }
 
     public virtual void Use(bool down) {
