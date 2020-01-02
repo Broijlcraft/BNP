@@ -2,7 +2,25 @@ fileFormatVersion: 2
 guid: 3dbec3f26c1aa0f42b6c5717828297d3
 ModelImporter:
   serializedVersion: 26
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: -1961319162224977641
+    second: high poly hands.002|animation grip
+  - first:
+      74: 1784477088121901802
+    second: high poly hands.002|middle finger XD
+  - first:
+      74: 5276512556476669431
+    second: Armature|animation grip
+  - first:
+      74: 8907993792498360991
+    second: Armature|animation GRip los
+  - first:
+      74: -6031413729267150992
+    second: Armature|animation point
+  - first:
+      74: 5398651588476532892
+    second: Armature|middle finger XD
   externalObjects: {}
   materials:
     importMaterials: 1
