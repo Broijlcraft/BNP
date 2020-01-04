@@ -39,10 +39,11 @@ public class Gun : Interactable {
             }
         }
 
-        if (Input.GetButtonDown("Reload")) {
-            if(bulletInChamber == 0) {
-                ChamberLoader();
-                AnimatorCheckAndExecute(false);
+        if (Input.GetButtonDown("Reload") && beingHeld) {
+            ChamberLoader();
+            AnimatorCheckAndExecute(true);
+            if(magazine && magazine.bullets > 0) {
+                EjectShell(bulletPrefab);
             }
         }
     }
@@ -50,7 +51,7 @@ public class Gun : Interactable {
     public override void Use(bool down) {
         if (down) {
             if (!hasBeenDown == shot && hasShot == false) {
-                if(bulletInChamber == 1) {
+                if (bulletInChamber == 1) {
                     if (shot) {
                         AudioManager.PlaySound(shot);
                     }
@@ -75,13 +76,13 @@ public class Gun : Interactable {
             hasBeenDown = false;
         }
     }
-    
+
     void EjectShell(GameObject shell) {
         if (shell && bulletCasingOrigin) {
             Instantiate(shell, bulletCasingOrigin.position, bulletCasingOrigin.rotation);
         }
     }
-
+    
     public void AnimatorCheckAndExecute(bool shoot) {
         if (animator) {
             if (bulletInChamber == 0) {
@@ -96,6 +97,10 @@ public class Gun : Interactable {
         }
     }
 
+    public enum SlideUse {
+
+    }
+
     public void ChamberLoader() {
         bulletInChamber = 0;
         if (magazine && magazine.bullets > 0) {
@@ -108,7 +113,7 @@ public class Gun : Interactable {
     public override void StartSetUp() {
         base.StartSetUp();
         animator = GetComponent<Animator>();
-        if(GetComponentInChildren<Magazine>()) {
+        if (GetComponentInChildren<Magazine>()) {
             InsertMagazine(GetComponentInChildren<Magazine>().transform);
         }
         ChamberLoader();
@@ -121,7 +126,7 @@ public class Gun : Interactable {
         mag.GetComponent<BoxCollider>().enabled = false;
         magazine = mag.GetComponent<Magazine>();
     }
-    
+
     private void OnDrawGizmos() {
         if (showRay) {
             if (origin) {

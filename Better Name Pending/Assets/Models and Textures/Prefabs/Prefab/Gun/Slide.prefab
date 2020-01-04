@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7101290028714107113}
   - component: {fileID: 3166155964906254857}
   - component: {fileID: 8729816434819257662}
+  - component: {fileID: 8211210252336854413}
   m_Layer: 0
   m_Name: Slide
-  m_TagString: Untagged
+  m_TagString: InteractableChild
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8211210252336854413
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3081865517375216428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.23242879, y: 0.041537665, z: 0.030470567}
+  m_Center: {x: 0.0037045144, y: 0.028335273, z: -0.004593971}

@@ -8,6 +8,7 @@ public class Interactable : MonoBehaviour {
 
     public Transform origin;
     public float range;
+    public bool showGizmos;
     
     Vector3 oldPosition;
     Vector3 velocity;
@@ -47,7 +48,7 @@ public class Interactable : MonoBehaviour {
         if (onGrab == OnGrab.Follow && handToFollow) {
             transform.position = handToFollow.position;
             if (Vector3.Distance(origin.position, handToFollow.position) > range) {
-                DetachFromHand();
+                StopFollowingHand();
             }
         }
 
@@ -62,15 +63,15 @@ public class Interactable : MonoBehaviour {
             } else {
                 if (!usedVelocity) {
                     beingHeld = false;
-                    rigidBody.velocity = velocity * -Manager.throwMultiplier;
-                    rigidBody.angularVelocity = angularVelocity * -Manager.rotationMultiplier;
+                    rigidBody.velocity = velocity * -VrInputManager.throwMultiplier;
+                    rigidBody.angularVelocity = angularVelocity * -VrInputManager.rotationMultiplier;
                     usedVelocity = true;
                 }
             }
         }
     }
 
-    public void DetachFromHand() {
+    public void StopFollowingHand() {
         if (handToFollow) {
             handToFollow.GetComponentInParent<Grabbing>().hasGiven = true;
             handToFollow.GetComponentInParent<Grabbing>().itemInHand = null;
@@ -84,7 +85,7 @@ public class Interactable : MonoBehaviour {
             case OnGrab.Follow:
                 handToFollow = makeThisParent;
                 if(shouldSetParent == false) {
-                    DetachFromHand();
+                    StopFollowingHand();
                 }
             break;
             case OnGrab.Pickup:
@@ -122,4 +123,12 @@ public class Interactable : MonoBehaviour {
     public virtual void Use(bool down) {
         //print("Base use");
     }    
+
+    public virtual void ShowGizmos(Transform originTransform, float showRange) {
+        if (showGizmos) {
+            if (originTransform) {
+                Gizmos.DrawWireSphere(originTransform.position, showRange);
+            }
+        }
+    }
 }

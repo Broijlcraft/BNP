@@ -20,6 +20,7 @@ public class Magazine : Interactable {
             Collider[] colliders = Physics.OverlapSphere(origin.position, range);
             for (int i = 0; i < colliders.Length; i++) {
                 if (colliders[i].CompareTag("MagazineCollider") && HeldByPcVrCheck(colliders[i].GetComponentInParent<Gun>())) {
+                    print("Here 1");
                     gun = colliders[i].GetComponentInParent<Gun>();
                     magazine.transform.SetPositionAndRotation(gun.magazineOrigin.position, gun.magazineOrigin.rotation);
                     magazine.transform.position = gun.magazineOrigin.position;
@@ -27,20 +28,24 @@ public class Magazine : Interactable {
                     inRange = true;
                     break;
                 }
+                    print("Here 2");
                 gun = null;
                 inRange = false;
                 magazine.transform.localPosition = magStartPos;
                 magazine.transform.localRotation = magStartRot;
             }
         } else {
+                    print("Here 3");
             if (inRange) {
+                    print("Here 4");
                 gun.InsertMagazine(transform);
             }
         }
     }
 
     bool HeldByPcVrCheck(Gun gun) {
-        if (XRDevice.isPresent) {
+        print("here 5");
+        if (XRDevice.isPresent && Manager.dev == false) {
             if (gun.beingHeld) {
                 return true;
             } else {
@@ -63,6 +68,6 @@ public class Magazine : Interactable {
     }
 
     private void OnDrawGizmos() {
-        Gizmos.DrawWireSphere(origin.position, range);
+        ShowGizmos(origin, range);
     }
 }

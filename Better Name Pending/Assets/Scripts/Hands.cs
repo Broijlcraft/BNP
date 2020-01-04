@@ -10,7 +10,7 @@ public class Hands : MonoBehaviour {
     public Transform origin;
 
     public bool grabbing;
-    public Manager manager;
+    public VrInputManager manager;
 
     [HideInInspector]
     public string triggerInput, touchInput, gripInput;
@@ -19,7 +19,7 @@ public class Hands : MonoBehaviour {
     public bool anyButton;
 
     public void SetVrInputs() {
-        manager = GameObject.Find("GameManager").GetComponent<Manager>();
+        manager = GameObject.Find("GameManager").GetComponent<VrInputManager>();
         if (nodeName == XRNode.LeftHand) {
             triggerInput = manager.leftHandInput.triggerInput;
             touchInput = manager.leftHandInput.touchInput;

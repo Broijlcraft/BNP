@@ -9,4 +9,8 @@ public class Door : Interactable {
     
     [Header("HideInInspector")]
     public bool locked;
+
+    private void OnDrawGizmos() {
+        ShowGizmos(origin, range);
+    }
 }
