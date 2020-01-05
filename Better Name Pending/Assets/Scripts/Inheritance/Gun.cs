@@ -97,16 +97,16 @@ public class Gun : Interactable {
         }
     }
 
-    public enum SlideUse {
-
-    }
-
     public void ChamberLoader() {
         bulletInChamber = 0;
-        if (magazine && magazine.bullets > 0) {
+        if (Manager.dev) {
             bulletInChamber = 1;
-            //using -- caused issues
-            magazine.bullets -= 1;
+        } else {
+            if (magazine && magazine.bullets > 0) {
+                bulletInChamber = 1;
+                //using -- caused issues
+                magazine.bullets -= 1;
+            }
         }
     }
 

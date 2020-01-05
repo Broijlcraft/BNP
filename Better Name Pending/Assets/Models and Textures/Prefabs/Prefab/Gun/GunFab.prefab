@@ -320,8 +320,8 @@ MonoBehaviour:
   shotName: SlideBack
   ammoToChamber: SlideForward
   triggerPress: 
-  shot: {fileID: 8300000, guid: 05865b9e7f0e7bd4dbe0bde76dfc2364, type: 3}
-  empty: {fileID: 8300000, guid: 24aeba32770191341b2455b0651adb1e, type: 3}
+  shot: {fileID: 8300000, guid: 17eea4a4439d9a24d9f2d2d4d5f5d365, type: 3}
+  empty: {fileID: 8300000, guid: 5524c2e3b8f29a4469a67a9990c44fbe, type: 3}
 --- !u!54 &5756903681620116501
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -576,21 +576,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5756903682415610438}
     m_Modifications:
-    - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.029730186
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
-        type: 3}
-      propertyPath: m_Center.x
-      value: 0.003704518
-      objectReference: {fileID: 0}
-    - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.031197604
-      objectReference: {fileID: 0}
     - target: {fileID: 3081865517375216428, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
         type: 3}
       propertyPath: m_Name
@@ -650,6 +635,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.029730186
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.003704518
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.031197604
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e, type: 3}
