@@ -79,7 +79,7 @@ public class Interactable : MonoBehaviour {
         }
         transform.localPosition = originPosition;
     }
-
+    //
     public void AttachToHand(Transform makeThisParent, bool shouldSetParent) {
         switch (onGrab) {
             case OnGrab.Follow:
