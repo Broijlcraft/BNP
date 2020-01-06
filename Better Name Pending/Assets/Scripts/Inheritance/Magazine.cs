@@ -6,6 +6,8 @@ using UnityEngine;
 public class Magazine : Interactable {
     public int bullets;
     public GameObject magazine;
+    Vector3 magStartPos;
+    Quaternion magStartRot;
     bool inRange;
     Gun gun;
 
@@ -27,8 +29,8 @@ public class Magazine : Interactable {
                 }
                 gun = null;
                 inRange = false;
-                magazine.transform.localPosition = Vector3.zero;
-                magazine.transform.localRotation = Quaternion.Euler(Vector3.zero);
+                magazine.transform.localPosition = magStartPos;
+                magazine.transform.localRotation = magStartRot;
             }
         } else {
             if (inRange) {
@@ -56,6 +58,8 @@ public class Magazine : Interactable {
 
     public override void StartSetUp() {
         base.StartSetUp();
+        magStartPos = magazine.transform.localPosition;
+        magStartRot = magazine.transform.localRotation;
     }
 
     private void OnDrawGizmos() {
