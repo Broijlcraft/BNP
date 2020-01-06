@@ -53,15 +53,16 @@
                 o.uv = v.uv;
                 return o;
             }
-        sampler2D _MainTex;
-        sampler2D _UVTex;
-        fixed4 _Color;
-        float4 _LightPosition;
-		float4 _LightDirection;
-		float _LightAngle;
-		float _StrengthScaling;
-        float _LightRange;
-        float _LightFallOff;
+            
+            sampler2D _MainTex;
+            sampler2D _UVTex;
+            fixed4 _Color;
+            float4 _LightPosition;
+		    float4 _LightDirection;
+		    float _LightAngle;
+		    float _StrengthScaling;
+            float _LightRange;
+            float _LightFallOff;
 
             float4 frag (v2f i) : SV_Target
             {
