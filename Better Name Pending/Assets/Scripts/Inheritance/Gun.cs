@@ -125,6 +125,10 @@ public class Gun : Interactable {
         mag.GetComponent<Rigidbody>().isKinematic = true;
         mag.GetComponent<BoxCollider>().enabled = false;
         magazine = mag.GetComponent<Magazine>();
+        mag.transform.localPosition = Vector3.zero;
+        mag.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        magazine.magazine.transform.localPosition = Vector3.zero;
+        magazine.magazine.transform.localRotation = Quaternion.Euler(Vector3.zero);
     }
 
     private void OnDrawGizmos() {
