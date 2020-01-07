@@ -29,4 +29,9 @@ public class VrInputManager : MonoBehaviour {
         throwMultiplier = staticThrowMultiplier;
         rotationMultiplier = staticRotationMultiplier;
     }
+    var Test() {
+        GameObject g;
+        return g;
+    }
+
 }

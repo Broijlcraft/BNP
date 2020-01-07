@@ -6,7 +6,7 @@ using UnityEngine;
 public class Gun : Interactable {
 
     public Transform magazineOrigin;
-    Magazine magazine;
+    [HideInInspector] public Magazine magazine;
     public Transform bulletCasingOrigin;
     public GameObject emptyCasingPrefab;
     public GameObject bulletPrefab;

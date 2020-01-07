@@ -52,8 +52,8 @@ public class Grabbing : Hands {
                 if (pickup == VrInputManager.Pickup.hold) {
                     GrabAndLetGo(null);
                     hasGiven = false;
-                    buttonStillDown = false;
                 }
+                buttonStillDown = false;
             }
         }
 

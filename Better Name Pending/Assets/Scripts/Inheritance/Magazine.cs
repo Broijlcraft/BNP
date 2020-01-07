@@ -21,10 +21,12 @@ public class Magazine : Interactable {
             for (int i = 0; i < colliders.Length; i++) {
                 if (colliders[i].CompareTag("MagazineCollider") && HeldByPcVrCheck(colliders[i].GetComponentInParent<Gun>())) {
                     gun = colliders[i].GetComponentInParent<Gun>();
-                    magazine.transform.SetPositionAndRotation(gun.magazineOrigin.position, gun.magazineOrigin.rotation);
-                    magazine.transform.position = gun.magazineOrigin.position;
-                    magazine.transform.rotation = gun.magazineOrigin.rotation;
-                    inRange = true;
+                    if (!gun.magazine) {
+                        magazine.transform.SetPositionAndRotation(gun.magazineOrigin.position, gun.magazineOrigin.rotation);
+                        magazine.transform.position = gun.magazineOrigin.position;
+                        magazine.transform.rotation = gun.magazineOrigin.rotation;
+                        inRange = true;
+                    }
                     break;
                 }
                 gun = null;

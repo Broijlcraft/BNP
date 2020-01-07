@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 1219ab3cb9ef0d84c9f6fb3676965928,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4907,7 +4907,7 @@ MonoBehaviour:
     triggerInput: XRI_Left_TriggerButton
     touchInput: XRI_Left_Primary2DAxisTouch
     gripInput: XRI_Left_GripButton
-  pickup: 0
+  pickup: 1
   staticThrowMultiplier: 35
   staticRotationMultiplier: 0.1
 --- !u!4 &1666969966
@@ -5010,6 +5010,9 @@ MonoBehaviour:
   itemInHand: {fileID: 0}
   showGizmos: 1
   gizmosColor: {r: 1, g: 0, b: 0, a: 1}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
   hasGiven: 0
 --- !u!114 &1701183565
 MonoBehaviour:

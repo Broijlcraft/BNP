@@ -19,6 +19,10 @@ public class Hands : MonoBehaviour {
     [HideInInspector]
     public VrInputManager.Pickup pickup;
 
+    private void Update() {
+        CheckPickupEnum();
+    }
+
     public void SetVrInputs() {
         manager = GameObject.Find("GameManager").GetComponent<VrInputManager>();
         if (nodeName == XRNode.LeftHand) {
@@ -37,7 +41,7 @@ public class Hands : MonoBehaviour {
             pickup = manager.pickup;
         }
     }
-
+    
     public bool MouseInputAndVRAxisCheck(int mouseButtonValue, string axisInputString, string buttonInputString) {
         if (Input.GetMouseButton(mouseButtonValue) || Input.GetAxis(axisInputString) == 1 || Input.GetButton(buttonInputString)) {
             return true;
