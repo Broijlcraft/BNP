@@ -13,10 +13,11 @@ public class Hands : MonoBehaviour {
     public VrInputManager manager;
 
     [HideInInspector]
-    public string triggerInput, touchInput, gripInput;
-
-    [Header("HideInInspector")]
+    public string triggerInput, touchInput, gripInput; 
+    [HideInInspector]
     public bool anyButton;
+    [HideInInspector]
+    public VrInputManager.Pickup pickup;
 
     public void SetVrInputs() {
         manager = GameObject.Find("GameManager").GetComponent<VrInputManager>();
@@ -28,6 +29,12 @@ public class Hands : MonoBehaviour {
             triggerInput = manager.rightHandInput.triggerInput;
             touchInput = manager.rightHandInput.touchInput;
             gripInput = manager.rightHandInput.gripInput;
+        }
+    }
+
+    public void CheckPickupEnum() {
+        if (manager) {
+            pickup = manager.pickup;
         }
     }
 

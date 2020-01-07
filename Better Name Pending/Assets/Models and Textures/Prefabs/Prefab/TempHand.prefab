@@ -394,7 +394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeName: 4
-  range: 0.06
+  range: 0.1
   origin: {fileID: 5122135979391735408}
   grabbing: 0
   manager: {fileID: 0}

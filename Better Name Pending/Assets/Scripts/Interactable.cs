@@ -18,9 +18,7 @@ public class Interactable : MonoBehaviour {
     Transform handToFollow;
     Vector3 originPosition;
     Rigidbody rigidBody;
-    [HideInInspector]public bool hasBeenDown;
-    [HideInInspector]public bool storeVelocity;
-    [HideInInspector]public bool beingHeld; //necessary for inheritance
+    [HideInInspector]public bool hasBeenDown, storeVelocity, beingHeld; //beingHeld necessary for inheritance
     bool usedVelocity;
 
     public enum OnGrab {
@@ -79,7 +77,7 @@ public class Interactable : MonoBehaviour {
         }
         transform.localPosition = originPosition;
     }
-    //
+    
     public void AttachToHand(Transform makeThisParent, bool shouldSetParent) {
         switch (onGrab) {
             case OnGrab.Follow:

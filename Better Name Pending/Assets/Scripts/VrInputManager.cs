@@ -14,7 +14,12 @@ public class VrInputManager : MonoBehaviour {
     
     public VR_input rightHandInput;
     public VR_input leftHandInput;
+    public enum Pickup {
+        toggle,
+        hold
+    }
     [Space]
+    public Pickup pickup;
     public float staticThrowMultiplier;
     public static float throwMultiplier;
     public float staticRotationMultiplier;
