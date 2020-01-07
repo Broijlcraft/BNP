@@ -4907,7 +4907,7 @@ MonoBehaviour:
     triggerInput: XRI_Left_TriggerButton
     touchInput: XRI_Left_Primary2DAxisTouch
     gripInput: XRI_Left_GripButton
-  pickup: 1
+  pickup: 0
   staticThrowMultiplier: 35
   staticRotationMultiplier: 0.1
 --- !u!4 &1666969966
@@ -6058,6 +6058,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 278827282}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_Name
+      value: LeFt HaNd TEST hand alpha
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.10788112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.02231022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.085165896
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.990258
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -12.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.6690001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.221001
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6117,51 +6162,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.10788112
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.02231022
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.085165896
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.990258
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -12.114
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.6690001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 10.221001
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_Name
-      value: LeFt HaNd TEST hand alpha
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -2866281189433505730, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
         type: 3}
