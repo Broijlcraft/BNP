@@ -21,7 +21,6 @@ public class Gun : Interactable {
     public string ammoToChamber;
     public string triggerPress;
     Animator animator;
-
     [Header("SFX")]
     public AudioClip shot;
     public AudioClip empty;
@@ -53,7 +52,7 @@ public class Gun : Interactable {
             if (!hasBeenDown == shot && hasShot == false) {
                 if (bulletInChamber == 1) {
                     if (shot) {
-                        //AudioManager.PlaySound(shot);
+                        AudioManager.PlaySound(shot, AudioManager.audioMixer, AudioManager.AudioGroups.GameSFX);
                     }
                     RaycastHit hit;
                     if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
