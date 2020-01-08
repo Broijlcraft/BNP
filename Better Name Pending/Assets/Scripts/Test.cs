@@ -11,8 +11,8 @@ public class Test : MonoBehaviour {
 
     private void Update() {
         float f = Vector3.Distance(followThis.position, transform.position);
-        Vector3 v = makeThisFollow.transform.position;
+        Vector3 v = makeThisFollow.transform.localPosition;
         v.z = Mathf.Clamp(followThis.localPosition.z, maxMinPlus.x, maxMinPlus.y);
-        makeThisFollow.transform.position = v;          
+        makeThisFollow.transform.localPosition = v;          
     }
 }
