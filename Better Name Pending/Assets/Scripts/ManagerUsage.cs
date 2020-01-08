@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.Audio;
 
 public class ManagerUsage : MonoBehaviour {
 
@@ -17,6 +18,7 @@ public class ManagerUsage : MonoBehaviour {
             vrPlayer.SetActive(false);
             pcPlayer.SetActive(true);
         }
+        AudioManager.audioMixer = Resources.Load("Master Volume") as AudioMixer;
     }
 
     private void Update() {
