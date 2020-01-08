@@ -20,14 +20,14 @@ public class UIManager : MonoBehaviour
     }
     public void Options()
     {
-        //AudioManager.PlaySound(buttonSound);
+        AudioManager.PlaySound(buttonSound, AudioManager.audioMixer, AudioManager.AudioGroups.UISFX);
         startMenu.SetActive(false);
         optionMenu.SetActive(true);
     }
 
     public void Back()
     {
-        //AudioManager.PlaySound(buttonSound);
+        AudioManager.PlaySound(buttonSound, AudioManager.audioMixer, AudioManager.AudioGroups.UISFX);
         startMenu.SetActive(true);
         optionMenu.SetActive(false);
     }

@@ -11,6 +11,8 @@ public class ManagerUsage : MonoBehaviour {
     public GameObject pcPlayer;
 
     private void Awake() {
+        AudioManager.audioMixer = Resources.Load("MasterVolume") as AudioMixer;
+
         if (XRDevice.isPresent) {
             pcPlayer.SetActive(false);
             vrPlayer.SetActive(true);
@@ -18,7 +20,6 @@ public class ManagerUsage : MonoBehaviour {
             vrPlayer.SetActive(false);
             pcPlayer.SetActive(true);
         }
-        AudioManager.audioMixer = Resources.Load("Master Volume") as AudioMixer;
     }
 
     private void Update() {
