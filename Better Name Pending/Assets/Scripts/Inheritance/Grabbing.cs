@@ -79,9 +79,13 @@ public class Grabbing : Hands {
     }
 
     GameObject CheckClosest(Collider[] colliders) {
+        GameObject coll;
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
-                return CheckFor(colliders[i]);
+                coll = CheckFor(colliders[i]);
+                if (coll) {
+                    return coll;
+                }
             }
         }
         return null;

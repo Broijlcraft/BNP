@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 5756903681620116502}
   m_Layer: 0
   m_Name: GunFab
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -308,6 +308,7 @@ MonoBehaviour:
   setPosition: {x: 0, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
   magazineOrigin: {fileID: 5756903682415610438}
+  magazine: {fileID: 0}
   bulletCasingOrigin: {fileID: 5756903682646894789}
   emptyCasingPrefab: {fileID: 8935273627833906504, guid: 16f5e7b8adbdd5249824baa27bad30fe,
     type: 3}
