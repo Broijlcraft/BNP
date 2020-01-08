@@ -77,19 +77,6 @@ public class Grabbing : Hands {
             }
         }
     }
-    //public void GrabAndLetGo(Transform makeParent) {
-    //    if (makeParent) {
-    //        itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
-    //        if (itemInHand) {
-    //            itemInHand.GetComponent<Interactable>().AttachToHand(makeParent, true);
-    //        }
-    //    } else {
-    //        if (itemInHand) {
-    //            itemInHand.GetComponent<Interactable>().AttachToHand(null, false);
-    //            itemInHand = null;
-    //        }
-    //    }
-    //}
 
     GameObject CheckClosest(Collider[] colliders) {
         if (colliders.Length > 0) {
@@ -119,6 +106,8 @@ public class Grabbing : Hands {
     void HeldItemInteract(bool down) {
         if (itemInHand) {
             itemInHand.GetComponent<Interactable>().Use(down);
+        } else {
+
         }
     }
 

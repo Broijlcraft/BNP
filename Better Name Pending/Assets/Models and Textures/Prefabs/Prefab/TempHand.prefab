@@ -402,9 +402,13 @@ MonoBehaviour:
   touchInput: 
   gripInput: 
   anyButton: 0
+  pickup: 0
   itemInHand: {fileID: 0}
   showGizmos: 1
   gizmosColor: {r: 1, g: 0, b: 0, a: 1}
+  layer:
+    serializedVersion: 2
+    m_Bits: 0
   hasGiven: 0
 --- !u!114 &5122135979307922314
 MonoBehaviour:
@@ -427,6 +431,7 @@ MonoBehaviour:
   touchInput: 
   gripInput: 
   anyButton: 0
+  pickup: 0
   extraLineRange: 0
   dot: {fileID: 6646197620918386676, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 0}
@@ -471,6 +476,46 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5122135977466127061}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_Name
+      value: LeFt HaNd TEST hand alpha
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.10788112
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.02231022
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.085165896
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.990258
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -12.114
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -3.6690001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 10.221001
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -525,46 +570,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.10788112
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.02231022
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.085165896
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.990258
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -12.114
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -3.6690001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6294742818102203886, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 10.221001
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
-        type: 3}
-      propertyPath: m_Name
-      value: LeFt HaNd TEST hand alpha
       objectReference: {fileID: 0}
     - target: {fileID: -2866281189433505730, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
         type: 3}
@@ -706,6 +711,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 24.03
       objectReference: {fileID: 0}
+    - target: {fileID: 7943101219230024164, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b513c73938f089c469badc5d30db5cb9, type: 2}
+    - target: {fileID: -87948765705947900, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d15fa820318ca541a2a8bcd21c175b9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4, type: 3}
 --- !u!4 &175586811892667578 stripped
