@@ -7,7 +7,9 @@ public static class AudioManager
 {
     public static AudioMixer audioMixer;
 
-    public enum AudioGroups{
+    public enum AudioGroups
+    {
+        None,
         UIMusic,
         GameMusic,
         GameSFX,

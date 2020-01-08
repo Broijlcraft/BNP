@@ -26,26 +26,30 @@ public class MixerController : MonoBehaviour
 
     public void Start() 
     {
-        
+        float master = PlayerPrefs.GetFloat("masterVolume", 0f);
+        SetMasterVolume(master);
+        float music = PlayerPrefs.GetFloat("musicVolume", 0f);
+        SetMusicVolume(music);
+        float sfx = PlayerPrefs.GetFloat("sfxVolume", 0f);
+        SetSFXVolume(sfx);
     }
-
-    public void SetMusicVolume()
+    public void SetMasterVolume(float sliderValue)
     {
-        float sliderValue = musicSlider.value;
-        audioMixer.SetFloat("musicVolume", sliderValue);
-        PlayerPrefs.SetFloat("musicVolume", sliderValue);
-        PlayerPrefs.Save();
-    }
-    public void SetMasterVolume()
-    {
-        float sliderValue = masterSlider.value;
+        sliderValue = masterSlider.value;
         audioMixer.SetFloat("masterVolume", sliderValue);
         PlayerPrefs.SetFloat("masterVolume", sliderValue);
         PlayerPrefs.Save();
     }
-    public void SetSFXVolume()
+    public void SetMusicVolume(float sliderValue)
     {
-        float sliderValue = sfxSlider.value;
+        sliderValue = musicSlider.value;
+        audioMixer.SetFloat("musicVolume", sliderValue);
+        PlayerPrefs.SetFloat("musicVolume", sliderValue);
+        PlayerPrefs.Save();
+    }
+    public void SetSFXVolume(float sliderValue)
+    {
+        sliderValue = sfxSlider.value;
         audioMixer.SetFloat("sfxVolume", sliderValue);
         PlayerPrefs.SetFloat("sfxVolume", sliderValue);
         PlayerPrefs.Save();
