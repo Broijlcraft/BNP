@@ -89,18 +89,20 @@ public class Interactable : MonoBehaviour {
             case OnGrab.Pickup:
                 transform.SetParent(makeThisParent);
                 if (shouldSetParent) {
-                    rigidBody.isKinematic = true;
-                    rigidBody.useGravity = false;
-                    storeVelocity = true;
-                    switch (posAndRot) {
-                        case PositionAndRotation.ResetPositionAndRotation:
+                    if (!beingHeld) {
+                        rigidBody.isKinematic = true;
+                        rigidBody.useGravity = false;
+                        storeVelocity = true;
+                        switch (posAndRot) {
+                            case PositionAndRotation.ResetPositionAndRotation:
                             transform.localPosition = Vector3.zero;
                             transform.localRotation = Quaternion.Euler(Vector3.zero);
-                        break;
-                        case PositionAndRotation.SetPositionAndRotation:
+                            break;
+                            case PositionAndRotation.SetPositionAndRotation:
                             transform.localPosition = setPosition;
                             transform.localRotation = Quaternion.Euler(setRotation);
-                        break;
+                            break;
+                        }
                     }
                 } else {
                     rigidBody.isKinematic = false;

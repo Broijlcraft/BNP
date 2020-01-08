@@ -20,14 +20,14 @@ public class UIManager : MonoBehaviour
     }
     public void Options()
     {
-        AudioManager.PlaySound(buttonSound);
+        //AudioManager.PlaySound(buttonSound);
         startMenu.SetActive(false);
         optionMenu.SetActive(true);
     }
 
     public void Back()
     {
-        AudioManager.PlaySound(buttonSound);
+        //AudioManager.PlaySound(buttonSound);
         startMenu.SetActive(true);
         optionMenu.SetActive(false);
     }
