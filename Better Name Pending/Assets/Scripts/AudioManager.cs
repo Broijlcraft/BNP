@@ -13,12 +13,12 @@ public static class AudioManager
         GameSFX,
         UISFX,
     }
-    public static void PlaySound(AudioClip audioClipToPlay, AudioMixer audioMixerToPlayFrom, AudioGroups audioGroups)
+    public static void PlaySound(AudioClip audioClipToPlay, AudioGroups audioGroups)
     {
         GameObject soundGameobject = new GameObject("Sound");
         AudioSource audioSource = soundGameobject.AddComponent<AudioSource>();
         audioSource.PlayOneShot(audioClipToPlay);
-        soundGameobject.GetComponent<AudioSource>().outputAudioMixerGroup = audioMixerToPlayFrom.FindMatchingGroups(audioGroups.ToString())[0];
+        soundGameobject.GetComponent<AudioSource>().outputAudioMixerGroup = AudioManager.audioMixer.FindMatchingGroups(audioGroups.ToString())[0];
         GameObject.Destroy(soundGameobject, audioClipToPlay.length);
     }
 }
