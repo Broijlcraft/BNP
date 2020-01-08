@@ -33,6 +33,6 @@ public class UIManager : MonoBehaviour
     }
     public void LoadNewLevel(Scene sceneToLoad)
     {
-        SceneManager.LoadScene(sceneToLoad.name);
+        SceneManager.LoadScene(2);
     }
 }

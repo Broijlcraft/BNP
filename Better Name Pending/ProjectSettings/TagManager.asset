@@ -16,6 +16,9 @@ TagManager:
   - Door
   - InteractableChild
   - MagazineCollider
+  - Master
+  - Music
+  - Sfx
   layers:
   - Default
   - TransparentFX
