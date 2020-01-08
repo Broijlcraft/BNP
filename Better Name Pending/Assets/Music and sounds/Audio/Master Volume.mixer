@@ -20,7 +20,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI Music
+  m_Name: UIMusic
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 165740a1fe259954385d21f465984af2
   m_Children: []
@@ -39,7 +39,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Game Music
+  m_Name: GameMusic
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: ff8414f3da24c8641966411d4fc87268
   m_Children: []
@@ -72,7 +72,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI SFX
+  m_Name: UISFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 5f01b75351ffec14fb6845c8c0453338
   m_Children: []
@@ -191,7 +191,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Game SFX
+  m_Name: GameSFX
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 3c5bb182037c0eb488b72c60a51af0bc
   m_Children: []

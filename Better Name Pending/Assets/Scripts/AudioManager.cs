@@ -5,6 +5,12 @@ using UnityEngine.Audio;
 
 public static class AudioManager 
 {
+    public enum AudioGroups{
+        UIMusic,
+        GameMusic,
+        GameSFX,
+        UISFX,
+    }
     public static void PlaySound(AudioClip audioClipToPlay, AudioMixer audioMixerToPlayFrom, string mixerGroup)
     {
         GameObject soundGameobject = new GameObject("Sound");
