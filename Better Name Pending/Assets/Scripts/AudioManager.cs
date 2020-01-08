@@ -18,7 +18,7 @@ public static class AudioManager
         GameObject soundGameobject = new GameObject("Sound");
         AudioSource audioSource = soundGameobject.AddComponent<AudioSource>();
         audioSource.PlayOneShot(audioClipToPlay);
-        soundGameobject.GetComponent<AudioSource>().outputAudioMixerGroup = audioMixerToPlayFrom.FindMatchingGroups(subPath: audioGroups.ToString())[0];
+        soundGameobject.GetComponent<AudioSource>().outputAudioMixerGroup = audioMixerToPlayFrom.FindMatchingGroups(audioGroups.ToString())[0];
         GameObject.Destroy(soundGameobject, audioClipToPlay.length);
     }
 }
