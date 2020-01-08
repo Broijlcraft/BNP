@@ -300,6 +300,7 @@ MonoBehaviour:
   origin: {fileID: 2055157205416456372}
   range: 50
   showGizmos: 0
+  audioGroup: 2
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0

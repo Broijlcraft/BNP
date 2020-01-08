@@ -9,13 +9,15 @@ public class Interactable : MonoBehaviour {
     public Transform origin;
     public float range;
     public bool showGizmos;
-    
+    [Space]
+    public AudioManager.AudioGroups audioGroup;
+
     Vector3 oldPosition;
     Vector3 velocity;
     Vector3 oldRotation;
     Vector3 angularVelocity;
 
-    Transform handToFollow;
+    public Transform handToFollow;
     Vector3 originPosition;
     Rigidbody rigidBody;
     [HideInInspector]public bool hasBeenDown, storeVelocity, beingHeld; //beingHeld necessary for inheritance
@@ -26,6 +28,7 @@ public class Interactable : MonoBehaviour {
         Follow,
         DoNothing
     }
+    [Space]
     public OnGrab onGrab;
 
     public enum PositionAndRotation {
@@ -44,8 +47,10 @@ public class Interactable : MonoBehaviour {
 
     private void FixedUpdate() {
         if (onGrab == OnGrab.Follow && handToFollow) {
+            print("Follow");
             transform.position = handToFollow.position;
             if (Vector3.Distance(origin.position, handToFollow.position) > range) {
+            print("Stop Following Call");
                 StopFollowingHand();
             }
         }
@@ -70,7 +75,9 @@ public class Interactable : MonoBehaviour {
     }
 
     public void StopFollowingHand() {
+            print("Stop Following First");
         if (handToFollow) {
+            print("Stop Following If Following");
             handToFollow.GetComponentInParent<Grabbing>().hasGiven = true;
             handToFollow.GetComponentInParent<Grabbing>().itemInHand = null;
             handToFollow = null;

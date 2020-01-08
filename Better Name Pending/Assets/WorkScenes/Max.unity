@@ -278,6 +278,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -868,11 +869,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunFab
       objectReference: {fileID: 0}
-    - target: {fileID: 5756903681620116496, guid: 47dc3344dcd6af245b0580de42f3055c,
-        type: 3}
-      propertyPath: m_TagString
-      value: Interactable
-      objectReference: {fileID: 0}
     - target: {fileID: 5756903681620116503, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1032,6 +1028,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1254,6 +1251,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1407,6 +1405,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1611,6 +1610,7 @@ MonoBehaviour:
   origin: {fileID: 1204764716}
   range: 0.3
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1745,6 +1745,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -2018,6 +2019,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -3600,6 +3602,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -3923,6 +3926,7 @@ MonoBehaviour:
   origin: {fileID: 1204764716}
   range: 0.3
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -4168,6 +4172,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -4316,6 +4321,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -4538,6 +4544,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -5407,6 +5414,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -6560,6 +6568,7 @@ MonoBehaviour:
   origin: {fileID: 1684836974}
   range: 0.5
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -6854,6 +6863,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7002,6 +7012,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7418,6 +7429,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7566,6 +7578,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7714,6 +7727,7 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
+  audioGroup: 0
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0

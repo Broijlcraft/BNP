@@ -52,7 +52,7 @@ public class Gun : Interactable {
             if (!hasBeenDown == shot && hasShot == false) {
                 if (bulletInChamber == 1) {
                     if (shot) {
-                        AudioManager.PlaySound(shot, AudioManager.audioMixer, AudioManager.AudioGroups.GameSFX);
+                        AudioManager.PlaySound(shot, audioGroup);
                     }
                     RaycastHit hit;
                     if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
@@ -65,7 +65,7 @@ public class Gun : Interactable {
                     AnimatorCheckAndExecute(true);
                 } else {
                     if (empty) {
-                        //AudioManager.PlaySound(empty);
+                        AudioManager.PlaySound(empty, audioGroup);
                     }
                 }
                 hasShot = true;

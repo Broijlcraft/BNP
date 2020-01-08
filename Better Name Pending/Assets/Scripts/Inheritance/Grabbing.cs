@@ -7,7 +7,7 @@ using UnityEngine.XR;
 public class Grabbing : Hands {
 
     [Space]
-    [HideInInspector] public GameObject itemInHand;
+    public GameObject itemInHand;
     public bool showGizmos;
     public Color gizmosColor;
     public LayerMask layer;

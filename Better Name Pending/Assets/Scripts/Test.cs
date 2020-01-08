@@ -10,7 +10,6 @@ public class Test : MonoBehaviour {
     public Vector2 maxMinPlus;
 
     private void Update() {
-        float f = Vector3.Distance(followThis.position, transform.position);
         Vector3 v = makeThisFollow.transform.localPosition;
         v.z = Mathf.Clamp(followThis.localPosition.z, maxMinPlus.x, maxMinPlus.y);
         makeThisFollow.transform.localPosition = v;          
