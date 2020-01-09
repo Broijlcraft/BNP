@@ -11,7 +11,12 @@ public class Grabbing : Hands {
     public bool showGizmos;
     public Color gizmosColor;
     public LayerMask layer;
-
+    [Header("Animations")]
+    public string grab;
+    public string letGoOfGrab;
+    public string fingerShoot;
+    public string gunHold;
+    Animator animator;
     bool buttonStillDown;
 
     private void Start() {
@@ -28,6 +33,9 @@ public class Grabbing : Hands {
     
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
+            if (animator) {
+                animator.SetTrigger();
+            }
             if (buttonStillDown == false) {
                 switch (pickup) {
                     case VrInputManager.Pickup.hold:

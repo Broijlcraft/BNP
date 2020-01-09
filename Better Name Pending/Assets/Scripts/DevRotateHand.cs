@@ -8,8 +8,10 @@ public class DevRotateHand : MonoBehaviour {
     public float multi;
     
     private void Update() {
-        Vector3 rot = hand.localRotation.eulerAngles + rotWhere * (multi * Signing(Input.GetAxis("Mouse ScrollWheel")));
-        hand.localRotation = Quaternion.Euler(rot);
+        if (hand) {
+            Vector3 rot = hand.localRotation.eulerAngles + rotWhere * (multi * Signing(Input.GetAxis("Mouse ScrollWheel")));
+            hand.localRotation = Quaternion.Euler(rot);
+        }
     }
 
     float Signing(float a) {
