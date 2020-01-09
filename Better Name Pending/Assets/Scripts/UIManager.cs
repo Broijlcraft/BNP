@@ -24,7 +24,6 @@ public class UIManager : MonoBehaviour
         startMenu.SetActive(false);
         optionMenu.SetActive(true);
     }
-
     public void Back()
     {
         AudioManager.PlaySound(buttonSound, AudioManager.AudioGroups.UISFX);
@@ -34,5 +33,9 @@ public class UIManager : MonoBehaviour
     public void LoadNewLevel(Scene sceneToLoad)
     {
         SceneManager.LoadScene(2);
+    }
+    public void Quit()
+    {
+        Application.Quit();
     }
 }
