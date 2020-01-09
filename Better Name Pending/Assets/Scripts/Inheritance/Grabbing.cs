@@ -12,8 +12,6 @@ public class Grabbing : Hands {
     public Color gizmosColor;
     public LayerMask layer;
 
-    [HideInInspector] public bool hasGiven;
-
     bool buttonStillDown;
 
     private void Start() {
@@ -31,19 +29,17 @@ public class Grabbing : Hands {
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
             if (buttonStillDown == false) {
-                if(hasGiven == false) {
-                    switch (pickup) {
-                        case VrInputManager.Pickup.hold:                    
+                switch (pickup) {
+                    case VrInputManager.Pickup.hold:
+                    GrabAndLetGo(origin);
+                    break;
+                    case VrInputManager.Pickup.toggle:
+                        if (itemInHand) {
+                            GrabAndLetGo(null);
+                        } else {
                             GrabAndLetGo(origin);
-                        break;
-                        case VrInputManager.Pickup.toggle:
-                            if (itemInHand) {
-                                GrabAndLetGo(null);
-                            } else {
-                                GrabAndLetGo(origin);
-                            }
-                        break;
-                    }
+                        }
+                    break;
                 }
                 buttonStillDown = true;
             }
@@ -51,7 +47,6 @@ public class Grabbing : Hands {
             if(buttonStillDown == true) {
                 if (pickup == VrInputManager.Pickup.hold) {
                     GrabAndLetGo(null);
-                    hasGiven = false;
                 }
                 buttonStillDown = false;
             }
@@ -67,7 +62,7 @@ public class Grabbing : Hands {
     public void GrabAndLetGo(Transform makeParent) {
         if (makeParent) {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
-            if (itemInHand) {
+            if (itemInHand && !itemInHand.GetComponentInParent<Grabbing>()) {
                 itemInHand.GetComponent<Interactable>().AttachToHand(makeParent, true);
             }
         } else {

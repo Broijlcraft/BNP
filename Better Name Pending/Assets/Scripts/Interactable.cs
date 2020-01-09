@@ -47,10 +47,8 @@ public class Interactable : MonoBehaviour {
 
     private void FixedUpdate() {
         if (onGrab == OnGrab.Follow && handToFollow) {
-            print("Follow");
             transform.position = handToFollow.position;
             if (Vector3.Distance(origin.position, handToFollow.position) > range) {
-            print("Stop Following Call");
                 StopFollowingHand();
             }
         }
@@ -75,10 +73,7 @@ public class Interactable : MonoBehaviour {
     }
 
     public void StopFollowingHand() {
-            print("Stop Following First");
         if (handToFollow) {
-            print("Stop Following If Following");
-            handToFollow.GetComponentInParent<Grabbing>().hasGiven = true;
             handToFollow.GetComponentInParent<Grabbing>().itemInHand = null;
             handToFollow = null;
         }

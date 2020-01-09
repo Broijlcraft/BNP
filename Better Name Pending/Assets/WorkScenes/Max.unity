@@ -279,6 +279,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1029,6 +1030,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1252,6 +1254,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1406,6 +1409,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1611,6 +1615,7 @@ MonoBehaviour:
   range: 0.3
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -1746,6 +1751,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -2020,6 +2026,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -3603,6 +3610,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -3895,7 +3903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1001636553
 Transform:
   m_ObjectHideFlags: 0
@@ -3927,6 +3935,7 @@ MonoBehaviour:
   range: 0.3
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -4173,6 +4182,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -4322,6 +4332,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -4545,6 +4556,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -5415,6 +5427,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -6569,6 +6582,7 @@ MonoBehaviour:
   range: 0.5
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -6766,7 +6780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeName: 4
-  range: 0.06
+  range: 0.1
   origin: {fileID: 1650927031}
   grabbing: 0
   manager: {fileID: 0}
@@ -6781,7 +6795,6 @@ MonoBehaviour:
   layer:
     serializedVersion: 2
     m_Bits: 0
-  hasGiven: 0
 --- !u!114 &1701183565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6864,6 +6877,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7013,6 +7027,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7430,6 +7445,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7579,6 +7595,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
@@ -7728,6 +7745,7 @@ MonoBehaviour:
   range: 0
   showGizmos: 0
   audioGroup: 0
+  handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
