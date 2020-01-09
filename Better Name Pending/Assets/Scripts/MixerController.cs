@@ -13,10 +13,10 @@ public class MixerController : MonoBehaviour
         
     public void Awake()
     {
-        if(MixerController.instance == null)
+        if(instance == null)
         {
             DontDestroyOnLoad(gameObject);
-            MixerController.instance = this;
+            instance = this;
         }
        else
        {
