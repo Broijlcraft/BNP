@@ -11,6 +11,7 @@ public class Interactable : MonoBehaviour {
     public bool showGizmos;
     [Space]
     public AudioManager.AudioGroups audioGroup;
+    public string specificGrabAnim = "Grab";
 
     Vector3 oldPosition;
     Vector3 velocity;
@@ -107,8 +108,8 @@ public class Interactable : MonoBehaviour {
                         }
                     }
                 } else {
-                    rigidBody.isKinematic = false;
-                    rigidBody.useGravity = true;
+                    //rigidBody.isKinematic = false;
+                    //rigidBody.useGravity = true;
                     storeVelocity = false;
                 }
             break;

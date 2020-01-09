@@ -16,7 +16,7 @@ public class Grabbing : Hands {
     public string letGoOfGrab;
     public string fingerShoot;
     public string gunHold;
-    Animator animator;
+    public Animator animator;
     bool buttonStillDown;
 
     private void Start() {
@@ -33,9 +33,6 @@ public class Grabbing : Hands {
     
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
-            if (animator) {
-                animator.SetTrigger();
-            }
             if (buttonStillDown == false) {
                 switch (pickup) {
                     case VrInputManager.Pickup.hold:
@@ -49,12 +46,22 @@ public class Grabbing : Hands {
                         }
                     break;
                 }
+                if (itemInHand) {
+                    if (itemInHand.GetComponent<Interactable>()) {
+                        HandAnim(itemInHand.GetComponent<Interactable>().specificGrabAnim);
+                    }
+                } else {
+                    HandAnim(grab);
+                }
                 buttonStillDown = true;
             }
         } else {
             if(buttonStillDown == true) {
                 if (pickup == VrInputManager.Pickup.hold) {
                     GrabAndLetGo(null);
+                }
+                if (!itemInHand) {
+                    HandAnim(letGoOfGrab);
                 }
                 buttonStillDown = false;
             }
@@ -64,6 +71,12 @@ public class Grabbing : Hands {
             HeldItemInteract(true);
         } else {
             HeldItemInteract(false);
+        }
+    }
+
+    void HandAnim(string animationName) {
+        if (animator) {
+            animator.SetTrigger(animationName);
         }
     }
 

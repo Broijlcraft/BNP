@@ -8,6 +8,7 @@ public class Gun : Interactable {
     public Transform magazineOrigin;
     [HideInInspector] public Magazine magazine;
     public Transform bulletCasingOrigin;
+    public float ejectForce;
     public GameObject emptyCasingPrefab;
     public GameObject bulletPrefab;
     public float shotsPerSecond;
@@ -78,7 +79,8 @@ public class Gun : Interactable {
 
     void EjectShell(GameObject shell) {
         if (shell && bulletCasingOrigin) {
-            Instantiate(shell, bulletCasingOrigin.position, bulletCasingOrigin.rotation);
+            GameObject g = Instantiate(shell, bulletCasingOrigin.position, bulletCasingOrigin.rotation);
+            g.GetComponent<Rigidbody>().AddForce(bulletCasingOrigin.forward * ejectForce);
         }
     }
     
@@ -136,6 +138,11 @@ public class Gun : Interactable {
                 Debug.DrawRay(origin.position, origin.transform.forward, Color.red * 1000);
             } else {
                 print("No Origin Set");
+            }
+            if (bulletCasingOrigin) {
+                Debug.DrawRay(bulletCasingOrigin.position, bulletCasingOrigin.forward, Color.blue * 1000);
+            } else {
+                print("No Bulletcasing Origin Set");
             }
         }
     }
