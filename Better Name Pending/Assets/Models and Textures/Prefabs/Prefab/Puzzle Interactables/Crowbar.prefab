@@ -46,10 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2630619255cbd4f99478609118fdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: ebef5ed0479511f4097a1aae9bf8dcc7, type: 3}
-  brokenItems:
-  - {fileID: 968506151262761035, guid: 128f8137f2ef8f947baadbaa8a158315, type: 3}
-  - {fileID: 7947756165559922832, guid: 34b10cb392147ee489e9152530a5ee01, type: 3}
+  tag_: Interactble
+  origin: {fileID: 0}
+  range: 0
+  showGizmos: 0
+  audioGroup: 0
+  specificGrabAnim: Grab
+  handToFollow: {fileID: 0}
+  hasBeenDown: 0
+  storeVelocity: 0
+  beingHeld: 0
+  onGrab: 0
+  posAndRot: 0
+  setPosition: {x: 0, y: 0, z: 0}
+  setRotation: {x: 0, y: 0, z: 0}
+  minimumVelocity: 0
+  rb: {fileID: 4241682923843533969}
+  crowbarParts: []
 --- !u!114 &145531431620288098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +75,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag_: Interactble
   origin: {fileID: 0}
   range: 0
   showGizmos: 0
