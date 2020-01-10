@@ -15,9 +15,9 @@ public class Interactable : MonoBehaviour {
     public string specificGrabAnim = "Grab";
 
     Vector3 oldPosition;
-    Vector3 velocity;
+    [HideInInspector] public Vector3 velocity;
     Vector3 oldRotation;
-    Vector3 angularVelocity;
+    [HideInInspector] public Vector3 angularVelocity;
 
     public Transform handToFollow;
     Vector3 originPosition;

@@ -53,15 +53,17 @@ MonoBehaviour:
   showGizmos: 1
   audioGroup: 0
   specificGrabAnim: Grab
+  velocity: {x: 0, y: 0, z: 0}
+  angularVelocity: {x: 0, y: 0, z: 0}
   handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
   beingHeld: 0
   onGrab: 0
-  posAndRot: 0
+  posAndRot: 1
   setPosition: {x: 0, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
-  minimumVelocity: 1
+  minimumVelocity: 0.01
   rb: {fileID: 4241682923843533969}
   crowbarParts: []
 --- !u!114 &145531431620288098
@@ -82,6 +84,8 @@ MonoBehaviour:
   showGizmos: 0
   audioGroup: 0
   specificGrabAnim: Grab
+  velocity: {x: 0, y: 0, z: 0}
+  angularVelocity: {x: 0, y: 0, z: 0}
   handToFollow: {fileID: 0}
   hasBeenDown: 0
   storeVelocity: 0
