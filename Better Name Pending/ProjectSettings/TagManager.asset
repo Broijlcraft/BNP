@@ -19,6 +19,7 @@ TagManager:
   - Master
   - Music
   - Sfx
+  - Finger
   layers:
   - Default
   - TransparentFX

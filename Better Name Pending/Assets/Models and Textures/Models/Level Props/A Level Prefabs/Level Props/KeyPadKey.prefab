@@ -94,4 +94,5 @@ MonoBehaviour:
   value: 0
   origin: {fileID: 0}
   range: 0.0125
+  fingerTag: Finger
   material: {fileID: 0}
