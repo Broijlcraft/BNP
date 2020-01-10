@@ -91,3 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa28d024298d0424c88e2572c76eaebf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  value: 0
+  origin: {fileID: 0}
+  range: 0.0125
+  material: {fileID: 0}
