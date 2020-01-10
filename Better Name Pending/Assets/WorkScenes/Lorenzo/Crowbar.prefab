@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1181712578116142356}
   - component: {fileID: 696966656157978028}
   - component: {fileID: 5181161787688123877}
+  - component: {fileID: 1356461414198051885}
   m_Layer: 0
   m_Name: CrowbarPart2
   m_TagString: InteractableChild
@@ -27,13 +28,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601968703074693576}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.099999905, y: 0, z: 0}
+  m_LocalRotation: {x: -0.68301135, y: -0.1830149, z: -0.18301229, w: 0.6830136}
+  m_LocalPosition: {x: 0.08660233, y: 0, z: 0.121000186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4823829216935032427}
-  m_Father: {fileID: 2396094536913850315}
-  m_RootOrder: 0
+  m_Father: {fileID: 449176780580407088}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4853402926903900653
 MeshFilter:
@@ -42,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601968703074693576}
-  m_Mesh: {fileID: -348422429679550703, guid: bbf007e3c677fad40af2578725f371fe, type: 3}
+  m_Mesh: {fileID: -348422429679550703, guid: bdcbf3b81cc46924795a96dfe89404f5, type: 3}
 --- !u!23 &1181712578116142356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -60,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: bbf007e3c677fad40af2578725f371fe, type: 3}
+  - {fileID: 2100002, guid: efe9381559c516743bd05cef82f39ebb, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -107,6 +108,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.016870677, y: 0.08956392, z: 0.036143336}
   m_Center: {x: 0.270573, y: -0.043709286, z: -0.0018370377}
+--- !u!54 &1356461414198051885
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 601968703074693576}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &614048993567508031
 GameObject:
   m_ObjectHideFlags: 0
@@ -119,6 +136,7 @@ GameObject:
   - component: {fileID: 4865529346948779546}
   - component: {fileID: 1205095817557652195}
   - component: {fileID: 2287164110175823191}
+  - component: {fileID: 4519166857515062217}
   m_Layer: 0
   m_Name: CrowbarPart1
   m_TagString: InteractableChild
@@ -148,7 +166,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 614048993567508031}
-  m_Mesh: {fileID: 6845310287697654405, guid: 1c396f691ffac014f8213d7f635f57db, type: 3}
+  m_Mesh: {fileID: 6845310287697654405, guid: 3b479db30b14513419eb2663f86deab0, type: 3}
 --- !u!23 &1205095817557652195
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -166,7 +184,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 1c396f691ffac014f8213d7f635f57db, type: 3}
+  - {fileID: 2100002, guid: efe9381559c516743bd05cef82f39ebb, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -200,6 +218,52 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.36760354, y: 0.027496982, z: 0.034398425}
   m_Center: {x: -0.23312448, y: 0.052119136, z: -0.001053445}
+--- !u!54 &4519166857515062217
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614048993567508031}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &951712812842624506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5761359152956333795}
+  m_Layer: 0
+  m_Name: Origin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5761359152956333795
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951712812842624506}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.3604, y: -0.1003, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2396094536913850315}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2312226352610109412
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,7 +379,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0.071}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4468070560386876379}
+  - {fileID: 5761359152956333795}
   - {fileID: 4530290918658536492}
   m_Father: {fileID: 449176780580407088}
   m_RootOrder: 0
@@ -329,9 +393,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 449176780580407088}
-  - component: {fileID: 2612194160975755844}
   - component: {fileID: 7586560359938818694}
-  - component: {fileID: 5877360542252769397}
+  - component: {fileID: 4397110987723792060}
   m_Layer: 0
   m_Name: Crowbar
   m_TagString: Interactable
@@ -351,25 +414,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2396094536913850315}
+  - {fileID: 4468070560386876379}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2612194160975755844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6850687638623769823}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da2630619255cbd4f99478609118fdfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioClip: {fileID: 8300000, guid: 56373b09486fdee48add3e11d1f411eb, type: 3}
-  brokenItems:
-  - {fileID: 968506151262761035, guid: 128f8137f2ef8f947baadbaa8a158315, type: 3}
-  - {fileID: 7947756165559922832, guid: 34b10cb392147ee489e9152530a5ee01, type: 3}
 --- !u!54 &7586560359938818694
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -386,7 +434,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!114 &5877360542252769397
+--- !u!114 &4397110987723792060
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -395,14 +443,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 6850687638623769823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
+  m_Script: {fileID: 11500000, guid: da2630619255cbd4f99478609118fdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 0}
-  maxDistanceFromOrigin: 0
+  origin: {fileID: 5761359152956333795}
+  range: 0.07
+  showGizmos: 1
+  audioGroup: 0
+  specificGrabAnim: Grab
+  handToFollow: {fileID: 0}
+  hasBeenDown: 0
+  storeVelocity: 0
+  beingHeld: 0
+  onGrab: 0
+  posAndRot: 0
   setPosition: {x: 0, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
-  resetPositionAndRotation: 1
-  setPositionAndRotation: 0
-  hasBeenDown: 0
-  onGrab: 0
+  minimumVelocity: 0
+  rb: {fileID: 7586560359938818694}
+  crowbarParts:
+  - {fileID: 4530290918658536492}
+  - {fileID: 4468070560386876379}
