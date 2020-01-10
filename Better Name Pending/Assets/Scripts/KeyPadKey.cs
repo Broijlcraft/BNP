@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class KeyPadKey : MonoBehaviour {
 
-
+    public int value;
 
 }

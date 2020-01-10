@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour {
 
+    public string tag_ = "Interactble";
     public Transform origin;
     public float range;
     public bool showGizmos;
@@ -46,14 +47,16 @@ public class Interactable : MonoBehaviour {
         StartSetUp();
     }
 
-    private void FixedUpdate() {
-        if (onGrab == OnGrab.Follow && handToFollow) {
-            transform.position = handToFollow.position;
-            if (Vector3.Distance(origin.position, handToFollow.position) > range) {
-                StopFollowingHand();
-            }
-        }
+    private void Update() {
+        //if (onGrab == OnGrab.Follow && handToFollow) {
+        //    transform.position = handToFollow.position;
+        //    if (Vector3.Distance(origin.position, handToFollow.position) > range) {
+        //        StopFollowingHand();
+        //    }
+        //}
+    }
 
+    private void FixedUpdate() {
         if(onGrab == OnGrab.Pickup) {
             if (storeVelocity) {
                 beingHeld = true;
@@ -108,8 +111,8 @@ public class Interactable : MonoBehaviour {
                         }
                     }
                 } else {
-                    //rigidBody.isKinematic = false;
-                    //rigidBody.useGravity = true;
+                    rigidBody.isKinematic = false;
+                    rigidBody.useGravity = true;
                     storeVelocity = false;
                 }
             break;
