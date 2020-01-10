@@ -340,7 +340,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.00006, y: -748.7971}
+  m_AnchoredPosition: {x: 960.00006, y: -926.66675}
   m_SizeDelta: {x: 256, y: 125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &106266874
@@ -385,7 +385,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 106266875}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 780642909}
+        m_MethodName: Quit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &106266875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,7 +957,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 504793247}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 780642909}
+        m_MethodName: OptionIG
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &504793247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,7 +1176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.00006, y: -150.75943}
+  m_AnchoredPosition: {x: 960.00006, y: -186.33334}
   m_SizeDelta: {x: 371, y: 131}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &646221156
@@ -1437,6 +1459,7 @@ MonoBehaviour:
   buttonSound: {fileID: 8300000, guid: 50019602394f7ad428d926ca91e1f81d, type: 3}
   startMenu: {fileID: 2220962}
   optionMenu: {fileID: 315853310}
+  igMenu: {fileID: 0}
 --- !u!1 &788805387
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 960.00006, y: -451.2783}
+  m_AnchoredPosition: {x: 960.00006, y: -558}
   m_SizeDelta: {x: 417, y: 129}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &788805389
@@ -2084,12 +2107,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 780642904}
-        m_MethodName: 
+      - m_Target: {fileID: 780642909}
+        m_MethodName: BackToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2524,6 +2547,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devUiPanel: {fileID: 0}
+  vrPlayer: {fileID: 0}
+  pcPlayer: {fileID: 0}
 --- !u!1 &1705364331
 GameObject:
   m_ObjectHideFlags: 0
