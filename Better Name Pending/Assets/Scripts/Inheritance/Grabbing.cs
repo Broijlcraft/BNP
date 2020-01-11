@@ -47,7 +47,7 @@ public class Grabbing : Hands {
                     break;
                 }
                 if (itemInHand) {
-                    if (itemInHand.GetComponent<Interactable>()) {
+                    if (itemInHand.GetComponent<Interactable>() && itemInHand.GetComponent<Interactable>().specificGrabAnim != "") {
                         HandAnim(itemInHand.GetComponent<Interactable>().specificGrabAnim);
                     }
                 } else {

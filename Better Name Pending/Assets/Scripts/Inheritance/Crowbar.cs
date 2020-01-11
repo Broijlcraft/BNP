@@ -6,6 +6,7 @@ public class Crowbar : Interactable { //this is the way, i have spoken
     public float minimumVelocity;
     public Rigidbody rb;
     public Transform[] crowbarParts;
+
     public void Update() {
         if(velocity.sqrMagnitude >= minimumVelocity) {
             Collider[] colliders = Physics.OverlapSphere(origin.position, range);

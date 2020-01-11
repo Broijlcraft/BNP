@@ -14,16 +14,13 @@ public class Interactable : MonoBehaviour {
     public AudioManager.AudioGroups audioGroup;
     public string specificGrabAnim = "Grab";
 
-    Vector3 oldPosition;
-    [HideInInspector] public Vector3 velocity;
-    Vector3 oldRotation;
-    [HideInInspector] public Vector3 angularVelocity;
+    [HideInInspector] public Vector3 velocity, angularVelocity;
 
+    Vector3 oldPosition, oldRotation, originPosition;
     public Transform handToFollow;
-    Vector3 originPosition;
     Rigidbody rigidBody;
-    [HideInInspector]public bool hasBeenDown, storeVelocity, beingHeld; //beingHeld necessary for inheritance
-    bool usedVelocity;
+    [HideInInspector]public bool hasBeenDown, beingHeld; //beingHeld necessary for inheritance
+    bool usedVelocity, storeVelocity;
 
     public enum OnGrab {
         Pickup,
@@ -48,12 +45,12 @@ public class Interactable : MonoBehaviour {
     }
 
     private void Update() {
-        //if (onGrab == OnGrab.Follow && handToFollow) {
-        //    transform.position = handToFollow.position;
-        //    if (Vector3.Distance(origin.position, handToFollow.position) > range) {
-        //        StopFollowingHand();
-        //    }
-        //}
+        if (onGrab == OnGrab.Follow && handToFollow) {
+            transform.position = handToFollow.position;
+            if (Vector3.Distance(origin.position, handToFollow.position) > range) {
+                StopFollowingHand();
+            }
+        }
     }
 
     private void FixedUpdate() {

@@ -2,14 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackLight : MonoBehaviour
-{
-    void Start()
-    {
-        
+public class BlackLight : Interactable {
+
+    public Light lamp;
+    public bool onOff; //hide
+    
+    private void Start() {
+        StartSetUp();
     }
-    void Update()
-    {
-        
+
+    public override void Use(bool down) {
+        if (down) {
+            if (!hasBeenDown) {
+                if (onOff) {
+                    lamp.gameObject.SetActive(false);
+                    onOff = false;
+                } else {
+                    lamp.gameObject.SetActive(true);
+                    onOff = true;
+                }
+                hasBeenDown = true;
+            }
+        } else {
+            hasBeenDown = false;
+        }
+    }
+
+    public override void StartSetUp() {
+        base.StartSetUp();
     }
 }
