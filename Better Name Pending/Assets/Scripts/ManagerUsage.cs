@@ -22,6 +22,7 @@ public class ManagerUsage : MonoBehaviour {
                 pcPlayer.SetActive(true);
             }
         }
+        SwitchDevMode();
     }
 
     private void Update() {
@@ -31,12 +32,14 @@ public class ManagerUsage : MonoBehaviour {
     }
 
     void SwitchDevMode() {
-        if (devUiPanel && Manager.dev) {
+        if (Manager.dev) {
             Manager.dev = false;
-            devUiPanel.SetActive(false);
         } else {
             Manager.dev = true;
-            devUiPanel.SetActive(true);
+        }
+
+        if (devUiPanel) {
+            devUiPanel.SetActive(Manager.dev);
         }
     }
 }

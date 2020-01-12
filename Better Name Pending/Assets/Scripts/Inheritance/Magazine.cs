@@ -13,10 +13,11 @@ public class Magazine : Interactable {
 
     private void Start() {
         StartSetUp();
+        Manager.dev = true;
     }
 
     private void Update() {
-        if (beingHeld) {
+        if (beingHeld || Manager.dev) {
             Collider[] colliders = Physics.OverlapSphere(origin.position, range);
             for (int i = 0; i < colliders.Length; i++) {
                 if (colliders[i].CompareTag("MagazineCollider") && HeldByPcVrCheck(colliders[i].GetComponentInParent<Gun>())) {

@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine.XR;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Interactable : MonoBehaviour {
 
-    public string tag_ = "Interactble";
     public Transform origin;
     public float range;
-    public bool showGizmos;
+    public bool positionToOrigin, showGizmos;
     [Space]
-    public AudioManager.AudioGroups audioGroup;
+    public AudioManager.AudioGroups audioGroup = AudioManager.AudioGroups.GameSFX;
     public string specificGrabAnim = "Grab";
 
     [HideInInspector] public Vector3 velocity, angularVelocity;
@@ -47,8 +45,12 @@ public class Interactable : MonoBehaviour {
     private void Update() {
         if (onGrab == OnGrab.Follow && handToFollow) {
             transform.position = handToFollow.position;
-            if (Vector3.Distance(origin.position, handToFollow.position) > range) {
-                StopFollowingHand();
+            if (origin) {
+                if (Vector3.Distance(origin.position, handToFollow.position) > range) {
+                    StopFollowingHand();
+                }
+            } else {
+                print("No Origin Set");
             }
         }
     }
@@ -75,10 +77,20 @@ public class Interactable : MonoBehaviour {
 
     public void StopFollowingHand() {
         if (handToFollow) {
-            handToFollow.GetComponentInParent<Grabbing>().itemInHand = null;
+            Grabbing grabbing = handToFollow.GetComponentInParent<Grabbing>();
+            grabbing.itemInHand = null;
+            if (grabbing.animator) {
+                grabbing.animator.ResetTrigger(grabbing.grab);
+                grabbing.animator.SetTrigger(grabbing.letGoOfGrab);
+            }
+            grabbing = null;
             handToFollow = null;
         }
-        transform.localPosition = originPosition;
+        if (positionToOrigin) {
+            transform.localPosition = origin.localPosition;
+        } else {
+            transform.localPosition = originPosition;
+        }
     }
     
     public void AttachToHand(Transform makeThisParent, bool shouldSetParent) {
@@ -98,12 +110,12 @@ public class Interactable : MonoBehaviour {
                         storeVelocity = true;
                         switch (posAndRot) {
                             case PositionAndRotation.ResetPositionAndRotation:
-                            transform.localPosition = Vector3.zero;
-                            transform.localRotation = Quaternion.Euler(Vector3.zero);
+                                transform.localPosition = Vector3.zero;
+                                transform.localRotation = Quaternion.Euler(Vector3.zero);
                             break;
                             case PositionAndRotation.SetPositionAndRotation:
-                            transform.localPosition = setPosition;
-                            transform.localRotation = Quaternion.Euler(setRotation);
+                                transform.localPosition = setPosition;
+                                transform.localRotation = Quaternion.Euler(setRotation);
                             break;
                         }
                     }
@@ -126,6 +138,10 @@ public class Interactable : MonoBehaviour {
     public virtual void Use(bool down) {
         //print("Base use");
     }    
+
+    public virtual GameObject SpecialInteraction(Transform t) {
+        return t.gameObject;
+    }
 
     public virtual void ShowGizmos(Transform originTransform, float showRange) {
         if (showGizmos) {

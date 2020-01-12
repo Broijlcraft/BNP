@@ -17,7 +17,8 @@ public class Grabbing : Hands {
     public string fingerShoot;
     public string gunHold;
     public Animator animator;
-    bool buttonStillDown;
+    bool buttonZeroStillDown;
+    bool buttonOneStillDown;
 
     private void Start() {
         SetVrInputs();
@@ -33,7 +34,7 @@ public class Grabbing : Hands {
     
     private void Update() {
         if (MouseInputAndVRAxisCheck(1, gripInput, "Useless_Input")) {
-            if (buttonStillDown == false) {
+            if (buttonOneStillDown == false) {
                 switch (pickup) {
                     case VrInputManager.Pickup.hold:
                     GrabAndLetGo(origin);
@@ -53,24 +54,38 @@ public class Grabbing : Hands {
                 } else {
                     HandAnim(grab);
                 }
-                buttonStillDown = true;
+                buttonOneStillDown = true;
             }
         } else {
-            if(buttonStillDown == true) {
+            if(buttonOneStillDown == true) {
                 if (pickup == VrInputManager.Pickup.hold) {
                     GrabAndLetGo(null);
                 }
                 if (!itemInHand) {
+                    animator.ResetTrigger(grab);
                     HandAnim(letGoOfGrab);
                 }
-                buttonStillDown = false;
+                buttonOneStillDown = false;
             }
         }
 
         if (MouseInputAndVRAxisCheck(0, triggerInput, "Useless_Input")) {
-            HeldItemInteract(true);
+            if (!buttonZeroStillDown) {
+                Interact(true, origin);
+                buttonZeroStillDown = true;
+                if (itemInHand) {
+                    HandAnim(grab);
+                }
+            }
         } else {
-            HeldItemInteract(false);
+            if (buttonZeroStillDown) {
+                buttonZeroStillDown = false;
+                Interact(false, null);
+                if (!itemInHand) {
+                    animator.ResetTrigger(grab);
+                    HandAnim(letGoOfGrab);
+                }
+            }
         }
     }
 
@@ -123,11 +138,26 @@ public class Grabbing : Hands {
         return null;
     }
 
-    void HeldItemInteract(bool down) {
+    void Interact(bool down, Transform makeParent) {
         if (itemInHand) {
             itemInHand.GetComponent<Interactable>().Use(down);
         } else {
-
+            if (down) {
+                if (!itemInHand) {
+                    if (origin) {
+                        GameObject g = CheckClosest(Physics.OverlapSphere(origin.position, range));
+                        if (g && g.GetComponent<Gun>()) {
+                            if (g.GetComponent<Gun>().beingHeld || Manager.dev) {
+                                itemInHand = g.GetComponent<Gun>().SpecialInteraction(makeParent);
+                            }
+                        }
+                    } else {
+                        print("No Origin Set");
+                    }
+                } else {
+                    itemInHand.GetComponent<Gun>().AttachToHand(null, false);
+                }
+            }
         }
     }
 

@@ -5,16 +5,20 @@ using UnityEngine;
 public class FollowObject : MonoBehaviour {
 
     public Transform objectToFollow;
-    public bool useClamp;
+    public bool shouldFollow, useClamp;
     public Vector2 clampValues;
 
     private void FixedUpdate() {
-        if (!useClamp) {
-            transform.localPosition = objectToFollow.localPosition;
+        if (objectToFollow) {
+            if (!useClamp) {
+                transform.localPosition = objectToFollow.localPosition;
+            } else {
+                Vector3 v = transform.localPosition;
+                v.x = Mathf.Clamp(objectToFollow.localPosition.x, clampValues.x, clampValues.y);
+                transform.localPosition = v;
+            }
         } else {
-            Vector3 v = transform.localPosition;
-            v.z = Mathf.Clamp(objectToFollow.localPosition.z, clampValues.x, clampValues.y);
-            transform.localPosition = v;
+            print("No Object To Follow Set");
         }
     }
 }

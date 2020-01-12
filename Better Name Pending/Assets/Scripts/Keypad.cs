@@ -13,15 +13,15 @@ public class Keypad : MonoBehaviour {
     public bool showGismoz;
     public int passcode;
     public Text display;
-    int currentValue;
-    bool cooldown;
+    [HideInInspector] public int currentValue;
+    [HideInInspector] public bool cooldown;
 
     private void Start() {
         ResetValues();
     }
 
     public void AddNumber(int number) {
-        if(currentValue < 999 && !cooldown) {
+        if(currentValue < 1000 && !cooldown) {
             display.color = keyColor;
             currentValue = currentValue * 10;
             currentValue += number;

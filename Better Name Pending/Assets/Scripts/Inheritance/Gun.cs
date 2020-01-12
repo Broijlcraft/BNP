@@ -8,6 +8,9 @@ public class Gun : Interactable {
     public Transform magazineOrigin;
     [HideInInspector] public Magazine magazine;
     public Transform bulletCasingOrigin;
+    public GameObject slideModel;
+    public FollowObject slideFollow;
+    public GunSlide slideToFollow;
     public float ejectForce;
     public GameObject emptyCasingPrefab;
     public GameObject bulletPrefab;
@@ -26,8 +29,16 @@ public class Gun : Interactable {
     public AudioClip shot;
     public AudioClip empty;
 
+    [Header("Test")]
+    public bool devTest;
+    public Vector3 maxSlideBack;
+    public bool shouldSlideForward;
+
     private void Start() {
         StartSetUp();
+        if (slideModel && slideModel.GetComponent<FollowObject>()) {
+            slideFollow = slideModel.GetComponent<FollowObject>();
+        }
     }
 
     private void Update() {
@@ -83,9 +94,12 @@ public class Gun : Interactable {
             g.GetComponent<Rigidbody>().AddForce(bulletCasingOrigin.forward * ejectForce);
         }
     }
-    
+
     public void AnimatorCheckAndExecute(bool shoot) {
         if (animator) {
+            if (slideFollow) {
+                slideFollow.enabled = false;
+            }
             if (bulletInChamber == 0) {
                 animator.SetBool(ammoToChamber, false);
             } else {
@@ -95,6 +109,8 @@ public class Gun : Interactable {
                 animator.SetTrigger(shotName);
                 //animator.SetTrigger(triggerPress);
             }
+        } else {
+            print("No Animator");
         }
     }
 
@@ -111,13 +127,27 @@ public class Gun : Interactable {
         }
     }
 
+    public override GameObject SpecialInteraction(Transform setParent) {
+        if (setParent) {
+            slideToFollow.transform.position = slideModel.transform.position;
+            slideFollow.enabled = true;
+            slideToFollow.AttachToHand(setParent, true);
+            return slideToFollow.gameObject;
+        } else {
+            slideToFollow.AttachToHand(setParent, false);
+            return null;
+        }
+    }
+
     public override void StartSetUp() {
         base.StartSetUp();
         animator = GetComponent<Animator>();
         if (GetComponentInChildren<Magazine>()) {
             InsertMagazine(GetComponentInChildren<Magazine>().transform);
         }
-        ChamberLoader();
+        if (!devTest) {
+            ChamberLoader();
+        }
         AnimatorCheckAndExecute(false);
     }
 
