@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
@@ -8,20 +9,32 @@ public class MixerController : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public Slider musicSlider, sfxSlider, masterSlider;
+    public string musicSliderName, sfxSliderName, masterSliderName;
+    public GameObject canvas;
 
-     public static MixerController instance;
-        
+    public static MixerController instance;
+            
     public void Awake()
     {
+        canvas = GameObject.Find("Canvas");
+        if (canvas) {
+            Transform[] t = GetComponentsInChildren<Transform>();
+            if(Array.Exists(t, element => element.transform.tag == masterSliderName)) {
+                //for (int i = 0; i < transform)
+                //masterSlider = 
+            }
+            print(canvas);
+        }
+
         if(instance == null)
         {
             DontDestroyOnLoad(gameObject);
             instance = this;
         }
-       else
-       {
+        else
+        {
             Destroy(gameObject);
-       }
+        }
     }
 
     public void Start() 

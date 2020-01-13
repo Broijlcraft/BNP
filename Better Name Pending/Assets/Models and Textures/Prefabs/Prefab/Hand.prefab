@@ -299,7 +299,6 @@ MonoBehaviour:
   nodeName: 4
   range: 0.1
   origin: {fileID: 5122135979391735408}
-  grabbing: 0
   manager: {fileID: 0}
   triggerInput: 
   touchInput: 
@@ -316,7 +315,7 @@ MonoBehaviour:
   letGoOfGrab: LetGo
   fingerShoot: 
   gunHold: Grab
-  animator: {fileID: 0}
+  animator: {fileID: 3101286397578705431}
 --- !u!114 &5122135979307922314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +331,6 @@ MonoBehaviour:
   nodeName: 5
   range: 50
   origin: {fileID: 5122135978651227189}
-  grabbing: 0
   manager: {fileID: 0}
   triggerInput: 
   touchInput: 
@@ -524,6 +522,12 @@ PrefabInstance:
 --- !u!4 &5009120223190144877 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 70171395629317239}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &3101286397578705431 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 7bd1d5fbc7a0e9048a1e8aba0dfd68a4,
     type: 3}
   m_PrefabInstance: {fileID: 70171395629317239}
   m_PrefabAsset: {fileID: 0}
