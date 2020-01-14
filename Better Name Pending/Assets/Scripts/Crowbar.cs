@@ -12,7 +12,7 @@ public class Crowbar : Interactable { //this is the way, i have spoken
             Collider[] colliders = Physics.OverlapSphere(origin.position, range);
             for (int i = 0; i < colliders.Length; i++) {
                 if (colliders[i].CompareTag("Box")) {
-                    colliders[i].GetComponent<Box>().BoxBreak();
+                    colliders[i].GetComponent<CrowbarVersatilities>().CrowbarInteract();
                     CrowbarBreak();
                     break;
                 }

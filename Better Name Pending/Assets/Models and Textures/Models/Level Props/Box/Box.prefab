@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 3179598167285781585}
   - component: {fileID: 8050194740410490165}
   - component: {fileID: 8050194740410490164}
-  - component: {fileID: 2714962277123207277}
+  - component: {fileID: 5114754323693438621}
   m_Layer: 0
   m_Name: Box
   m_TagString: Box
@@ -81,7 +81,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!114 &2714962277123207277
+--- !u!114 &5114754323693438621
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,7 +90,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4244645811808880935}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98556159e3af1fd4fa8051dba09fafc7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3639908e9dab085469be5f3a04009168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioClip: {fileID: 8300000, guid: 999db318d53724d4a95d3a9ea23476b8, type: 3}

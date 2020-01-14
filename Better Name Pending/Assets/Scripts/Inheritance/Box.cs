@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Box : MonoBehaviour
-{
-    public AudioClip audioClip;
-    public AudioManager.AudioGroups audioGroups;
-    public void BoxBreak()
-    {
+public class Box : CrowbarVersatilities {
 
+    public override void CrowbarInteract() {
         AudioManager.PlaySound(audioClip, audioGroups);
         gameObject.GetComponent<Animation>().Play();
     }
