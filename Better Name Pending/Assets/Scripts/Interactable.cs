@@ -20,6 +20,8 @@ public class Interactable : MonoBehaviour {
     [HideInInspector]public bool hasBeenDown, beingHeld; //beingHeld necessary for inheritance
     bool usedVelocity, storeVelocity;
 
+    public bool canPickUp;
+
     public enum OnGrab {
         Pickup,
         Follow,
