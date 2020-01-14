@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Box : CrowbarVersatilities 
+public class Grate : CrowbarVersatilities
 {
     public override void CrowbarInteract() 
     {
