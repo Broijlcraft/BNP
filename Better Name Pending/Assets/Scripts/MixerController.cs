@@ -10,7 +10,6 @@ public class MixerController : MonoBehaviour
     public AudioMixer audioMixer;
     public Slider musicSlider, sfxSlider, masterSlider;
     public GameObject canvas;
-
     public static MixerController instance;
             
     public void Awake()
@@ -25,8 +24,14 @@ public class MixerController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void Start() 
+    public void LoadSliders()
+    {
+        masterSlider = GameObject.FindGameObjectWithTag("Master").GetComponent<Slider>();
+        sfxSlider = GameObject.FindGameObjectWithTag("Sfx").GetComponent<Slider>();
+        musicSlider = GameObject.FindGameObjectWithTag("Music").GetComponent<Slider>();
+        SetSliders();
+    }
+    public void SetSliders() 
     {
         float master = PlayerPrefs.GetFloat("masterVolume", 0f);
         SetMasterVolume(master);

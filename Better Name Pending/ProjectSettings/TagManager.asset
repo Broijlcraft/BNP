@@ -16,10 +16,11 @@ TagManager:
   - Door
   - InteractableChild
   - MagazineCollider
+  - Canvas
+  - MixerController
+  - Sfx
   - Master
   - Music
-  - Sfx
-  - Finger
   layers:
   - Default
   - TransparentFX
