@@ -8,5 +8,8 @@ public class Box : CrowbarVersatilities
     {
         AudioManager.PlaySound(audioClip, audioGroups);
         gameObject.GetComponent<Animation>().Play();
+        for(int i = 0; i < objectsToDoSomethingOnInteract.Length; i++) {
+            objectsToDoSomethingOnInteract[i].Interact();
+        }
     }
 }
