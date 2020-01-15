@@ -8,8 +8,7 @@ public class Gun : Interactable {
     public Transform magazineOrigin;
     [HideInInspector] public Magazine magazine;
     public Transform bulletCasingOrigin;
-    public GameObject slideModel;
-    public FollowObject slideFollow;
+    public FollowObject followingSlide;
     public GunSlide slideToFollow;
     public float ejectForce;
     public GameObject emptyCasingPrefab;
@@ -36,8 +35,8 @@ public class Gun : Interactable {
 
     private void Start() {
         StartSetUp();
-        if (slideModel && slideModel.GetComponent<FollowObject>()) {
-            slideFollow = slideModel.GetComponent<FollowObject>();
+        if (followingSlide) {
+            slideToFollow = followingSlide.objectToFollow.GetComponent<GunSlide>();
         }
     }
 
@@ -97,8 +96,8 @@ public class Gun : Interactable {
 
     public void AnimatorCheckAndExecute(bool shoot) {
         if (animator) {
-            if (slideFollow) {
-                slideFollow.enabled = false;
+            if (followingSlide) {
+                followingSlide.enabled = false;
             }
             if (bulletInChamber == 0) {
                 animator.SetBool(ammoToChamber, false);
@@ -116,6 +115,9 @@ public class Gun : Interactable {
 
     public void ChamberLoader() {
         bulletInChamber = 0;
+    }
+
+    public void InsertBullet() {
         if (Manager.dev) {
             bulletInChamber = 1;
         } else {
@@ -129,8 +131,8 @@ public class Gun : Interactable {
 
     public override GameObject SpecialInteraction(Transform setParent) {
         if (setParent) {
-            slideToFollow.transform.position = slideModel.transform.position;
-            slideFollow.enabled = true;
+            slideToFollow.transform.position = followingSlide.transform.position;
+            followingSlide.enabled = true;
             slideToFollow.AttachToHand(setParent, true);
             return slideToFollow.gameObject;
         } else {

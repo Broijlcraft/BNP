@@ -6535,8 +6535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   devUiPanel: {fileID: 809457302}
-  vrPlayer: {fileID: 0}
-  pcPlayer: {fileID: 0}
+  vrPlayer: {fileID: 1472173087}
+  pcPlayer: {fileID: 510386598}
 --- !u!114 &1666969969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8085,6 +8085,11 @@ PrefabInstance:
       propertyPath: animator
       value: 
       objectReference: {fileID: 1605118345}
+    - target: {fileID: 3030446549868703411, guid: 5018df923a2859c40ad8cbff770f9be1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8121683784826202312, guid: 5018df923a2859c40ad8cbff770f9be1,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -8114,11 +8119,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.000021
-      objectReference: {fileID: 0}
-    - target: {fileID: 3030446549868703411, guid: 5018df923a2859c40ad8cbff770f9be1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5018df923a2859c40ad8cbff770f9be1, type: 3}
@@ -8569,6 +8569,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8307375828975139010, guid: f778b82edac88e142be881b2ba7abe95,
         type: 3}
       propertyPath: m_Name
@@ -8634,11 +8638,6 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8307375828734004897, guid: f778b82edac88e142be881b2ba7abe95,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4030235647340311245, guid: f778b82edac88e142be881b2ba7abe95,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -8999,5 +8998,16 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5433602007300829447, guid: f778b82edac88e142be881b2ba7abe95,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4915525346214127102, guid: 1006a20613b4df248b29b52a7b13ba1c,
+        type: 3}
+    - target: {fileID: 1753168369722854910, guid: f778b82edac88e142be881b2ba7abe95,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 89ecc3ab82586944699642b185058deb, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f778b82edac88e142be881b2ba7abe95, type: 3}

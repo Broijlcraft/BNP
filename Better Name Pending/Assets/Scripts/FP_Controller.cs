@@ -18,7 +18,7 @@ public class FP_Controller : MonoBehaviour {
     public float jumpMultiplier;
 
     private void Start() {
-        SwitchCursor();    
+        //SwitchCursor();    
     }
 
     private void Update() {
