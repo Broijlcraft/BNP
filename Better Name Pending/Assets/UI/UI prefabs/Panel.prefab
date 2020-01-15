@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4509120612591658421}
   - component: {fileID: 4509120612591658422}
   - component: {fileID: 4509120612591658423}
+  - component: {fileID: 4509120613559582214}
   m_Layer: 5
   m_Name: Quit
   m_TagString: Untagged
@@ -128,6 +129,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &4509120613559582214
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509120612591658417}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4509120613927532191
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,6 +154,7 @@ GameObject:
   - component: {fileID: 4509120613927532195}
   - component: {fileID: 4509120613927532188}
   - component: {fileID: 4509120613927532189}
+  - component: {fileID: 4509120613559582215}
   m_Layer: 5
   m_Name: Options
   m_TagString: Untagged
@@ -256,6 +271,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!65 &4509120613559582215
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4509120613927532191}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4509120614491071606
 GameObject:
   m_ObjectHideFlags: 0
