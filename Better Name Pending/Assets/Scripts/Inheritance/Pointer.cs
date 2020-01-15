@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
+using UnityEngine.UI;
 public class Pointer : Hands {
 
     [Space]
     public float extraLineRange;
 
+    public string functionName;
     public GameObject dot;
     public Transform test;
     public float devider;
@@ -14,7 +16,7 @@ public class Pointer : Hands {
     public LineRenderer lineRenderer;
     public bool showGizmos;
     GameObject activeDot;
-    
+
     GameObject activePlayer;
     Transform tp;
     Vector3 p;
@@ -57,16 +59,23 @@ public class Pointer : Hands {
                     p = Vector3.zero;
                 }
             } else {
-                Teleport();
+                PointerInteract();
                 activeDot.gameObject.SetActive(false);
                 SetLinePos(false, Vector3.zero, Vector3.zero);
             }
         }
     }
 
-    void Teleport() {
-        if (tp != null && tp.transform.tag == "Teleport") {
-            activePlayer.transform.position = p;
+    void PointerInteract() {
+        if (tp != null){
+            if(tp.transform.tag == "Teleport") {
+                activePlayer.transform.position = p;
+            }
+        }
+        if (tp.transform.tag == "UI" | tp.transform.tag == "Sfx" | tp.transform.tag == "Music" | tp.transform.tag == "Master"){
+            if (MouseInputAndVRAxisCheck(1, touchInput, "Useless_Input") && MouseInputAndVRAxisCheck(1, triggerInput, "Useless_Input")){
+                //tp.GetComponent<Button>()
+            }
         }
     }
 
