@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GunSlide : Interactable {
 
+    public FollowObject followObject;
+
     private void LateUpdate() {
         
     }
