@@ -1221,6 +1221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunFab
       objectReference: {fileID: 0}
+    - target: {fileID: 5756903681620116496, guid: 47dc3344dcd6af245b0580de42f3055c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5756903681620116503, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2223,7 +2228,9 @@ MonoBehaviour:
   shouldFollow: 0
   useClamp: 1
   freezeFollow: 0
-  clampValues: {x: 0, y: 0.06}
+  clampValues: {x: 0, y: 0.06, z: 0}
+  localStartPosition: {x: 0, y: 0, z: 0}
+  globalStartPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &322937769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2744,6 +2751,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunFab
       objectReference: {fileID: 0}
+    - target: {fileID: 5756903681620116496, guid: 47dc3344dcd6af245b0580de42f3055c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5756903681620116503, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2992,6 +3004,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &596800034 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5756903681620116500, guid: 47dc3344dcd6af245b0580de42f3055c,
+    type: 3}
+  m_PrefabInstance: {fileID: 1709336997}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 546db9d5b056b9a48877ad858210339f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &604315981
 GameObject:
   m_ObjectHideFlags: 0
@@ -4214,9 +4238,11 @@ MonoBehaviour:
   blockPickUp: 0
   onGrab: 1
   posAndRot: 0
-  setPosition: {x: 0, y: 0, z: 0}
+  setPosition: {x: 0.06, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
   followObject: {fileID: 302742653}
+  gun: {fileID: 596800034}
+  slideDelay: 0.05
 --- !u!54 &876614432
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4858,6 +4884,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GunFab
       objectReference: {fileID: 0}
+    - target: {fileID: 5756903681620116496, guid: 47dc3344dcd6af245b0580de42f3055c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5756903681620116503, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5250,6 +5281,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FilledMagazine
       objectReference: {fileID: 0}
+    - target: {fileID: 1914647166259931300, guid: 32ffad035c69b3a48bfef1c1fb667ad3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1914647166259931224, guid: 32ffad035c69b3a48bfef1c1fb667ad3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5495,7 +5531,9 @@ MonoBehaviour:
   shouldFollow: 0
   useClamp: 1
   freezeFollow: 0
-  clampValues: {x: 0, y: 0.5}
+  clampValues: {x: 0, y: 0.5, z: 0}
+  localStartPosition: {x: 0, y: 0, z: 0}
+  globalStartPosition: {x: 0, y: 0, z: 0}
 --- !u!4 &1382518703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5756903682415610438, guid: 47dc3344dcd6af245b0580de42f3055c,
@@ -6694,6 +6732,8 @@ MonoBehaviour:
   setPosition: {x: 0, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
   followObject: {fileID: 0}
+  gun: {fileID: 0}
+  slideDelay: 0
 --- !u!54 &1687422675
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6943,7 +6983,7 @@ PrefabInstance:
     - target: {fileID: 5756903681620116500, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
       propertyPath: bulletInChamber
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5756903681620116500, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
@@ -6960,6 +7000,16 @@ PrefabInstance:
       propertyPath: followingSlide
       value: 
       objectReference: {fileID: 302742653}
+    - target: {fileID: 3271997953395812532, guid: 47dc3344dcd6af245b0580de42f3055c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3271997953395812532, guid: 47dc3344dcd6af245b0580de42f3055c,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5756903681620116502, guid: 47dc3344dcd6af245b0580de42f3055c,
         type: 3}
       propertyPath: m_Enabled
@@ -7389,7 +7439,9 @@ MonoBehaviour:
   shouldFollow: 1
   useClamp: 0
   freezeFollow: 0
-  clampValues: {x: 0, y: 0}
+  clampValues: {x: 0, y: 0, z: 0}
+  localStartPosition: {x: 0, y: 0, z: 0}
+  globalStartPosition: {x: 0, y: 0, z: 0}
 --- !u!138 &1733131805
 FixedJoint:
   m_ObjectHideFlags: 0
@@ -7757,7 +7809,7 @@ PrefabInstance:
     - target: {fileID: 1914647166259931300, guid: 32ffad035c69b3a48bfef1c1fb667ad3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1914647166259931224, guid: 32ffad035c69b3a48bfef1c1fb667ad3,
         type: 3}
@@ -8278,12 +8330,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90.00001
       objectReference: {fileID: 0}
-    - target: {fileID: 5122135979307922315, guid: 5018df923a2859c40ad8cbff770f9be1,
+    - target: {fileID: 5122135979307922314, guid: 5018df923a2859c40ad8cbff770f9be1,
         type: 3}
-      propertyPath: animator
-      value: 
-      objectReference: {fileID: 4065978942175178816, guid: 96f21d77b093b48489925d81616378b3,
-        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3030446549868703411, guid: 5018df923a2859c40ad8cbff770f9be1,
         type: 3}
       propertyPath: m_IsActive

@@ -22,7 +22,6 @@ public class ManagerUsage : MonoBehaviour {
                 pcPlayer.SetActive(true);
             }
         }
-        SwitchDevMode();
     }
 
     private void Update() {

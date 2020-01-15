@@ -37,6 +37,7 @@ public class Gun : Interactable {
         StartSetUp();
         if (followingSlide) {
             slideToFollow = followingSlide.objectToFollow.GetComponent<GunSlide>();
+            slideToFollow.SlideBack();
         }
     }
 
@@ -46,14 +47,6 @@ public class Gun : Interactable {
             if (coolDown > 1 / shotsPerSecond) {
                 hasShot = false;
                 coolDown = 0;
-            }
-        }
-
-        if (Input.GetButtonDown("Reload") && beingHeld) {
-            ChamberLoader();
-            //AnimatorCheckAndExecute(true);
-            if(magazine && magazine.bullets > 0) {
-                EjectShell(bulletPrefab);
             }
         }
     }
@@ -71,9 +64,7 @@ public class Gun : Interactable {
                             hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(origin.transform.forward * hitForce, hit.point);
                         }
                     }
-                    EjectShell(emptyCasingPrefab);
-                    ChamberLoader();
-                    //AnimatorCheckAndExecute(true);
+                    slideToFollow.SlideBack();
                 } else {
                     if (empty) {
                         AudioManager.PlaySound(empty, audioGroup);
@@ -87,7 +78,7 @@ public class Gun : Interactable {
         }
     }
 
-    void EjectShell(GameObject shell) {
+    public void EjectShell(GameObject shell) {
         if (shell && bulletCasingOrigin) {
             GameObject g = Instantiate(shell, bulletCasingOrigin.position, bulletCasingOrigin.rotation);
             g.GetComponent<Rigidbody>().AddForce(bulletCasingOrigin.forward * ejectForce);
@@ -106,7 +97,6 @@ public class Gun : Interactable {
             }
             if (shoot) {
                 animator.SetTrigger(shotName);
-                //animator.SetTrigger(triggerPress);
             }
         } else {
             print("No Animator");
@@ -114,10 +104,11 @@ public class Gun : Interactable {
     }
 
     public void ChamberLoader() {
-        bulletInChamber = 0;
+        bulletInChamber = 0;        
+        InsertBullet();
     }
 
-    public void InsertBullet() {
+    void InsertBullet() {
         if (Manager.dev) {
             bulletInChamber = 1;
         } else {
@@ -143,14 +134,10 @@ public class Gun : Interactable {
 
     public override void StartSetUp() {
         base.StartSetUp();
-        animator = GetComponent<Animator>();
         if (GetComponentInChildren<Magazine>()) {
             InsertMagazine(GetComponentInChildren<Magazine>().transform);
+            print(magazine);
         }
-        if (!devTest) {
-            ChamberLoader();
-        }
-        //AnimatorCheckAndExecute(false);
     }
 
     public void InsertMagazine(Transform mag) {

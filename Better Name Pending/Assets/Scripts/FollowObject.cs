@@ -7,10 +7,14 @@ public class FollowObject : MonoBehaviour {
     public Transform objectToFollow;
     private Rigidbody rb;
     public bool shouldFollow, useClamp, freezeFollow;
-    public Vector2 clampValues;
+    public Vector3 clampValues;
+    [HideInInspector] public Vector3 localStartPosition;
+    [HideInInspector] public Vector3 globalStartPosition;
     private void Start() 
     {
         rb = GetComponent<Rigidbody>();
+        localStartPosition = transform.localPosition;
+        globalStartPosition = transform.position;
     }
     private void FixedUpdate() 
     {
