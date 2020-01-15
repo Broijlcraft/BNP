@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Grate : CrowbarVersatilities
 {
-    private void Start() {
-        CrowbarInteract();
-    }
     public override void CrowbarInteract() 
     {
         AudioManager.PlaySound(audioClip, audioGroups);

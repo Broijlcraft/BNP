@@ -14,7 +14,7 @@ public class Pointer : Hands {
     public LineRenderer lineRenderer;
     public bool showGizmos;
     GameObject activeDot;
-
+    
     GameObject activePlayer;
     Transform tp;
     Vector3 p;
