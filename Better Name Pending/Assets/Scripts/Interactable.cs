@@ -20,7 +20,7 @@ public class Interactable : MonoBehaviour {
     [HideInInspector]public bool hasBeenDown, beingHeld; //beingHeld necessary for inheritance
     bool usedVelocity, storeVelocity;
 
-    public bool canPickUp;
+    public bool blockPickUp;
 
     public enum OnGrab {
         Pickup,
@@ -96,37 +96,39 @@ public class Interactable : MonoBehaviour {
     }
     
     public void AttachToHand(Transform makeThisParent, bool shouldSetParent) {
-        switch (onGrab) {
-            case OnGrab.Follow:
-                handToFollow = makeThisParent;
-                if(shouldSetParent == false) {
-                    StopFollowingHand();
-                }
-            break;
-            case OnGrab.Pickup:
-                transform.SetParent(makeThisParent);
-                if (shouldSetParent) {
-                    if (!beingHeld) {
-                        rigidBody.isKinematic = true;
-                        rigidBody.useGravity = false;
-                        storeVelocity = true;
-                        switch (posAndRot) {
-                            case PositionAndRotation.ResetPositionAndRotation:
-                                transform.localPosition = Vector3.zero;
-                                transform.localRotation = Quaternion.Euler(Vector3.zero);
-                            break;
-                            case PositionAndRotation.SetPositionAndRotation:
-                                transform.localPosition = setPosition;
-                                transform.localRotation = Quaternion.Euler(setRotation);
-                            break;
-                        }
+        if (!blockPickUp) {
+            switch (onGrab) {
+                case OnGrab.Follow:
+                    handToFollow = makeThisParent;
+                    if(shouldSetParent == false) {
+                        StopFollowingHand();
                     }
-                } else {
-                    rigidBody.isKinematic = false;
-                    rigidBody.useGravity = true;
-                    storeVelocity = false;
-                }
-            break;
+                break;
+                case OnGrab.Pickup:
+                    transform.SetParent(makeThisParent);
+                    if (shouldSetParent) {
+                        if (!beingHeld) {
+                            rigidBody.isKinematic = true;
+                            rigidBody.useGravity = false;
+                            storeVelocity = true;
+                            switch (posAndRot) {
+                                case PositionAndRotation.ResetPositionAndRotation:
+                                    transform.localPosition = Vector3.zero;
+                                    transform.localRotation = Quaternion.Euler(Vector3.zero);
+                                break;
+                                case PositionAndRotation.SetPositionAndRotation:
+                                    transform.localPosition = setPosition;
+                                    transform.localRotation = Quaternion.Euler(setRotation);
+                                break;
+                            }
+                        }
+                    } else {
+                        rigidBody.isKinematic = false;
+                        rigidBody.useGravity = true;
+                        storeVelocity = false;
+                    }
+                break;
+            }
         }
     }
 
@@ -141,8 +143,8 @@ public class Interactable : MonoBehaviour {
         //print("Base use");
     }    
 
-    public virtual GameObject SpecialInteraction(Transform t) {
-        return t.gameObject;
+    public virtual GameObject SpecialInteraction(Transform _transform) {
+        return _transform.gameObject;
     }
 
     public virtual void ShowGizmos(Transform originTransform, float showRange) {

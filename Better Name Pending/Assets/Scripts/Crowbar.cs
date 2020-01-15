@@ -19,6 +19,7 @@ public class Crowbar : Interactable { //this is the way, i have spoken
             }
         }
     }
+
     private void CrowbarBreak() {
         for (int i = 0; i < crowbarParts.Length; i++) {
             Rigidbody rigid2 = crowbarParts[i].GetComponent<Rigidbody>();

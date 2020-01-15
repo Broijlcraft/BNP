@@ -52,7 +52,7 @@ public class Gun : Interactable {
 
         if (Input.GetButtonDown("Reload") && beingHeld) {
             ChamberLoader();
-            AnimatorCheckAndExecute(true);
+            //AnimatorCheckAndExecute(true);
             if(magazine && magazine.bullets > 0) {
                 EjectShell(bulletPrefab);
             }
@@ -74,7 +74,7 @@ public class Gun : Interactable {
                     }
                     EjectShell(emptyCasingPrefab);
                     ChamberLoader();
-                    AnimatorCheckAndExecute(true);
+                    //AnimatorCheckAndExecute(true);
                 } else {
                     if (empty) {
                         AudioManager.PlaySound(empty, audioGroup);
@@ -148,7 +148,7 @@ public class Gun : Interactable {
         if (!devTest) {
             ChamberLoader();
         }
-        AnimatorCheckAndExecute(false);
+        //AnimatorCheckAndExecute(false);
     }
 
     public void InsertMagazine(Transform mag) {
