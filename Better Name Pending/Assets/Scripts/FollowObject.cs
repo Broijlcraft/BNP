@@ -6,7 +6,7 @@ public class FollowObject : MonoBehaviour {
 
     public Transform objectToFollow;
     private Rigidbody rb;
-    public bool shouldFollow, useClamp;
+    public bool shouldFollow, useClamp, freezeFollow;
     public Vector2 clampValues;
     private void Start() 
     {
@@ -16,17 +16,25 @@ public class FollowObject : MonoBehaviour {
     {
         if (objectToFollow) 
         {
-            if (shouldFollow) 
+            if (!freezeFollow)
             {
-                rb.MovePosition(objectToFollow.transform.position);
+                if (shouldFollow) 
+                {
+                    if (rb) {
+                        rb.MovePosition(objectToFollow.transform.position);
+                    } else {
+                        transform.position = objectToFollow.position;
+                    }
+                }
+                if(useClamp)
+                {
+                    Vector3 v = transform.localPosition;
+                    v.x = Mathf.Clamp(objectToFollow.localPosition.x, clampValues.x, clampValues.y);
+                    transform.localPosition = v;
+                }
             }
-            if(useClamp)
-            {
-                Vector3 v = transform.localPosition;
-                v.x = Mathf.Clamp(objectToFollow.localPosition.x, clampValues.x, clampValues.y);
-                transform.localPosition = v;
-            }
-        } else 
+        }
+        else 
         {
             print("No Object To Follow Set");
         }

@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PuzzleInteractable : MonoBehaviour {
 
-    public GameObject wine;
-
+    public GameObject[] objects;
+    
     public virtual void Interact() {
-        wine.SetActive(true);
+        SetActiveOnInteract();
+    }
+
+
+    public virtual void SetActiveOnInteract() {
+        for (int i = 0; i < objects.Length; i++) {
+            objects[i].SetActive(true);
+        }
     }
 }
