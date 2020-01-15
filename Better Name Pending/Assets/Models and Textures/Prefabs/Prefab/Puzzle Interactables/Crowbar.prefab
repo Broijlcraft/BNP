@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2630619255cbd4f99478609118fdfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag_: Interactble
   origin: {fileID: 5315300815623798468}
   range: 0.1
+  positionToOrigin: 0
   showGizmos: 1
   audioGroup: 0
   specificGrabAnim: Grab
@@ -57,8 +57,8 @@ MonoBehaviour:
   angularVelocity: {x: 0, y: 0, z: 0}
   handToFollow: {fileID: 0}
   hasBeenDown: 0
-  storeVelocity: 0
   beingHeld: 0
+  blockPickUp: 0
   onGrab: 0
   posAndRot: 1
   setPosition: {x: 0, y: 0, z: 0}
@@ -78,9 +78,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag_: Interactble
   origin: {fileID: 0}
   range: 0
+  positionToOrigin: 0
   showGizmos: 0
   audioGroup: 0
   specificGrabAnim: Grab
@@ -88,8 +88,8 @@ MonoBehaviour:
   angularVelocity: {x: 0, y: 0, z: 0}
   handToFollow: {fileID: 0}
   hasBeenDown: 0
-  storeVelocity: 0
   beingHeld: 0
+  blockPickUp: 0
   onGrab: 0
   posAndRot: 1
   setPosition: {x: 0, y: 0, z: 0}
@@ -213,7 +213,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6561768951644764200}
-  m_Mesh: {fileID: 6845310287697654405, guid: 3b479db30b14513419eb2663f86deab0, type: 3}
+  m_Mesh: {fileID: 6845310287697654405, guid: 50edd5ff1d19f2d4d9457a24776e8b5f, type: 3}
 --- !u!23 &4840454892477418740
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: efe9381559c516743bd05cef82f39ebb, type: 3}
+  - {fileID: 2100000, guid: ab84d52ef7d5bc24dae889ca6c598b51, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -325,7 +325,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100002, guid: efe9381559c516743bd05cef82f39ebb, type: 3}
+  - {fileID: 2100000, guid: 61a927c63a361d947a9dee20b64ef36c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

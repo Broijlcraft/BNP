@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &322821302188227831
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 322821302188227829}
+  - component: {fileID: 322821302188227819}
+  - component: {fileID: 322821302188227830}
+  - component: {fileID: 322821302188227828}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &322821302188227829
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322821302188227831}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.0492, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &322821302188227819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322821302188227831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d35d6dcc0421064a9dc0e174b90af09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  devUiPanel: {fileID: 0}
+  vrPlayer: {fileID: 0}
+  pcPlayer: {fileID: 0}
+--- !u!114 &322821302188227830
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322821302188227831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f7b01733712a034eaae9fdfae6a4696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightHandInput:
+    triggerInput: XRI_Right_TriggerButton
+    touchInput: XRI_Right_Primary2DAxisTouch
+    gripInput: XRI_Right_GripButton
+  leftHandInput:
+    triggerInput: XRI_Left_TriggerButton
+    touchInput: XRI_Left_Primary2DAxisTouch
+    gripInput: XRI_Left_GripButton
+  pickup: 0
+  staticThrowMultiplier: 35
+  staticRotationMultiplier: 0.1
+--- !u!114 &322821302188227828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322821302188227831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b399b9005ab70e44aa242194c1b7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: {fileID: 0}
+  rotWhere: {x: 0, y: 0, z: 1}
+  multi: 10
