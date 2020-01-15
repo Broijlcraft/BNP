@@ -9,4 +9,6 @@ public class GunSlide : Interactable {
     private void LateUpdate() {
         
     }
+
+    public void 
 }
