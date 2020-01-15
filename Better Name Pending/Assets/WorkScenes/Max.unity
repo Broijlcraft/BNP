@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 112000000, guid: 1219ab3cb9ef0d84c9f6fb3676965928,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6754,12 +6754,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1589858363}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!95 &1605118345 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 3101286397578705431, guid: 5018df923a2859c40ad8cbff770f9be1,
-    type: 3}
-  m_PrefabInstance: {fileID: 1964882809}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1621296290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8836,7 +8830,8 @@ PrefabInstance:
         type: 3}
       propertyPath: animator
       value: 
-      objectReference: {fileID: 1605118345}
+      objectReference: {fileID: 4065978942175178816, guid: 96f21d77b093b48489925d81616378b3,
+        type: 3}
     - target: {fileID: 3030446549868703411, guid: 5018df923a2859c40ad8cbff770f9be1,
         type: 3}
       propertyPath: m_IsActive
