@@ -6,7 +6,7 @@ public class FollowObject : MonoBehaviour {
 
     public Transform objectToFollow;
     private Rigidbody rb;
-    public bool shouldFollow, useClamp, freezeFollow;
+    public bool shouldFollow, useClamp, freezeFollow, dontUseRigid;
     public Vector3 clampValues;
     [HideInInspector] public Vector3 localStartPosition;
     [HideInInspector] public Vector3 globalStartPosition;
@@ -24,7 +24,7 @@ public class FollowObject : MonoBehaviour {
             {
                 if (shouldFollow) 
                 {
-                    if (rb) {
+                    if (rb && !dontUseRigid) {
                         rb.MovePosition(objectToFollow.transform.position);
                     } else {
                         transform.position = objectToFollow.position;
