@@ -8,6 +8,8 @@ public class FollowObject : MonoBehaviour {
     private Rigidbody rb;
     public bool shouldFollow, useClamp, freezeFollow, dontUseRigid;
     public Vector3 clampValues;
+
+    public bool x,y,z;
     [HideInInspector] public Vector3 localStartPosition;
     [HideInInspector] public Vector3 globalStartPosition;
     private void Start() 
@@ -33,7 +35,15 @@ public class FollowObject : MonoBehaviour {
                 if(useClamp)
                 {
                     Vector3 v = transform.localPosition;
-                    v.x = Mathf.Clamp(objectToFollow.localPosition.x, clampValues.x, clampValues.y);
+                    if(x){
+                        v.x = Mathf.Clamp(objectToFollow.localPosition.x, clampValues.x, clampValues.y);          
+                    }
+                    if(y){   
+                        v.y = Mathf.Clamp(objectToFollow.localPosition.y, clampValues.x, clampValues.y);
+                    }
+                    if(z){
+                        v.z = Mathf.Clamp(objectToFollow.localPosition.z, clampValues.x, clampValues.y);
+                    }
                     transform.localPosition = v;
                 }
             }
