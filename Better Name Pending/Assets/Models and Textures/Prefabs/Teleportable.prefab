@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5997688400208503730}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -106,8 +106,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63fe2b651ac369c4b8166d859f951246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nodeName: 5
+  range: 0
+  origin: {fileID: 0}
+  manager: {fileID: 0}
+  triggerInput: 
+  touchInput: 
+  gripInput: 
+  anyButton: 0
+  pickup: 0
   teleportable: 1
   green: {r: 0, g: 1, b: 0.2, a: 0.2}
   red: {r: 1, g: 0, b: 0, a: 0.6}
-  notSelected: {r: 0, g: 0, b: 0, a: 0}
   tpRenderer: {fileID: 8357107023948218332}
