@@ -13,13 +13,19 @@ public class KeyPadKey : MonoBehaviour {
     public string fingerTag;
     Keypad keyPad;
     public bool fingerInRange;
+    public Color inContact;
+    public Color idle;
     [HideInInspector] public Material material;
 
     private void Start() {
         keyPad = GetComponentInParent<Keypad>();
         material = GetComponent<Renderer>().material;
-        ChangeColor(keyPad.keyColor);
-        uiValue.color = keyPad.keyColor;
+        if (keyPad) {
+            ChangeColor(keyPad.keyColor);
+            uiValue.color = keyPad.keyColor;
+        } else {
+            ChangeColor(idle);
+        }
     }
 
     private void Update() {
