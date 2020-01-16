@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3030446549868703411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.000402, y: 0.000167, z: -0}
-  m_LocalScale: {x: -0.00039187164, y: -0.00039187164, z: -0.00039187164}
+  m_LocalPosition: {x: 0.000402, y: 0.000167, z: -2.7605e-11}
+  m_LocalScale: {x: -0.00021547846, y: -0.00021547846, z: -0.00021547846}
   m_Children: []
   m_Father: {fileID: 6314653327955896729}
   m_RootOrder: 0
@@ -338,6 +338,7 @@ MonoBehaviour:
   anyButton: 0
   pickup: 0
   extraLineRange: 0
+  functionName: 
   dot: {fileID: 6646197620918386676, guid: 40c3e0d3bd325084aa04f575994f3ec1, type: 3}
   test: {fileID: 0}
   devider: 0
