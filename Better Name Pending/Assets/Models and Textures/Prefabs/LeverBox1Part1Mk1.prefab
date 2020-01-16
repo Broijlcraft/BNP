@@ -206,7 +206,7 @@ MonoBehaviour:
   shouldFollow: 1
   useClamp: 0
   freezeFollow: 0
-  dontUseRigid: 0
+  dontUseRigid: 1
   clampValues: {x: 0, y: 0, z: 0}
   localStartPosition: {x: 0, y: 0, z: 0}
   globalStartPosition: {x: 0, y: 0, z: 0}
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 1825169273}
   m_Layer: 0
   m_Name: Grab
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -305,7 +305,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!65 &4565283936477517875
 BoxCollider:
@@ -455,9 +455,9 @@ HingeJoint:
   m_GameObject: {fileID: 5304173847812169051}
   m_ConnectedBody: {fileID: 0}
   m_Anchor: {x: 0, y: 0, z: 0}
-  m_Axis: {x: 0, y: 0, z: 0}
+  m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.001150012, y: 0, z: 0.01720047}
+  m_ConnectedAnchor: {x: 0.78685, y: 0.857, z: 11.3852005}
   m_UseSpring: 0
   m_Spring:
     spring: 0
