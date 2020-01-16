@@ -71,10 +71,10 @@ public class Pointer : Hands {
             if(tp.transform.tag == "Teleport") {
                 activePlayer.transform.position = p;
             }
-        }
-        if (tp.transform.tag == "UI" | tp.transform.tag == "Sfx" | tp.transform.tag == "Music" | tp.transform.tag == "Master"){
-            if (MouseInputAndVRAxisCheck(1, touchInput, "Useless_Input") && MouseInputAndVRAxisCheck(1, triggerInput, "Useless_Input")){
-                //tp.GetComponent<Button>()
+            if (tp.transform.tag == "UI" | tp.transform.tag == "Sfx" | tp.transform.tag == "Music" | tp.transform.tag == "Master"){
+                if (MouseInputAndVRAxisCheck(1, touchInput, "Useless_Input") && MouseInputAndVRAxisCheck(1, triggerInput, "Useless_Input")){
+                    //tp.GetComponent<Button>()
+                }
             }
         }
     }

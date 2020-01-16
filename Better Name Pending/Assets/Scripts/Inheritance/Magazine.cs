@@ -13,7 +13,6 @@ public class Magazine : Interactable {
 
     private void Start() {
         StartSetUp();
-        Manager.dev = true;
     }
 
     private void Update() {
