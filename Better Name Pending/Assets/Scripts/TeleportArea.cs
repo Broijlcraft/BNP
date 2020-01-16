@@ -2,33 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TeleportArea : MonoBehaviour {
+public class TeleportArea : Hands {
 
     public bool teleportable;
     public Color green = new Vector4(0f, 1f, 0.2f, 0.2f);
     public Color red = new Vector4(1f, 0f, 0f, 0.6f);
 
-    public Color notSelected;
-
-    Vector4 currentColor;
-
     public Renderer tpRenderer;
+    bool hasBeenDown;
+
+    private void Start() {
+        tpRenderer.enabled = false;
+        tpRenderer.material.SetColor("_BaseColor", green);
+        SetVrInputs();
+    }
 
     private void Update() {
-        
-    }
-
-    public void PointerInteract() {
-
-    }
-
-    public void TeleportTest() {
-        tpRenderer.enabled = true;
-        if (teleportable == true) {
-            currentColor = green;
+        if (MouseInputAndVRAxisCheck(2, touchInput, "Useless_Input") == true) {
+            if (!hasBeenDown) {
+                TeleportTest(true);
+                hasBeenDown = true;
+            }
         } else {
-            currentColor = red;
+            if (hasBeenDown) {
+                TeleportTest(false);
+                hasBeenDown = false;
+            }
         }
-        tpRenderer.material.SetColor("_BaseColor", currentColor);
+    }
+
+    public void TeleportTest(bool down) {
+        tpRenderer.enabled = down;
     }
 }
