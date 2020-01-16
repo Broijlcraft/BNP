@@ -12,14 +12,10 @@ public class TeleportArea : MonoBehaviour {
 
     Vector4 currentColor;
 
-    Renderer tpRenderer;
-
-    private void Start() {
-        tpRenderer = GetComponent<Renderer>();
-    }
+    public Renderer tpRenderer;
 
     private void Update() {
-        TeleportTest();
+        
     }
 
     public void PointerInteract() {
@@ -27,6 +23,7 @@ public class TeleportArea : MonoBehaviour {
     }
 
     public void TeleportTest() {
+        tpRenderer.enabled = true;
         if (teleportable == true) {
             currentColor = green;
         } else {
