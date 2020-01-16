@@ -100,6 +100,8 @@ public class Grabbing : Hands {
             itemInHand = CheckClosest(Physics.OverlapSphere(origin.position, range));
             if (itemInHand && !itemInHand.GetComponentInParent<Grabbing>()) {
                 itemInHand.GetComponent<Interactable>().AttachToHand(makeParent, true);
+            } else {
+                itemInHand = null;
             }
         } else {
             if (itemInHand) {

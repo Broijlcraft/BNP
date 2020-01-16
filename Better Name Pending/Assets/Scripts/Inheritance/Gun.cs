@@ -6,7 +6,7 @@ using UnityEngine;
 public class Gun : Interactable {
 
     public Transform magazineOrigin;
-    [HideInInspector] public Magazine magazine;
+    public Magazine magazine;
     public Transform bulletCasingOrigin;
     public FollowObject followingSlide;
     public GunSlide slideToFollow;
@@ -109,12 +109,12 @@ public class Gun : Interactable {
     }
 
     void InsertBullet() {
-        if (Manager.dev) {
+        if (Manager.dev == true) {
+            print("This");
             bulletInChamber = 1;
         } else {
             if (magazine && magazine.bullets > 0) {
                 bulletInChamber = 1;
-                //using -- caused issues
                 magazine.bullets -= 1;
             }
         }
@@ -136,7 +136,6 @@ public class Gun : Interactable {
         base.StartSetUp();
         if (GetComponentInChildren<Magazine>()) {
             InsertMagazine(GetComponentInChildren<Magazine>().transform);
-            print(magazine);
         }
     }
 

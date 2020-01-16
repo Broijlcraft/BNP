@@ -4,6 +4,6 @@ using UnityEngine;
 
 public static class Manager {
     
-    public static bool dev;
+    public static bool dev = false;
 
 }

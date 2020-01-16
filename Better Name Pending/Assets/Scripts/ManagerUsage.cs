@@ -12,7 +12,7 @@ public class ManagerUsage : MonoBehaviour {
 
     private void Awake() {
         AudioManager.audioMixer = Resources.Load("MasterVolume") as AudioMixer;
-
+        Manager.dev = false;
         if (vrPlayer && pcPlayer) {
             if (XRDevice.isPresent) {
                 pcPlayer.SetActive(false);
@@ -31,6 +31,7 @@ public class ManagerUsage : MonoBehaviour {
     }
 
     void SwitchDevMode() {
+        print("Push");
         if (Manager.dev) {
             Manager.dev = false;
         } else {
