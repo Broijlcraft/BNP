@@ -21,7 +21,6 @@ public class GunSlide : Interactable {
     public void CheckDistance() {
         if (followObject) {
             float distance = Vector3.Distance(followObject.transform.localPosition, followObject.localStartPosition + followObject.clampValues);
-            print(distance);
             if (distance > followObject.clampValues.y) {
                 if (gun && !stillInRange) {
                     gun.ChamberLoader();
@@ -35,12 +34,10 @@ public class GunSlide : Interactable {
 
     public void SlideBack() {
         transform.localPosition = setPosition;
-        print("Back");
         Invoke("SlideForward", slideDelay);
     }
 
     void SlideForward() {
-        print("Front");
         if (gun.bulletInChamber == 1) {
             transform.localPosition = Vector3.zero;
         }

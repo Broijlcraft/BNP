@@ -322,18 +322,15 @@ MonoBehaviour:
     type: 3}
   bulletPrefab: {fileID: 2404469024756472102, guid: d6f67b337c9d21446b4d47bf6c5c22a7,
     type: 3}
+  defaultBulletHole: {fileID: 217544274091573272, guid: 628f5df73669a0446b781404fd8a1120,
+    type: 3}
   shotsPerSecond: 2.7
   bulletInChamber: 0
   showRay: 1
   hitForce: 500
-  shotName: SlideBack
-  ammoToChamber: SlideForward
   triggerPress: 
   shot: {fileID: 8300000, guid: 17eea4a4439d9a24d9f2d2d4d5f5d365, type: 3}
   empty: {fileID: 8300000, guid: 5524c2e3b8f29a4469a67a9990c44fbe, type: 3}
-  devTest: 1
-  maxSlideBack: {x: 0.06, y: 0, z: 0}
-  shouldSlideForward: 0
 --- !u!54 &5756903681620116501
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -345,8 +342,8 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
@@ -529,7 +526,11 @@ MonoBehaviour:
   shouldFollow: 0
   useClamp: 1
   freezeFollow: 0
+  dontUseRigid: 0
   clampValues: {x: 0, y: 0.06, z: 0}
+  x: 1
+  y: 0
+  z: 0
   localStartPosition: {x: 0, y: 0, z: 0}
   globalStartPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8329736288811722845
@@ -668,11 +669,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5756903682415610438}
     m_Modifications:
-    - target: {fileID: 3081865517375216428, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
-        type: 3}
-      propertyPath: m_Name
-      value: Slide
-      objectReference: {fileID: 0}
     - target: {fileID: 7101290028714107113, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -728,6 +724,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3081865517375216428, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
+        type: 3}
+      propertyPath: m_Name
+      value: Slide
+      objectReference: {fileID: 0}
     - target: {fileID: 8211210252336854413, guid: 9cf07f5fb10d2a84c9c9bb210ae9ff4e,
         type: 3}
       propertyPath: m_Size.y
@@ -764,15 +765,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5756903682415610438}
     m_Modifications:
-    - target: {fileID: 8347656774748971956, guid: 6c67f84123174be4d9b1039fcd79ec46,
+    - target: {fileID: 6008298827885355587, guid: 6c67f84123174be4d9b1039fcd79ec46,
         type: 3}
-      propertyPath: m_Name
-      value: GunBase
+      propertyPath: m_LocalRotation.y
+      value: -0.70710576
       objectReference: {fileID: 0}
-    - target: {fileID: 8347656774748971956, guid: 6c67f84123174be4d9b1039fcd79ec46,
+    - target: {fileID: 6008298827885355587, guid: 6c67f84123174be4d9b1039fcd79ec46,
         type: 3}
-      propertyPath: m_TagString
-      value: InteractableChild
+      propertyPath: m_LocalRotation.w
+      value: 0.70710784
+      objectReference: {fileID: 0}
+    - target: {fileID: 6008298827885355587, guid: 6c67f84123174be4d9b1039fcd79ec46,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90.00001
       objectReference: {fileID: 0}
     - target: {fileID: 6981335577999639689, guid: 6c67f84123174be4d9b1039fcd79ec46,
         type: 3}
@@ -829,20 +835,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6008298827885355587, guid: 6c67f84123174be4d9b1039fcd79ec46,
+    - target: {fileID: 8347656774748971956, guid: 6c67f84123174be4d9b1039fcd79ec46,
         type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.70710576
+      propertyPath: m_Name
+      value: GunBase
       objectReference: {fileID: 0}
-    - target: {fileID: 6008298827885355587, guid: 6c67f84123174be4d9b1039fcd79ec46,
+    - target: {fileID: 8347656774748971956, guid: 6c67f84123174be4d9b1039fcd79ec46,
         type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.70710784
-      objectReference: {fileID: 0}
-    - target: {fileID: 6008298827885355587, guid: 6c67f84123174be4d9b1039fcd79ec46,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -90.00001
+      propertyPath: m_TagString
+      value: InteractableChild
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c67f84123174be4d9b1039fcd79ec46, type: 3}

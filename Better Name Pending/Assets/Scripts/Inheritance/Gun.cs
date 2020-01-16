@@ -11,27 +11,18 @@ public class Gun : Interactable {
     public FollowObject followingSlide;
     public GunSlide slideToFollow;
     public float ejectForce;
-    public GameObject emptyCasingPrefab;
-    public GameObject bulletPrefab;
+    public GameObject emptyCasingPrefab, bulletPrefab, defaultBulletHole;
     public float shotsPerSecond;
-    public int bulletInChamber;
+    [HideInInspector] public int bulletInChamber;
     bool hasShot;
     float coolDown;
     public bool showRay;
     public float hitForce;
     [Header("Animations")]
-    public string shotName;
-    public string ammoToChamber;
     public string triggerPress;
-    Animator animator;
     [Header("SFX")]
     public AudioClip shot;
     public AudioClip empty;
-
-    [Header("Test")]
-    public bool devTest;
-    public Vector3 maxSlideBack;
-    public bool shouldSlideForward;
 
     private void Start() {
         StartSetUp();
@@ -39,6 +30,7 @@ public class Gun : Interactable {
             slideToFollow = followingSlide.objectToFollow.GetComponent<GunSlide>();
             slideToFollow.SlideBack();
         }
+        ChamberLoader();
     }
 
     private void Update() {
@@ -60,7 +52,13 @@ public class Gun : Interactable {
                     }
                     RaycastHit hit;
                     if (Physics.Raycast(origin.position, origin.forward, out hit, range)) {
-                        if (hit.transform.GetComponent<Rigidbody>()) {
+                        if (hit.transform.GetComponent<DoSomethingWhenShot>()) {
+                            hit.transform.GetComponent<DoSomethingWhenShot>().GetShot(hit.point, hit.normal);
+                        } else {
+                            GameObject hole = Instantiate(defaultBulletHole, hit.point, Quaternion.FromToRotation(Vector3.up, hit.normal));
+                            hole.transform.SetParent(hit.transform);
+                        }
+                        if (hit.transform.GetComponent<Rigidbody>() && Manager.dev) {
                             hit.transform.GetComponent<Rigidbody>().AddForceAtPosition(origin.transform.forward * hitForce, hit.point);
                         }
                     }
@@ -85,24 +83,6 @@ public class Gun : Interactable {
         }
     }
 
-    public void AnimatorCheckAndExecute(bool shoot) {
-        if (animator) {
-            if (followingSlide) {
-                followingSlide.enabled = false;
-            }
-            if (bulletInChamber == 0) {
-                animator.SetBool(ammoToChamber, false);
-            } else {
-                animator.SetBool(ammoToChamber, true);
-            }
-            if (shoot) {
-                animator.SetTrigger(shotName);
-            }
-        } else {
-            print("No Animator");
-        }
-    }
-
     public void ChamberLoader() {
         bulletInChamber = 0;        
         InsertBullet();
@@ -110,7 +90,6 @@ public class Gun : Interactable {
 
     void InsertBullet() {
         if (Manager.dev == true) {
-            print("This");
             bulletInChamber = 1;
         } else {
             if (magazine && magazine.bullets > 0) {

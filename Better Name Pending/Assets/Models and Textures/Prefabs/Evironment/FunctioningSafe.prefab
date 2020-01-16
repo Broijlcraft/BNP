@@ -235,6 +235,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &392380335782557722
 GameObject:
@@ -410,6 +412,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &1349200326275849439
 GameObject:
@@ -832,6 +836,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &2793767703463793901
 GameObject:
@@ -1152,6 +1158,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &3412848430430341062
 GameObject:
@@ -1702,6 +1710,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &4476304203339453383
 GameObject:
@@ -2179,6 +2189,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &5803190243745663009
 GameObject:
@@ -2354,6 +2366,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &6818293971231011500
 GameObject:
@@ -2787,6 +2801,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &8307375828081148013
 GameObject:
@@ -2916,7 +2932,13 @@ MonoBehaviour:
   shouldFollow: 1
   useClamp: 0
   freezeFollow: 0
-  clampValues: {x: 0, y: 0}
+  dontUseRigid: 0
+  clampValues: {x: 0, y: 0, z: 0}
+  x: 0
+  y: 0
+  z: 0
+  localStartPosition: {x: 0, y: 0, z: 0}
+  globalStartPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &8307375828170126488
 GameObject:
   m_ObjectHideFlags: 0
@@ -3002,8 +3024,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  origin: {fileID: 0}
-  range: 0
+  origin: {fileID: 8307375828081148018}
+  range: 0.3
   positionToOrigin: 0
   showGizmos: 0
   audioGroup: 3
@@ -3306,6 +3328,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1 &8738707626908280673
 GameObject:
@@ -3478,6 +3502,8 @@ MonoBehaviour:
   range: 0.005
   fingerTag: Finger
   fingerInRange: 0
+  inContact: {r: 0, g: 0, b: 0, a: 0}
+  idle: {r: 0, g: 0, b: 0, a: 0}
   material: {fileID: 0}
 --- !u!1001 &8307375827659746591
 PrefabInstance:
@@ -3486,6 +3512,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8307375828975139011}
     m_Modifications:
+    - target: {fileID: 3771311713062667865, guid: 3f6f691389c00344e8b606820150a547,
+        type: 3}
+      propertyPath: m_Name
+      value: Safe1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3771311713062667865, guid: 3f6f691389c00344e8b606820150a547,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 147842384280433738, guid: 3f6f691389c00344e8b606820150a547,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3540,16 +3576,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771311713062667865, guid: 3f6f691389c00344e8b606820150a547,
-        type: 3}
-      propertyPath: m_Name
-      value: Safe1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3771311713062667865, guid: 3f6f691389c00344e8b606820150a547,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3200566237592351365, guid: 3f6f691389c00344e8b606820150a547,
         type: 3}

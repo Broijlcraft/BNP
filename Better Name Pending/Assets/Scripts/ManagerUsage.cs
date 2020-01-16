@@ -31,7 +31,6 @@ public class ManagerUsage : MonoBehaviour {
     }
 
     void SwitchDevMode() {
-        print("Push");
         if (Manager.dev) {
             Manager.dev = false;
         } else {

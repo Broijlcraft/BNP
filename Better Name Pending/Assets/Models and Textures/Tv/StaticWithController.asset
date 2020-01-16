@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3467e6a5346efa649ad36d1044253172, type: 3}
+  m_Name: StaticWithController
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: ffda4d1d4c90ce845ab03a7cc92f18db, type: 3}
+  - {fileID: 2800000, guid: 9bb16212cf95a2e479d99b4973153830, type: 3}
+  - {fileID: 2800000, guid: ec5ad0d1feed3be48b9b2c117758d93f, type: 3}
+  - {fileID: 2800000, guid: a5015af9db771b24cb4c062719a19568, type: 3}
+  - {fileID: 2800000, guid: 4441b1cc322ca8d44ac3c2ace6658d18, type: 3}
+  - {fileID: 2800000, guid: b293de9715dc01e4cad155565b03dd80, type: 3}
+  - {fileID: 2800000, guid: 620eaf80e304fda4084380fe63657b30, type: 3}

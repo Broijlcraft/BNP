@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 4491743361858454144}
   - component: {fileID: 4832052840518514870}
   - component: {fileID: 1167117429353874511}
+  - component: {fileID: 6414486120140880020}
+  - component: {fileID: 5030009559413445521}
+  - component: {fileID: 7689675651164886748}
   m_Layer: 0
   m_Name: Bedveeg
   m_TagString: Untagged
@@ -79,3 +82,42 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6414486120140880020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580604893205377171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3864152, y: 0.07087898, z: 2.0869036}
+  m_Center: {x: 0.00048482418, y: 0.17973232, z: -0.00005030632}
+--- !u!65 &5030009559413445521
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580604893205377171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3864152, y: 0.7242844, z: 0.04300618}
+  m_Center: {x: 0.00048482418, y: 0.3621422, z: -1.021999}
+--- !u!65 &7689675651164886748
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580604893205377171}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3864152, y: 0.5467663, z: 0.05352187}
+  m_Center: {x: 0.00048482418, y: 0.27338314, z: 1.0166405}

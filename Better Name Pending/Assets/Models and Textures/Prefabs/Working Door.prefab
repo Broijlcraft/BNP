@@ -130,6 +130,9 @@ MonoBehaviour:
   freezeFollow: 0
   dontUseRigid: 0
   clampValues: {x: 0, y: 0, z: 0}
+  x: 0
+  y: 0
+  z: 0
   localStartPosition: {x: 0, y: 0, z: 0}
   globalStartPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &3042080431805023101
@@ -503,7 +506,7 @@ HingeJoint:
     freeSpin: 0
   m_UseLimits: 1
   m_Limits:
-    min: -30
+    min: 0
     max: 200
     bounciness: 0
     bounceMinVelocity: 0.2
