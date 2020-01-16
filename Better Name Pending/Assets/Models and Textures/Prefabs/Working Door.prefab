@@ -143,6 +143,7 @@ GameObject:
   - component: {fileID: 3042080431805023097}
   - component: {fileID: 3042080431805023098}
   - component: {fileID: 3042080431805023099}
+  - component: {fileID: 1482513248}
   m_Layer: 0
   m_Name: Grabbable
   m_TagString: Untagged
@@ -226,6 +227,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1482513248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3042080431805023101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c771fe783b8e4fc448757d932da71307, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  origin: {fileID: 0}
+  range: 0
+  positionToOrigin: 0
+  showGizmos: 0
+  audioGroup: 3
+  specificGrabAnim: Grab
+  velocity: {x: 0, y: 0, z: 0}
+  angularVelocity: {x: 0, y: 0, z: 0}
+  handToFollow: {fileID: 0}
+  hasBeenDown: 0
+  beingHeld: 0
+  blockPickUp: 0
+  onGrab: 1
+  posAndRot: 0
+  setPosition: {x: 0, y: 0, z: 0}
+  setRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &4523705561486903115
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,9 +297,6 @@ GameObject:
   - component: {fileID: 8916523576218423683}
   - component: {fileID: 497327029745232821}
   - component: {fileID: 6186350665177093964}
-  - component: {fileID: 5613318208560030701}
-  - component: {fileID: 5613318208560030702}
-  - component: {fileID: 5613318208560030703}
   m_Layer: 0
   m_Name: Working Door
   m_TagString: Untagged
@@ -339,45 +365,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5613318208560030701
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613318208560030608}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.92424893, y: 0.06284332, z: 0.12305605}
-  m_Center: {x: 0, y: 1.0318484, z: 0}
---- !u!65 &5613318208560030702
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613318208560030608}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.050397515, y: 2.06327, z: 0.12305605}
-  m_Center: {x: 0.4369257, y: 0.031635046, z: 0}
---- !u!65 &5613318208560030703
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5613318208560030608}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.052951217, y: 2.06327, z: 0.12305605}
-  m_Center: {x: -0.43564886, y: 0.031635046, z: 0}
 --- !u!1 &5613318208662808346
 GameObject:
   m_ObjectHideFlags: 0
