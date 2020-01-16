@@ -8573,7 +8573,7 @@ PrefabInstance:
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_ConnectedAnchor.z
-      value: 22
+      value: 21.975
       objectReference: {fileID: 0}
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
@@ -8583,7 +8583,37 @@ PrefabInstance:
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_ConnectedAnchor.y
-      value: -0.07000005
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Anchor.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Anchor.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_AutoConfigureConnectedAnchor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Limits.min
+      value: -214.0929
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: 67.825066
       objectReference: {fileID: 0}
     - target: {fileID: 3042080430701866361, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
