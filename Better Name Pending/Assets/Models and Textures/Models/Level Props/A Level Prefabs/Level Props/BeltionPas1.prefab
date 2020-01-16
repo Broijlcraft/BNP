@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8906600653652353174}
   - component: {fileID: 4126755077254378424}
   - component: {fileID: 9043502508239358955}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BeltionPas1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

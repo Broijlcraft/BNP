@@ -11,15 +11,20 @@ public class KeyPadKey : MonoBehaviour {
     public Transform origin;
     public float range;
     public string fingerTag;
+    public string keycardTag;
+    public bool keycardReader;
     Keypad keyPad;
-    public bool fingerInRange;
+    public bool inRange;
     public Color inContact;
     public Color idle;
-    [HideInInspector] public Material material;
+    public bool unlocked;
+    public Material material;
 
     private void Start() {
         keyPad = GetComponentInParent<Keypad>();
-        material = GetComponent<Renderer>().material;
+        if (material == null) {
+            material = GetComponent<Renderer>().material;
+        }
         if (keyPad) {
             ChangeColor(keyPad.keyColor);
             uiValue.color = keyPad.keyColor;
@@ -29,20 +34,31 @@ public class KeyPadKey : MonoBehaviour {
     }
 
     private void Update() {
-        Collider[] colliders = Physics.OverlapSphere(transform.position, range);
-        for (int i = 0; i < colliders.Length; i++) {
-            if (Array.Exists(colliders, element => element.transform.tag == fingerTag)) {
-                if (!fingerInRange) {
-                    ChangeColor(keyPad.pressedKeyColor);
-                    uiValue.color = keyPad.pressedKeyColor;
-                    AudioManager.PlaySound(keyPad.keyPress, AudioManager.AudioGroups.GameSFX);
-                    keyPad.AddNumber(value);
-                    fingerInRange = true;
+        if (!unlocked) {
+            Collider[] colliders = Physics.OverlapSphere(transform.position, range);
+            for (int i = 0; i < colliders.Length; i++) {
+                if (!keycardReader) {
+                    if (Array.Exists(colliders, element => element.transform.tag == fingerTag)) {
+                        if (!inRange) {
+                            ChangeColor(keyPad.pressedKeyColor);
+                            uiValue.color = keyPad.pressedKeyColor;
+                            keyPad.AddNumber(value);
+                            AudioManager.PlaySound(keyPad.keyPress, AudioManager.AudioGroups.GameSFX);
+                            inRange = true;
+                        }
+                    } else {
+                        uiValue.color = keyPad.keyColor;
+                        ChangeColor(keyPad.keyColor);
+                        inRange = false;
+                    }
+                } else {
+                    if (Array.Exists(colliders, element => element.transform.tag == keycardTag)) {
+                        ChangeColor(inContact);
+                        unlocked = true;
+                    } else {
+                        ChangeColor(idle);
+                    }
                 }
-            } else {
-                uiValue.color = keyPad.keyColor;
-                ChangeColor(keyPad.keyColor);
-                fingerInRange = false;
             }
         }
     }
@@ -52,8 +68,6 @@ public class KeyPadKey : MonoBehaviour {
     }
 
     private void OnDrawGizmos() {
-        if (keyPad && keyPad.showGismoz) {
-            Gizmos.DrawWireSphere(transform.position, range);
-        }        
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

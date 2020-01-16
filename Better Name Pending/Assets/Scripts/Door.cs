@@ -12,9 +12,10 @@ public class Door : MonoBehaviour {
     public bool locked, handleHeld;
 
     private void Update() {
-        if (locked != oldLockState) {
-
-            oldLockState = locked;
+        if (rigidHandle.handToFollow) {
+            rigidbodyDoor.isKinematic = false;
+        } else { 
+            rigidbodyDoor.isKinematic = true;        
         }
     }
 

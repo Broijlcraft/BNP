@@ -1741,11 +1741,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7154616988865456129}
     m_Modifications:
-    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Working Door (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 8916523576218423683, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1800,6 +1795,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Working Door (1)
       objectReference: {fileID: 0}
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
@@ -2376,11 +2376,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7154616988865456129}
     m_Modifications:
-    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Working Door (2)
-      objectReference: {fileID: 0}
     - target: {fileID: 8916523576218423683, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -2435,6 +2430,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -5.1338
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Working Door (2)
       objectReference: {fileID: 0}
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
@@ -2541,11 +2541,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7154616988865456129}
     m_Modifications:
-    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Working Door
-      objectReference: {fileID: 0}
     - target: {fileID: 8916523576218423683, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2610,6 +2605,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.y
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Working Door
       objectReference: {fileID: 0}
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
@@ -2726,31 +2726,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7154616988865456129}
     m_Modifications:
-    - target: {fileID: 8876465525881472718, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.44196
-      objectReference: {fileID: 0}
-    - target: {fileID: 8876465525881472718, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.00045586
-      objectReference: {fileID: 0}
-    - target: {fileID: 8876465525881472718, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.067682
-      objectReference: {fileID: 0}
-    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Working Door (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8916523576218423683, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2791,6 +2766,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Working Door (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -2815,6 +2800,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876465525881472718, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.44196
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876465525881472718, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.00045586
+      objectReference: {fileID: 0}
+    - target: {fileID: 8876465525881472718, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.067682
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfea91abf9d8f7e4398835498a3aac0a, type: 3}
@@ -3066,11 +3066,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7154616988865456129}
     m_Modifications:
-    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
-        type: 3}
-      propertyPath: m_Name
-      value: Working Door (4)
-      objectReference: {fileID: 0}
     - target: {fileID: 8916523576218423683, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3126,6 +3121,11 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.7126902
       objectReference: {fileID: 0}
+    - target: {fileID: 5613318208560030608, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Name
+      value: Working Door (4)
+      objectReference: {fileID: 0}
     - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
         type: 3}
       propertyPath: m_ConnectedAnchor.x
@@ -3140,6 +3140,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.z
       value: -45.9832
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613318208662808343, guid: dfea91abf9d8f7e4398835498a3aac0a,
+        type: 3}
+      propertyPath: m_Limits.max
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfea91abf9d8f7e4398835498a3aac0a, type: 3}

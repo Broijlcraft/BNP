@@ -8,9 +8,11 @@ public class GifTranslator : MonoBehaviour
     public Gif gif;
     int currentFrame;
     public float refreshRate = 0.5f;
-    public Material targetMaterial;
+    Material targetMaterial;
+    
     public void Start()
     {
+        targetMaterial = GetComponent<Renderer>().material;
         InvokeRepeating("FrameUpdate", 0, refreshRate);
     }
     public void FrameUpdate()

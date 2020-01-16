@@ -126,7 +126,7 @@ public class Grabbing : Hands {
 
     GameObject CheckFor(Collider collider) {
         switch (collider.tag) {
-            case "Interactable":
+            case "Interactable": case "Keycard":
                 if(collider.GetComponent<Interactable>().onGrab != Interactable.OnGrab.DoNothing) {
                     return collider.gameObject;
                 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2978893409345590410}
   - component: {fileID: 6056252410148744892}
   - component: {fileID: 518098750360457797}
+  - component: {fileID: 7483949603719826864}
   m_Layer: 0
   m_Name: PasLock1
   m_TagString: Untagged
@@ -57,8 +58,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3907c7a17affb4447a2247c86d8282a7, type: 2}
-  - {fileID: 2100000, guid: 95502706bf309e94b82d177cdd4c48d6, type: 2}
+  - {fileID: 2100000, guid: 0dba98380c4f12e4593962532bbeafb9, type: 2}
+  - {fileID: 2100000, guid: 2d95ed33433faed4f9639f37c6fa959a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,3 +80,27 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7483949603719826864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2237301778726856345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa28d024298d0424c88e2572c76eaebf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiValue: {fileID: 0}
+  value: 0
+  origin: {fileID: 0}
+  range: 0.1
+  fingerTag: 
+  keycardTag: Keycard
+  keycardReader: 1
+  inRange: 0
+  inContact: {r: 0, g: 1, b: 0.0323627, a: 1}
+  idle: {r: 0, g: 0.9129348, b: 1, a: 1}
+  unlocked: 0
+  material: {fileID: 2100000, guid: 2d95ed33433faed4f9639f37c6fa959a, type: 2}

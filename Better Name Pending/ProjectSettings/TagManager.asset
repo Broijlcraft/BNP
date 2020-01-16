@@ -21,6 +21,8 @@ TagManager:
   - Sfx
   - Master
   - Music
+  - Finger
+  - Keycard
   layers:
   - Default
   - TransparentFX
@@ -31,7 +33,7 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - Interactable
+  - Keycard
   - 
   - 
   - 
