@@ -13,6 +13,7 @@ public class KeyPadKey : MonoBehaviour {
     public string fingerTag;
     public string keycardTag;
     public bool keycardReader;
+    public AudioClip read;
     Keypad keyPad;
     public bool inRange;
     public Color inContact;
@@ -54,6 +55,7 @@ public class KeyPadKey : MonoBehaviour {
                 } else {
                     if (Array.Exists(colliders, element => element.transform.tag == keycardTag)) {
                         ChangeColor(inContact);
+                        AudioManager.PlaySound(read, AudioManager.AudioGroups.GameSFX);
                         unlocked = true;
                     } else {
                         ChangeColor(idle);

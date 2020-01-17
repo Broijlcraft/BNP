@@ -99,6 +99,7 @@ MonoBehaviour:
   fingerTag: 
   keycardTag: Keycard
   keycardReader: 1
+  read: {fileID: 8300000, guid: 19cc54a48aa227f4da1ed7ea2e6ebb2b, type: 3}
   inRange: 0
   inContact: {r: 0, g: 1, b: 0.0323627, a: 1}
   idle: {r: 0, g: 0.9129348, b: 1, a: 1}

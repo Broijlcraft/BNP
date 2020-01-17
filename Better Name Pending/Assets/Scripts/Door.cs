@@ -7,19 +7,19 @@ public class Door : MonoBehaviour {
     public Interactable rigidHandle;
     public Rigidbody rigidbodyDoor;
     public Keypad keypad;
-    bool oldLockState;
+    public KeyPadKey scan;
     [Header("HideInInspector")]
     public bool locked, handleHeld;
 
     private void Update() {
-        if (rigidHandle.handToFollow) {
-            rigidbodyDoor.isKinematic = false;
-        } else { 
-            rigidbodyDoor.isKinematic = true;        
-        }
+        rigidbodyDoor.isKinematic = CheckLockstate();
     }
 
-    public void LockAndUnlock(bool lockState) {
-        locked = lockState;
+    bool CheckLockstate() {
+        if (rigidHandle.handToFollow && !locked) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }

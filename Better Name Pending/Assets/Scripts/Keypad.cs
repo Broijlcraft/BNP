@@ -14,7 +14,7 @@ public class Keypad : MonoBehaviour {
     public int passcode;
     public Text display;
     [HideInInspector] public int currentValue;
-    [HideInInspector] public bool cooldown;
+    [HideInInspector] public bool cooldown, unlocked;
 
     private void Start() {
         ResetValues();
