@@ -64,6 +64,24 @@ HingeJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!114 &771321019089753134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29369447027980578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567c57d2d15c23c4f8f58c1358c37561, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidHandle: {fileID: 8307375828734004899}
+  rigidbodyDoor: {fileID: 8307375829130893033}
+  keypad: {fileID: 9149370159313827389}
+  scan: {fileID: 0}
+  locked: 0
+  handleHeld: 0
 --- !u!1 &60472734359625346
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,9 +252,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &392380335782557722
 GameObject:
@@ -411,9 +433,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &1349200326275849439
 GameObject:
@@ -652,6 +678,7 @@ MonoBehaviour:
   display: {fileID: 6979177687874974442}
   currentValue: 0
   cooldown: 0
+  unlocked: 0
 --- !u!65 &2021137346694463106
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -835,9 +862,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &2793767703463793901
 GameObject:
@@ -1157,9 +1188,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &3412848430430341062
 GameObject:
@@ -1709,9 +1744,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &4476304203339453383
 GameObject:
@@ -2188,9 +2227,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &5803190243745663009
 GameObject:
@@ -2365,9 +2408,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &6818293971231011500
 GameObject:
@@ -2800,9 +2847,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &8307375828081148013
 GameObject:
@@ -2814,7 +2865,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8307375828081148018}
   - component: {fileID: 8307375828081148022}
-  - component: {fileID: 8307375828081148017}
   - component: {fileID: 8307375828081148016}
   - component: {fileID: 8307375828081148019}
   - component: {fileID: 8307375828081148023}
@@ -2848,44 +2898,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8307375828081148013}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &8307375828081148017
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8307375828081148013}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
 --- !u!54 &8307375828081148016
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3327,9 +3339,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1 &8738707626908280673
 GameObject:
@@ -3501,9 +3517,13 @@ MonoBehaviour:
   origin: {fileID: 0}
   range: 0.005
   fingerTag: Finger
-  fingerInRange: 0
+  keycardTag: 
+  keycardReader: 0
+  read: {fileID: 0}
+  inRange: 0
   inContact: {r: 0, g: 0, b: 0, a: 0}
   idle: {r: 0, g: 0, b: 0, a: 0}
+  unlocked: 0
   material: {fileID: 0}
 --- !u!1001 &8307375827659746591
 PrefabInstance:
@@ -3667,6 +3687,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 89ecc3ab82586944699642b185058deb, type: 2}
+    - target: {fileID: -5178661895559278292, guid: 6f2294149e6050e4488648882a5b00a6,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4915525346214127102, guid: 1006a20613b4df248b29b52a7b13ba1c,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f2294149e6050e4488648882a5b00a6, type: 3}
 --- !u!4 &3905481260596513585 stripped
