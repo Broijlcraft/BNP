@@ -21,7 +21,17 @@ public class KeyPadKey : MonoBehaviour {
     public bool unlocked;
     public Material material;
 
+
+    public delegate void NewTest();
+    public NewTest newTest;
+
+
+    void Test() {
+        //ijsdoiparntaeruith
+    }
+
     private void Start() {
+        newTest = new NewTest(Test);
         keyPad = GetComponentInParent<Keypad>();
         if (material == null) {
             material = GetComponent<Renderer>().material;
