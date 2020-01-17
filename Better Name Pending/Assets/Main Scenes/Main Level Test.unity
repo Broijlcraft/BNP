@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0, g: 0, b: 0, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -96,7 +96,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaAO: 1
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
-  m_LightingDataAsset: {fileID: 112000000, guid: 981284167a44e664dbb04a6714284eab,
+  m_LightingDataAsset: {fileID: 112000000, guid: 68f2868680a2a4f4684e9794f9da2d82,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -926,11 +926,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 26ced809530be49469786a785083dbfe,
         type: 2}
-    - target: {fileID: 6082762116997324921, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6913788989271097389, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
         type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -17,7 +17,7 @@ public class GifTranslator : MonoBehaviour
     }
     public void FrameUpdate()
     {
-        if (gif) {
+        if (gif != null) {
             if (gif.frames.Length > 0)
             {
                 if (currentFrame < gif.frames.Length-1)
@@ -28,7 +28,7 @@ public class GifTranslator : MonoBehaviour
                 {
                     currentFrame = 0;
                 }
-                if (targetMaterial) {
+                if (targetMaterial != null) {
                     targetMaterial.SetTexture("_BaseMap", gif.frames[currentFrame]);
                 }
             } 
