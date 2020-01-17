@@ -190,7 +190,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gif: {fileID: 0}
   refreshRate: 0.5
-  targetMaterial: {fileID: 0}
 --- !u!1001 &491618843670087591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -368,6 +367,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 47535d9de5b2871449a3c07be6102970,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a998a9b7823f8e04eb6030576282ce07, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47535d9de5b2871449a3c07be6102970, type: 3}
 --- !u!1 &5891076630619843533 stripped
