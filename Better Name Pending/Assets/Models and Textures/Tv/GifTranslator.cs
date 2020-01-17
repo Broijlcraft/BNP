@@ -18,20 +18,18 @@ public class GifTranslator : MonoBehaviour
     public void FrameUpdate()
     {
         if (gif != null) {
-            if (gif.frames.Length > 0)
-            {
-                if (currentFrame < gif.frames.Length-1)
-                {
+            if (gif.frames.Length > 0) {
+                if (currentFrame < gif.frames.Length - 1) {
                     currentFrame++;
-                }
-                else
-                {
+                } else {
                     currentFrame = 0;
                 }
                 if (targetMaterial != null) {
                     targetMaterial.SetTexture("_BaseMap", gif.frames[currentFrame]);
                 }
-            } 
+            }
+        } else if (targetMaterial != null) {
+            targetMaterial.SetColor("_BaseColor", Color.black);
         }
     }
 }

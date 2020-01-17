@@ -8,14 +8,19 @@ public class Door : MonoBehaviour {
     public Rigidbody rigidbodyDoor;
     public Keypad keypad;
     public KeyPadKey scan;
+
     [Header("HideInInspector")]
     public bool locked, handleHeld;
 
     private void Update() {
-        rigidbodyDoor.isKinematic = CheckLockstate();
+        rigidbodyDoor.isKinematic = CheckHeld();
+    }
+    
+    bool CheckLocked() {
+
     }
 
-    bool CheckLockstate() {
+    bool CheckHeld() {
         if (rigidHandle.handToFollow && !locked) {
             return false;
         } else {
