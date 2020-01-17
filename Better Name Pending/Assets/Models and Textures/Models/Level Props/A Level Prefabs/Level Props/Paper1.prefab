@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8693145503476110254}
   - component: {fileID: 432142678121343384}
   - component: {fileID: 6252067287268758881}
+  - component: {fileID: 6487775202241780577}
   m_Layer: 0
   m_Name: Paper1
   m_TagString: Untagged
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6487775202241780577
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692294971632951741}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.26004922, y: 0.046759564, z: 0.32996053}
+  m_Center: {x: -0.000109530985, y: 0.023379782, z: 0.00063253194}
