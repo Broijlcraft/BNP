@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Key : InteractableItems
 {
-    public void OnCollisionEnter(Collision other) 
-    {
+    public Component[] followObject;
+    private void OnTriggerEnter(Collider other) {
         if(other.transform.tag == "Slot")
         {
-            gameObject.GetComponentInChildren<FollowObject>().freezeFollow = false;
+        print("Lol");
+            followObject = other.gameObject.GetComponentsInChildren<FollowObject>();
+
+            foreach (FollowObject scripts in followObject)
+            {
+                scripts.freezeFollow = false;
+            }
+            other.gameObject.GetComponentInParent<Rigidbody>().useGravity = true;
+            other.gameObject.GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 }

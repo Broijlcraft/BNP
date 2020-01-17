@@ -23,6 +23,7 @@ TagManager:
   - Music
   - Finger
   - Keycard
+  - Slot
   layers:
   - Default
   - TransparentFX
