@@ -16,10 +16,6 @@ public class Door : MonoBehaviour {
         rigidbodyDoor.isKinematic = CheckHeld();
     }
 
-    //bool CheckLocked() {
-
-    //}
-
     bool CheckHeld() {
         if (rigidHandle.handToFollow && !locked) {
             return false;
