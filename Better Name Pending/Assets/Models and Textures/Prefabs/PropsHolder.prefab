@@ -19925,6 +19925,26 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 7154616989382134244, guid: cc9b1208a74ff284582e20e0e928d702,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154616989109112077, guid: cc9b1208a74ff284582e20e0e928d702,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154616990273595691, guid: cc9b1208a74ff284582e20e0e928d702,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 7154616990399727230, guid: cc9b1208a74ff284582e20e0e928d702,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 9031353675586460998, guid: cc9b1208a74ff284582e20e0e928d702, type: 3}
     - {fileID: 192104827407861452, guid: cc9b1208a74ff284582e20e0e928d702, type: 3}

@@ -709,6 +709,21 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7679855451764504105, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: 4.928584
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679855451764504105, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.y
+      value: 0.16765466
+      objectReference: {fileID: 0}
+    - target: {fileID: 7679855451764504105, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.z
+      value: -4.6772685
+      objectReference: {fileID: 0}
     - target: {fileID: 5911907158891255, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f, type: 3}
       propertyPath: m_Name
       value: PropsHolder
@@ -1311,7 +1326,27 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2667405234656464790, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667405235792609292, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6136930490959344174, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667405235947144421, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2667405234498445507, guid: ecd23bed7f45ebc4b846c68fdc9bdc6f,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
