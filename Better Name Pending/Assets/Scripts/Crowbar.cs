@@ -8,10 +8,10 @@ public class Crowbar : Interactable { //this is the way, i have spoken
     public Transform[] crowbarParts;
 
     public void Update() {
-        if(velocity.sqrMagnitude >= minimumVelocity) {
+        if (beingHeld) {
             Collider[] colliders = Physics.OverlapSphere(origin.position, range);
             for (int i = 0; i < colliders.Length; i++) {
-                if (colliders[i].CompareTag("Box")) {
+                if (colliders[i].CompareTag("Box") || colliders[i].CompareTag("CrowbarInteractable")) {
                     colliders[i].GetComponent<CrowbarVersatilities>().CrowbarInteract();
                     CrowbarBreak();
                     break;

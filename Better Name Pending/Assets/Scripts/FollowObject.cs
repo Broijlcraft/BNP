@@ -31,9 +31,7 @@ public class FollowObject : MonoBehaviour {
                     } else {
                         transform.position = objectToFollow.position;
                     }
-                }
-                if(useClamp)
-                {
+                } else if (useClamp) {
                     Vector3 v = transform.localPosition;
                     if(x){
                         v.x = Mathf.Clamp(objectToFollow.localPosition.x, clampValues.x, clampValues.y);          

@@ -116,7 +116,7 @@ public class Grabbing : Hands {
         if (colliders.Length > 0) {
             for (int i = 0; i < colliders.Length; i++) {
                 coll = CheckFor(colliders[i]);
-                if (coll) {
+                if (coll && !coll.GetComponent<Interactable>().blockPickUp) {
                     return coll;
                 }
             }

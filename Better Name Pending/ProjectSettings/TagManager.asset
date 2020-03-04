@@ -23,6 +23,7 @@ TagManager:
   - Music
   - Finger
   - Keycard
+  - CrowbarInteractable
   layers:
   - Default
   - TransparentFX

@@ -237,7 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c691469cf968e45aa3a4234fdb7c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClip: {fileID: 0}
+  audioClip: {fileID: 8300000, guid: 403f6ab40fdfe1b47a7bd7d640f0837d, type: 3}
   audioGroups: 3
   objectsToDoSomethingOnInteract: []
 --- !u!65 &5313324101526260011

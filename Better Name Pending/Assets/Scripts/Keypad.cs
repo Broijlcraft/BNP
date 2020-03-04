@@ -7,12 +7,11 @@ public class Keypad : MonoBehaviour {
     public Color keyColor;
     public Color pressedKeyColor;
     public float resetDelay;
-    public AudioClip keyPress;
-    public AudioClip wrongCode;
-    public AudioClip unlockDoor;
+    public AudioClip keyPress, wrongCode, unlockDoor;
     public bool showGismoz;
     public int passcode;
     public Text display;
+    public Door door;
     [HideInInspector] public int currentValue;
     [HideInInspector] public bool cooldown, unlocked;
 
@@ -29,6 +28,7 @@ public class Keypad : MonoBehaviour {
             if(currentValue > 999) {
                 cooldown = true;
                 if (currentValue == passcode) {
+                    unlocked = true;
                     AudioManager.PlaySound(unlockDoor, AudioManager.AudioGroups.GameSFX);
                 } else {
                     Invoke("ResetValues", resetDelay);

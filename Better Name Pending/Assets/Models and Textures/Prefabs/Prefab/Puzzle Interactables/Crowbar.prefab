@@ -63,7 +63,7 @@ MonoBehaviour:
   posAndRot: 1
   setPosition: {x: 0, y: 0, z: 0}
   setRotation: {x: 0, y: 0, z: 0}
-  minimumVelocity: 0.01
+  minimumVelocity: 0.005
   rb: {fileID: 4241682923843533969}
   crowbarParts: []
 --- !u!114 &145531431620288098
